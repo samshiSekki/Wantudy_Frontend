@@ -1,11 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 import '../css/register.css';
-import { withRouter } from 'react-router';
+import { withRouter, useLocation } from 'react-router';
 
 function Register() {
     
+    const location = useLocation();
+    const userInfo = location.state.userInfo; //login에서 받아온 유저 정보
     const [newNickName, setNewNickName] = useState('');
+
+    console.log(userInfo); //유저정보 출력 테스트
 
     function nickChange(e){
         setNewNickName(e.target.value);

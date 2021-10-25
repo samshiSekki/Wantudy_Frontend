@@ -8,9 +8,10 @@ const {Kakao} = window;
 
 function Login(props) {
 
-    const [isLogin, setIsLogin] = useState(false)
-    const [email, setEmail] = useState("default email")
-    const [profileImage, setProfileImage] = useState("default profile img")
+    const [isLogin, setIsLogin] = useState(false);
+    const [email, setEmail] = useState("default email");
+    const [profileImage, setProfileImage] = useState("default profile img");
+    const [userInfo, setUserInfo] = useState({emailInfo:'', profileImageInfo:''});
  
     function LoginClickHandler(){
         try {
@@ -26,17 +27,12 @@ function Login(props) {
                             url:'/v2/user/me',
                             success: res =>{
                                 const kakao_account = res.kakao_account;
-                                console.log(kakao_account)
-
-                                const email = kakao_account.email;
-                                const profileImage = kakao_account.profile.profile_image_url
-                                
-                                sendKakao(email, profileImage);
+                                //console.log(kakao_account);
+                                sendKakao(kakao_account.email, kakao_account.profile.profile_image_url);
                             }
                         })
-                        /*
-                        props.history.push('/register');
-                        */
+                        
+                        
                     },
 
                     fail: (err) => {
@@ -56,11 +52,27 @@ function Login(props) {
         setProfileImage(profileImage);
         console.log(email)
         console.log(profileImage)
+
+
+        /*register 페이지로 유저정보 넘겨주기*/
+        userInfo.emailInfo=email;
+        userInfo.profileImageInfo=profileImage;
+
+        props.history.push({
+            pathname: "/register",
+            state: {userInfo: userInfo}
+        });
+        /**/
+
         const response = await axios.post('http://localhost:3001/auth/kakao',{
             email: email,
             profileImage: profileImage
         })
         console.log(response.data);
+
+
+
+        
     }
 
 
