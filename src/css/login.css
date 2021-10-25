@@ -1,0 +1,22 @@
+.container{
+    position: relative;
+}
+
+.logo{
+    margin-top : 75px;
+    margin-left : 806px;
+    width: 380px;
+    height: 115px;
+    background-color: gray;
+    text-align: center;
+    padding-top: 55px;
+}
+
+.loginButton{
+    width: 331px;
+    height: 72px;
+    margin-left: 806px;
+    margin-top: 169px;
+    background-color:#FFE248;
+    text-align: center;
+}
