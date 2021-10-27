@@ -15,6 +15,9 @@ function App() {
         <Register/>
       </Route>
 
+      <Route path='/main'>
+        <LandingPage/>
+      </Route>
     </div>
   );
 }
