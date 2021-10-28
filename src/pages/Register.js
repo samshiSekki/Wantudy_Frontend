@@ -10,29 +10,34 @@ function Register(props) {
     const userInfo = location.state.userInfo; //login에서 받아온 유저 정보
     const [newNickName, setNewNickName] = useState('');
 
-    console.log(userInfo); //유저정보 출력 테스트
+    //console.log(userInfo); //유저정보 출력 테스트
 
     function nickChange(e){
         setNewNickName(e.target.value);
     }
 
     const submitClickHandler = async() => {
-        const response = await axios.post('http://13.209.66.117:8080/auth/nickname',{
-            email: userInfo.email,
-            nickName: newNickName
+        console.log(newNickName);
+
+        
+        const response = await axios.post('http://localhost:8080/auth/nickname',{
+            //email: userInfo.email,
+            nickname: "테스트"
         });
-        console.log(response.data.nickname);   
+        
+
+        console.log(response.data);
         userInfo.nickname = newNickName; // login 에서 받아온 userInfo에는 nickname 값이 공백이기 때문에, 닉네임 입력 후에는 다시 초기화해줘야함
 
         /* 메인으로 넘어가는 코드 필요 
             메인으로 넘어갈 때도 userInfo 들고가야함 
             userInfo 에서 nickname 값 출력하는 거까지 확인부탁합니당
         */
+            props.history.push({
+                pathname: "/main",
+                state: {userInfo: userInfo}
+            });
 
-        props.history.push({
-            pathname: "/main",
-            state: {userInfo: userInfo}
-        });
 
     }
 

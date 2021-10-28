@@ -6,7 +6,8 @@ function LandingPage() {
     const userInfo = location.state.userInfo;
     return ( <>
         <p> hi it 's samshisekki</p>
-        <p>{userInfo.email}</p>
+        <p>hello, {userInfo.nickname}</p>
+        {console.log(userInfo)}
         </>
     );
 }
