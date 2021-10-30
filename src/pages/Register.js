@@ -30,7 +30,7 @@ function Register(props) {
         */
 
         props.history.push({
-            pathname: "/main",
+            pathname: "/main_logged",
             state: {userInfo: userInfo}
         });
 

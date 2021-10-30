@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.container1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    height: 672px;
+    background-color: #c4c4c4;
+}
+
+.registerBtn{
+    width: 227px;
+    height: 44px;
+    margin-top: 549px;
+    margin-left: 99px;
+}
+
+.container2{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    height: 224px;
+    margin-top: 61px;
+    background-color: #c4c4c4;
+}
+
+.container3{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    height: 1867px;
+    margin-top: 61px;
+    background-color: #c4c4c4;
+}
+
+.joinBtn{
+    width: 288px;
+    height: 44px;
+    margin-top: 467px;
+    margin-left: 611px;
+}
+
+.makeBtn{
+    width: 288px;
+    height: 44px;
+    margin-top: 566px;
+    margin-left: 102px;
+}
+
+.applyBtn{
+    width: 288px;
+    height: 44px;
+    margin-top: 545px;
+    margin-left: 611px;
+}
+
+.container4{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    height: 361px;
+    margin-top: 69px;
+    background-color: #c4c4c4;
+}

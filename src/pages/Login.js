@@ -97,7 +97,7 @@ function Login(props) {
                 userInfo 에서 nickname 값 출력하는 거까지 확인부탁합니당
             */
             props.history.push({
-                pathname: "/main",
+                pathname: "/main_logged",
                 state: {userInfo: userInfo}
             });
             
