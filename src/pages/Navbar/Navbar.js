@@ -3,6 +3,8 @@ import '../../css/navbar.css';
 import { useLocation } from 'react-router';
 import { withRouter, useHistory } from 'react-router-dom';
 
+const {Kakao} = window;
+
 function Navbar(props) {
     return (
         <div>
@@ -39,7 +41,18 @@ function LoggedIn(props){
     let history = useHistory();
 
     function LogoutClickHandler(){
-        history.push("/main");
+        if (Kakao.Auth.getAccessToken()) {
+            console.log(
+              '카카오 인증 액세스 토큰이 존재합니다.',
+              Kakao.Auth.getAccessToken(),
+            );
+            Kakao.Auth.logout(() => {
+              console.log('로그아웃 되었습니다.', Kakao.Auth.getAccessToken());
+              alert('로그아웃 되었습니다.');
+              localStorage.clear();
+              history.push("/main");
+            });
+          }
     }
 
     function logoClickHandler(){

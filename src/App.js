@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Mainpage from './pages/MainPage';
+import Mainpage from './pages/MainPage/MainPage';
 import {Link, Route, Switch} from 'react-router-dom';
-import MainPageLogged from './pages/Main_logged';
+import MainPageLogged from './pages/MainPage/Main_logged';
 
 function App() {
   const [userInfo, setUserInfo] = useState({

@@ -1,17 +1,15 @@
 import React, {useState} from 'react';
 import { isDOMComponent } from 'react-dom/test-utils';
-import Navbar from './Navbar/Navbar';
+import Navbar from '../Navbar/Navbar.js';
 import { useHistory } from 'react-router';
-import '../css/mainpage.css';
+import { useLocation } from 'react-router';
+import '../../css/mainpage.css';
 
-function MainPage(props) {
+function MainPageLogged(props) {
     let history = useHistory();
-    const [userInfo, setUserInfo] = useState({
-        email:'',
-        profileImage:'',
-        accessToken:'',
-        nickname:''
-    })
+    let location = useLocation();
+    const userInfo = location.state.userInfo;
+
     return (
         <>
             <Navbar userInfo={userInfo}/>
@@ -39,4 +37,4 @@ function MainPage(props) {
     )
 }
 
-export default MainPage
+export default MainPageLogged
