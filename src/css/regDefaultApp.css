@@ -1,0 +1,23 @@
+.rdaContainer{
+    width: 1200px;
+    height: 800px;
+    margin-left: 360px;
+    background: #C4C4C4;
+    text-align: center;
+}
+
+.rdaContents{
+    padding-top: 87px;
+    text-align: center;
+}
+
+.inputText{
+    width: 307px;
+    height: 44px;
+    margin-bottom: 30px;
+}
+
+.rdaSubmitBtn{
+    width: 75px;
+    height: 37px;
+}

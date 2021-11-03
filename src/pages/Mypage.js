@@ -7,7 +7,6 @@ import '../css/mypage.css';
 
 
 function Mypage(props) {
-    let history = useHistory();
     let location = useLocation();
     const userInfo = location.state.userInfo;
 
@@ -16,12 +15,20 @@ function Mypage(props) {
     //console.log(userInfo.userId); //유저정보 출력 테스트
 
 
-    function modifyClickHandler(){
+    function nickModifyClickHandler(){
         props.history.push({ 
             pathname: "/mod_nickname",
             state: {userInfo: userInfo}
         });
     }
+
+    function appModifyClickHandler(){
+        props.history.push({ 
+            pathname: "/reg_default_app",
+            state: {userInfo: userInfo}
+        });
+    }
+    
     return (
         <>
             <Navbar userInfo={userInfo}/>
@@ -42,8 +49,8 @@ function Mypage(props) {
                     과제 관리
                 </div>
                 
-                <button className="applyModBtn">지원서 수정</button>
-                <button className="nickModBtn" onClick={modifyClickHandler}>닉네임 수정</button> 
+                <button className="applyModBtn" onClick={appModifyClickHandler}>지원서 수정</button>
+                <button className="nickModBtn" onClick={nickModifyClickHandler}>닉네임 수정</button> 
             </div>
             <div className="Footer">
                 <Footer/>
