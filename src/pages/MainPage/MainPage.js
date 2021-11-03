@@ -11,7 +11,8 @@ function MainPage(props) {
         email:'',
         profileImage:'',
         accessToken:'',
-        nickname:''
+        nickname:'',
+        userId:''
     })
     function btnClickHandler(){
         history.push('/login');

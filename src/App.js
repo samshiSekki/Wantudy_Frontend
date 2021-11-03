@@ -5,13 +5,16 @@ import Register from './pages/Register';
 import Mainpage from './pages/MainPage/MainPage';
 import {Link, Route, Switch} from 'react-router-dom';
 import MainPageLogged from './pages/MainPage/Main_logged';
+import Mypage from './pages/Mypage';
+import ModNick from './pages/ModNick';
 
 function App() {
   const [userInfo, setUserInfo] = useState({
     email:'',
     profileImage:'',
     accessToken:'',
-    nickname:''
+    nickname:'',
+    userId:''
   })
   return (
     <div className="App">
@@ -33,6 +36,14 @@ function App() {
 
       <Route path='/main_logged'>
         <MainPageLogged/>
+      </Route>
+
+      <Route path='/mypage'>
+        <Mypage/>
+      </Route>
+
+      <Route path='/mod_nickname'>
+        <ModNick/>
       </Route>
     </div>
   );
