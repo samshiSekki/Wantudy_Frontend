@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import { withRouter, useLocation, useHistory } from 'react-router';
 import axios from 'axios';
 import { useCombobox } from 'downshift';
-import './css/regDefaultApp.css';
-import Navbar from './pages/Navbar/Navbar';
-import Footer from './pages/Footer/Footer';
+import '../css/regDefaultApp.css';
+import Navbar from './Navbar/Navbar';
+import Footer from './Footer/Footer';
 
 /*기본 지원서 등록 페이지*/
 function RegDefaultApp(props) {

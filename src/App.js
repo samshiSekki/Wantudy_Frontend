@@ -7,7 +7,7 @@ import {Link, Route, Switch} from 'react-router-dom';
 import MainPageLogged from './pages/MainPage/Main_logged';
 import Mypage from './pages/Mypage';
 import ModNick from './pages/ModNick';
-import RegDefaultApp from './RegDefaultApp';
+import RegDefaultApp from './pages/RegDefaultApp';
 
 function App() {
   const [userInfo, setUserInfo] = useState({
