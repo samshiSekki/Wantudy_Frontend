@@ -18,7 +18,7 @@ function ModNick(props) {
     }
 
     const submitClickHandler = async() => {
-        const response = await axios.post(`http://localhost:8080/users/${userInfo.userId}/profile`,{
+        const response = await axios.post(`http://13.209.66.117:8080/users/${userInfo.userId}/profile`,{
             nickName: newNickName
         });
 

@@ -16,7 +16,8 @@ function Login(props) {
         profileImage:'',
         accessToken:'',
         nickname:'',
-        userId:''
+        userId:'',
+        state: false
     })
 
     function LoginClickHandler(){
@@ -66,7 +67,7 @@ function Login(props) {
         setProfileImage(profileImage);
         setAccessToken(accessToken);
 
-        const response = await axios.post('http://localhost:8080/auth/kakao',{
+        const response = await axios.post('http://13.209.66.117:8080/auth/kakao',{
             email: email,
             profileImage: profileImage,
             accessToken: accessToken
@@ -78,7 +79,7 @@ function Login(props) {
         userInfo.accessToken = response.data.accessToken;
         userInfo.nickname = response.data.nickname;
         userInfo.userId = response.data.userId;
-        // setEmail(response.data.email);
+        userInfo.state = response.data.state;
 
         console.log("login console");
         console.log(response);

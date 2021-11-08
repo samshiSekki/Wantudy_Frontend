@@ -17,7 +17,7 @@ function Register(props) {
     }
 
     const submitClickHandler = async() => {
-        const response = await axios.post('http://localhost:8080/auth/nickname',{
+        const response = await axios.post('http://13.209.66.117:8080/auth/nickname',{
             email: userInfo.email,
             nickName: newNickName
         });

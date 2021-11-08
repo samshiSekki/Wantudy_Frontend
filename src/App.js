@@ -15,7 +15,8 @@ function App() {
     profileImage:'',
     accessToken:'',
     nickname:'',
-    userId:''
+    userId:'',
+    state: false
   })
   return (
     <div className="App">
@@ -49,6 +50,10 @@ function App() {
 
       <Route path='/reg_default_app'>
         <RegDefaultApp/>
+      </Route>
+
+      <Route path='/test'>
+        
       </Route>
     </div>
   );

@@ -23,10 +23,15 @@ function Mypage(props) {
     }
 
     function appModifyClickHandler(){
-        props.history.push({ 
-            pathname: "/reg_default_app",
-            state: {userInfo: userInfo}
-        });
+        if(userInfo.state == false || userInfo.state == undefined){
+            props.history.push({ 
+                pathname: "/reg_default_app",
+                state: {userInfo: userInfo}
+            });
+        }
+        else if(userInfo.state == true){
+            alert("기본 신청서 있음");
+        }
     }
     
     return (
