@@ -30,7 +30,10 @@ function Mypage(props) {
             });
         }
         else if(userInfo.state == true){
-            alert("기본 신청서 있음");
+            props.history.push({ 
+                pathname: "/mod_app_lists",
+                state: {userInfo: userInfo}
+            });
         }
     }
     
@@ -55,7 +58,7 @@ function Mypage(props) {
                 </div>
                 
                 <button className="applyModBtn" onClick={appModifyClickHandler}>지원서 수정</button>
-                <button className="nickModBtn" onClick={nickModifyClickHandler}>닉네임 수정</button> 
+                <button className="nickModBtn" onClick={nickModifyClickHandler}>닉네임 수정</button>
             </div>
             <div className="Footer">
                 <Footer/>

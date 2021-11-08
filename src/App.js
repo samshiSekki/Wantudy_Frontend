@@ -8,6 +8,7 @@ import MainPageLogged from './pages/MainPage/Main_logged';
 import Mypage from './pages/Mypage';
 import ModNick from './pages/ModNick';
 import RegDefaultApp from './pages/RegDefaultApp';
+import ModAppLists from './pages/ModAppLists';
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -53,7 +54,11 @@ function App() {
       </Route>
 
       <Route path='/test'>
-        
+        <LandingPage/>
+      </Route>
+
+      <Route path='/mod_app_lists'>
+        <ModAppLists/>
       </Route>
     </div>
   );
