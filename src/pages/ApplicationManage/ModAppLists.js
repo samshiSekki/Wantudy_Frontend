@@ -10,6 +10,7 @@ function ModAppLists(props) {
     const location = useLocation();
     const userInfo = location.state.userInfo;
     const [apps, setApps] = useState([0,]);
+    let history = useHistory();
 
     useEffect(async()=>{
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/application`);
@@ -19,6 +20,13 @@ function ModAppLists(props) {
     
     if(apps[0] != 0){
     console.log(apps);
+    }
+
+    function writeNewAppBtnClick(){
+        history.push({ 
+            pathname: "/reg_other_app",
+            state: {userInfo: userInfo}
+        });
     }
 
     return (
@@ -34,7 +42,7 @@ function ModAppLists(props) {
                         : "지원서가 없습니다"
                     }
 
-                    <button>새로운 신청서 작성하기</button>
+                    <button onClick={writeNewAppBtnClick}>새로운 신청서 작성하기</button>
                     
                 </div>
 
@@ -54,6 +62,13 @@ function AppList(props){
         });
     }
 
+
+    const deleteBtnClickListner = async() => {
+        await axios.delete(`http://13.209.66.117:8080/study/application/${props.apps.applicationId}`);
+        alert('지원서가 삭제되었습니다!');
+        window.location.reload();
+    }
+
     return(
         <div>
             <div className="apps" onClick={()=>{setModal(!modal)}}>
@@ -62,6 +77,10 @@ function AppList(props){
                 : `신청서 ${props.i} : ${props.apps.applicationId}`
             }
             <button onClick={modifyBtnClickListner}>수정</button>
+            {props.i==0
+                ?null
+                :<button onClick={deleteBtnClickListner}>삭제</button>
+            }
             </div>
             {modal === true
             ?<Modal apps = {props.apps}/>

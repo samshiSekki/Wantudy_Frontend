@@ -74,9 +74,6 @@ function RegDefaultApp(props) {
             <NavbarWhite userInfo={userInfo}/>
             <div className="regDefaultBanner">
                 <div className="rdbContent1">
-                    <div className="currentStep">
-                        current step
-                    </div>
 
                     <div className="rdbDisc">
                     안녕하세요, {userInfo.nickname}님👋<br/>
@@ -84,9 +81,6 @@ function RegDefaultApp(props) {
                     대표 신청서를 등록해주세요.
                     </div>
 
-                    <div className="stepStatus">
-                        <img src="img/Group 116.png"/>
-                    </div>
                 </div>
                 <div className="rdbIllust">
                     <img src="img/Other 03.png"/>

@@ -74,19 +74,12 @@ function ModDefaultApp(props) {
             <NavbarWhite userInfo={userInfo}/>
             <div className="regDefaultBanner">
                 <div className="rdbContent1">
-                    <div className="currentStep">
-                        current step
-                    </div>
-
+                
                     <div className="rdbDisc">
                     안녕하세요, {userInfo.nickname}님👋<br/>
-                    스터디 신청을 위한<br/>
-                    대표 신청서를 등록해주세요.
+                    신청서를 수정해주세요.<br/>
                     </div>
 
-                    <div className="stepStatus">
-                        <img src="img/Group 116.png"/>
-                    </div>
                 </div>
                 <div className="rdbIllust">
                     <img src="img/Other 03.png"/>
@@ -94,7 +87,7 @@ function ModDefaultApp(props) {
             </div>
             <div className="rdaContainer">
                 <div className="rdaContents">
-                <p className="appTitle">대표 신청서 수정</p>
+                <p className="appTitle">신청서 수정</p>
                 <hr className="appHr"/>
                 
                 <div className="rdaItemContainer">

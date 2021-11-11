@@ -10,6 +10,7 @@ import NavbarWhite from '../Navbar/NavbarWhite';
 function RegOtherApp(props) {
 
     let location = useLocation();
+    let history = useHistory();
     const userInfo = location.state.userInfo;
 
     const [name, setName] = useState("default name"); //성명
@@ -59,10 +60,8 @@ function RegOtherApp(props) {
         response = await axios.get('http://13.209.66.117:8080/auth/kakao');
 
         console.log(response);
-        userInfo.state = response.data.state;
-        console.log(userInfo);
 
-        props.history.push({ 
+        history.push({
             pathname: "/mod_app_lists",
             state: {userInfo: userInfo}
         });
@@ -70,7 +69,89 @@ function RegOtherApp(props) {
 
     return (
         <div>
-            
+            <NavbarWhite userInfo={userInfo}/>
+            <div className="regDefaultBanner">
+                <div className="rdbContent1">
+
+                    <div className="rdbDisc">
+                    안녕하세요, {userInfo.nickname}님👋<br/>
+                    스터디 신청을 위한<br/>
+                    기타 신청서를 등록해주세요.
+                    </div>
+
+                </div>
+                <div className="rdbIllust">
+                    <img src="img/Other 03.png"/>
+                </div>
+            </div>
+            <div className="rdaContainer">
+                <div className="rdaContents">
+                <p className="appTitle">기타 신청서</p>
+                <hr className="appHr"/>
+                
+                <div className="rdaItemContainer">
+                    <p className="nameText">성명</p>
+                    <input type="text" className="inputName" onChange={nameChange}/><br/>
+                </div>
+
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
+                    <p className="nameText">성별</p>
+                    <div className={gender=="여자"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setGender("여자"))}>여자</div>
+                    <div className={gender=="남자"? "maleSelectedButton" : "maleButton"} onClick={()=>(setGender("남자"))}>남자</div>
+                </div>
+
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
+                    <p className="nameText">나이</p>
+                    <input type="text" className="inputAge" onChange={ageChange} placeholder="'만' 나이 기준"/><br/>
+                </div>
+
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
+                    <p className="nameText">소속</p>
+                    <input type="text" className="inputSchool" onChange={schoolChange} placeholder="학교 혹은 회사명"/><br/>
+                </div>
+
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
+                    <p className="nameText">전공</p>
+                    <input type="text" className="inputSchool" onChange={majorChange}/><br/>
+                </div>
+
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
+                    <p className="nameText">재학 여부</p>
+                    <div className={attend=="해당 없음"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("해당 없음"))}>해당 없음</div>
+                    <div className={attend=="졸업"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("졸업"))}>졸업</div>
+                    <div className={attend=="휴학"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("휴학"))}>휴학</div>
+                    <div className={attend=="재학"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("재학"))}>재학</div>
+                </div>
+
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
+                    <p className="nameText">거주지</p>
+                    <input type="text" className="inputSchool" onChange={addressChange} placeholder="'구'단위까지"/><br/>
+                </div>
+
+                <hr className="appHr"/>
+                
+                <div className="nextButton" onClick={submitClickHandler}>
+                    <img src="img/Group 127.png" className="nextVector"/>
+                    다음
+                </div>
+
+                </div>
+            </div>
+            <div className="Footer">
+                <Footer/>
+            </div>
         </div>
     )
 }

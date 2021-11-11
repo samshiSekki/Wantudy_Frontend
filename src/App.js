@@ -10,6 +10,7 @@ import ModNick from './pages/ModNick';
 import RegDefaultApp from './pages/ApplicationManage/RegDefaultApp';
 import ModAppLists from './pages/ApplicationManage/ModAppLists';
 import ModDefaultApp from './pages/ApplicationManage/ModDefaultApp';
+import RegOtherApp from './pages/ApplicationManage/RegOtherApp';
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -65,6 +66,10 @@ function App() {
 
       <Route path='/mod_default_app'>
         <ModDefaultApp/>
+      </Route>
+
+      <Route path='/reg_other_app'>
+        <RegOtherApp/>
       </Route>
     </div>
   );
