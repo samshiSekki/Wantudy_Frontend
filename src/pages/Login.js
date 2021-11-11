@@ -17,7 +17,8 @@ function Login(props) {
         accessToken:'',
         nickname:'',
         userId:'',
-        state: false
+        state: '',
+        temperature: ''
     })
 
     function LoginClickHandler(){
@@ -80,6 +81,7 @@ function Login(props) {
         userInfo.nickname = response.data.nickname;
         userInfo.userId = response.data.userId;
         userInfo.state = response.data.state;
+        userInfo.temperature = response.data.temperature;
 
         console.log("login console");
         console.log(response);

@@ -13,7 +13,8 @@ function MainPage(props) {
         accessToken:'',
         nickname:'',
         userId:'',
-        state: false
+        state: '',
+        temperature: ''
     })
     function btnClickHandler(){
         history.push('/login');

@@ -7,8 +7,9 @@ import {Link, Route, Switch} from 'react-router-dom';
 import MainPageLogged from './pages/MainPage/Main_logged';
 import Mypage from './pages/Mypage';
 import ModNick from './pages/ModNick';
-import RegDefaultApp from './pages/RegDefaultApp';
-import ModAppLists from './pages/ModAppLists';
+import RegDefaultApp from './pages/ApplicationManage/RegDefaultApp';
+import ModAppLists from './pages/ApplicationManage/ModAppLists';
+import ModDefaultApp from './pages/ApplicationManage/ModDefaultApp';
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -17,7 +18,8 @@ function App() {
     accessToken:'',
     nickname:'',
     userId:'',
-    state: false
+    state: '',
+    temperature : ''
   })
   return (
     <div className="App">
@@ -59,6 +61,10 @@ function App() {
 
       <Route path='/mod_app_lists'>
         <ModAppLists/>
+      </Route>
+
+      <Route path='/mod_default_app'>
+        <ModDefaultApp/>
       </Route>
     </div>
   );

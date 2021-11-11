@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
 import { withRouter, useLocation, useHistory } from 'react-router';
 import axios from 'axios';
-import { useCombobox } from 'downshift';
-import '../css/regDefaultApp.css';
-import Navbar from './Navbar/Navbar';
-import Footer from './Footer/Footer';
-import NavbarWhite from './Navbar/NavbarWhite';
+import '../../css/regDefaultApp.css';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
+import NavbarWhite from '../Navbar/NavbarWhite';
 
 /*기본 지원서 등록 페이지*/
 function RegDefaultApp(props) {
@@ -18,7 +17,7 @@ function RegDefaultApp(props) {
     const [age, setAge] = useState("default age"); //나이
     const [school, setSchool] = useState("default school"); //학교
     const [major, setMajor] = useState("default major"); //전공
-    const [attend, setAttend] = useState("default attend"); //재학 여부
+    const [attend, setAttend] = useState("재학"); //재학 여부
     const [address, setAddress] = useState("default address"); //거주지
 
     function nameChange(e){
@@ -35,10 +34,6 @@ function RegDefaultApp(props) {
 
     function majorChange(e){
         setMajor(e.target.value);
-    }
-
-    function attendChange(e){
-        setAttend(e.target.value);
     }
 
     function addressChange(e){
@@ -61,12 +56,14 @@ function RegDefaultApp(props) {
             keyword: ["큐시즘"]
         });
 
+        response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}`);
+
         console.log(response);
-        userInfo.state = response.data.state;
+        userInfo.state = true;
         console.log(userInfo);
 
         props.history.push({ 
-            pathname: "/mypage",
+            pathname: "/mod_app_lists",
             state: {userInfo: userInfo}
         });
     }
@@ -138,7 +135,10 @@ function RegDefaultApp(props) {
 
                 <div className="rdaItemContainer">
                     <p className="nameText">재학 여부</p>
-                    <input type="text" className="inputSchool" onChange={attendChange}/><br/>
+                    <div className={attend=="해당 없음"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("해당 없음"))}>해당 없음</div>
+                    <div className={attend=="졸업"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("졸업"))}>졸업</div>
+                    <div className={attend=="휴학"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("휴학"))}>휴학</div>
+                    <div className={attend=="재학"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("재학"))}>재학</div>
                 </div>
 
                 <hr className="appHr"/>

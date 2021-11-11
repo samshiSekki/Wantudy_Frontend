@@ -44,6 +44,7 @@ function Mypage(props) {
                 <div className="mypageTitle">
                     {userInfo.nickname}의 마이페이지
                 </div>
+                <div className="temperature">내 열정온도 : {userInfo.temperature}</div>
                 <div className="likedStudy">
                     찜한 스터디
                 </div>
