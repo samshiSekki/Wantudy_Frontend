@@ -1,0 +1,23 @@
+.logo{
+    margin-top : 75px;
+    margin-left : 806px;
+    width: 380px;
+    height: 115px;
+    background-color: gray;
+    text-align: center;
+    padding-top: 55px;
+}
+
+.inputNick{
+    width: 886px;
+    height: 63px;
+    margin-left: 535px;
+    margin-top: 169px;
+}
+
+.submitBtn{
+    width: 331px;
+    height: 72px;
+    margin-left: 806px;
+    margin-top: 245px;   
+}

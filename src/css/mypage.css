@@ -1,0 +1,64 @@
+.mypageContainer{
+    text-align: center;
+    width: 1200px;
+    height: 1393px;
+    margin-left: 360px;
+
+    background: #C4C4C4;
+}
+
+.mypageTitle{
+    padding-top: 71px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.likedStudy{
+    width: 1055px;
+    height: 322px;
+    background: #B1A9A9;
+    margin-left: 73px;
+    margin-top: 42px;
+}
+
+.studyStatus{
+    width: 1055px;
+    height: 322px;
+    background: #B1A9A9;
+    margin-left: 73px;
+    margin-top: 61px;
+}
+
+.participatedStudy{
+    width: 512px;
+    height: 322px;
+    margin-left: 73px;
+    background: #B1A9A9;
+    float:left;
+    margin-top: 60px;
+}
+
+.assignment{
+    width: 512px;
+    height: 322px;
+    margin-left: 31px;
+    background: #B1A9A9;
+    float:left;
+    margin-top: 60px;
+}
+
+.applyModBtn{
+    margin-top: 42px;
+    width: 188px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.nickModBtn{
+    margin-top: 42px;
+    width: 188px;
+    height: 50px;
+    margin-left: 15px;
+}

@@ -1,0 +1,301 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #181824;
+}
+
+.container1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 662px;
+    background-color: #22272E;
+    color: white;
+}
+
+.catch{
+    width: 637px;
+    height: 415px;
+    margin-left: 359px;
+    padding-top: 99px;
+    
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 57px;
+    float: left;
+}
+
+.catchSub{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27.24px;
+    margin-bottom: 32px;
+}
+
+.startBtn{
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 62px;
+    width: 242px;
+    height: 62px;
+    margin-top: 32px;
+    background: #497EF1;
+    border-radius: 0px 28.5px 28.5px 28.5px;
+}
+
+.test{
+    margin-top: 15.23px;
+}
+
+.illust{
+    padding-top: 87px;
+    float: left;
+}
+
+.container2{
+    display: block;
+    width: 100%;
+    height: 2938px;
+    background: #F8F9FC;
+    padding-top: 188px;
+}
+
+.processContainer{
+    width: 100%;
+    height: 297px;
+}
+
+.process{
+    width: 302px;
+    height: 297px;
+    left: 326px;
+    top: 188px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 3px 60px rgba(0, 0, 0, 0.04);
+    border-radius: 70px;
+    float:left;
+}
+
+.openProcess{
+    margin-left: 326px;
+}
+
+.openIcon{
+    margin-top: 66px;
+    margin-left: 102px;
+    margin-bottom: 29px;
+}
+
+.applyProcess{
+    margin-left: 181px;
+}
+
+.applyIcon{
+    margin-top: 66px;
+    margin-left: 100px;
+    margin-bottom: 22px;
+}
+
+.manageProcess{
+    margin-left: 183px;
+}
+
+.manageIcon{
+    margin-top: 77px;
+    margin-left: 105px;
+    margin-bottom: 22px;
+}
+
+.processSub{
+    width: 175px;
+    height: 41px;
+    text-align: center;
+    margin-left: 63px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40.86px;
+}
+
+.openContainer{
+    width: 1389px;
+    height: 592px;
+    margin-top: 187px;
+    margin-left: 171px;
+}
+
+.openIllust img{
+    position: absolute;
+}
+
+.OI1{
+    margin-top: 51px;
+}
+
+.OI2{
+    margin-top: 144px;
+    margin-left: 505px;
+}
+
+.openEllipse{
+    position: absolute;
+    width: 504px;
+    height: 504px;
+    background: rgba(73, 126, 241, 0.16);
+    opacity: 0.5;
+    filter: blur(160px);
+    margin-left: 125px;
+}
+
+.openDisc{
+    padding-top: 131px;
+    margin-left: 808px;
+    width: 581px;
+    height: 331px;
+    text-align: right;
+}
+
+.disc{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 41px;
+}
+
+.discSub{
+    margin-top: 27px;
+    
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.openDiscSub{
+    width: 450px;
+    height: 103px;
+    text-align: right;
+    float: right;
+}
+
+.btn2{
+    width: 210px;
+    height: 57px;
+    background: #497EF1;
+    border-radius: 28.5px 0px 28.5px 28.5px;
+    line-height: 57px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+    float: right;
+}
+
+.applyContainer{
+    width: 1286px;
+    height: 504px;
+    margin-top: 187px;
+    margin-left: 360px;
+}
+
+.applyDisc{
+    margin-top: 73px;
+    width: 581px;
+    height: 359px;
+    float: left;
+}
+
+.applyDiscSub{
+    width: 450px;
+    height: 130px;
+}
+
+.btn3{
+    width: 210px;
+    height: 57px;
+    background: #497EF1;
+    border-radius: 0px 28.5px 28.5px 28.5px;
+    line-height: 57px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.applyIllust{
+    float: left;
+    margin-left: 201px;
+}
+
+.applyEllipse{
+    position: absolute;
+    width: 504px;
+    height: 504px;
+    background: rgba(73, 126, 241, 0.16);
+    opacity: 0.5;
+    filter: blur(160px);
+}
+
+.startContainer{
+    width: 1256px;
+    height: 534px;
+    margin-left: 302px;
+    margin-top: 183px;
+}
+
+.startIllust img{
+    margin-left: 54px;
+    position: absolute;
+}
+
+.startEllipse{
+    position: absolute;
+    width: 504px;
+    height: 504px;
+    background: rgba(73, 126, 241, 0.16);
+    opacity: 0.5;
+    filter: blur(160px);
+}
+
+.startDisc{
+    padding-top: 88px;
+    margin-left: 604px;
+    width: 652px;
+    height: 359px;
+    text-align: right;
+}
+
+.disc2{
+    width: 652px;
+    height: 129px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 41px;
+    text-align: right;
+    margin-bottom: 27px;
+}
+
+.startDiscSub{
+    width: 529px;
+    height: 103px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: right;
+    float:right;
+    margin-bottom: 43px;
+}
