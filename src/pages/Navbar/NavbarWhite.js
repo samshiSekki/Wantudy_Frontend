@@ -62,6 +62,19 @@ function LoggedIn(props){
         });
     }
 
+    function goToStudy(){
+        history.push({
+            pathname: "/post",
+            state: {userInfo: props.userInfo}
+        });
+    }
+
+    function makeStudyPost(){
+        history.push({
+            pathname: "/post/write",
+            state: {userInfo: props.userInfo}
+        });
+    }
     function nickNameClickHandler(){
         history.push({
             pathname: "/mypage",
@@ -72,8 +85,8 @@ function LoggedIn(props){
     return(
         <div className="navbar_white">
         <div className="logo_white" onClick={logoClickHandler}>wantudy</div>
-        <div className="join">스터디 참여</div>
-        <div className="make">스터디 개설</div>
+        <div className="join" onClick={goToStudy}>스터디 참여</div>
+        <div className="make" onClick={makeStudyPost}>스터디 개설</div>
         <div className="apply">스터디 신청서 등록</div>
         <div className="nickname" onClick={nickNameClickHandler}>안녕, {props.userInfo.nickname}</div>
         <div className="logout" onClick={LogoutClickHandler}>로그아웃</div>
