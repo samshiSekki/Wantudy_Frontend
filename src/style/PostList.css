@@ -1,0 +1,38 @@
+.post-list-box {
+    width: 1200px;
+    height: 800px;
+    margin-top: 360px;
+    padding-top:34px;
+    padding-left: 72px;
+    padding-right: 72px;
+    border: solid 1px black;
+  }
+  .post-list-field {
+    width: 515px;
+    height: 48px;
+    top: 430px;
+    left: 260px;
+    border: solid 1px black;
+  }
+  .search-box {
+    position: relative;
+    width: 585px;
+    height: 31px;
+    left:350px;
+    top: 50px;
+    border: solid 1px black;
+  }
+  .post-classification {
+    position: relative;
+    width: 103px;
+    height: 31px;
+    margin-top: 19px;
+    left:950px;
+    border: solid 1px black;
+  }
+  .makepost {
+    margin-top: 100px;
+  }
+
+
+  

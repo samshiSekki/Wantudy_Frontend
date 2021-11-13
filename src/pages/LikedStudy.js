@@ -20,7 +20,6 @@ function LikedStudy() {
         <div>
             <Navbar userInfo={userInfo}/>
             {liked}
-            
             <Footer/>
         </div>
     )

@@ -3,7 +3,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Mainpage from './pages/MainPage/MainPage';
-import {Link, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import MainPageLogged from './pages/MainPage/Main_logged';
 import Mypage from './pages/Mypage';
 import ModNick from './pages/ModNick';
@@ -11,7 +11,15 @@ import RegDefaultApp from './pages/ApplicationManage/RegDefaultApp';
 import ModAppLists from './pages/ApplicationManage/ModAppLists';
 import ModDefaultApp from './pages/ApplicationManage/ModDefaultApp';
 import RegOtherApp from './pages/ApplicationManage/RegOtherApp';
+<<<<<<< HEAD
 import LikedStudy from './pages/LikedStudy';
+=======
+import "antd/dist/antd.css";
+import PostPage from './pages/PostPage/PostPage'
+import './style/PostList.css'
+import './style/PostWrite.css'
+
+>>>>>>> 0753940d478dd7b65c2d93dec983c74fbf515e10
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -25,6 +33,8 @@ function App() {
   })
   return (
     <div className="App">
+      <BrowserRouter>
+      <Switch>
       <Route exact path='/'>
         <Mainpage userInfo={userInfo}/>
       </Route>
@@ -72,10 +82,16 @@ function App() {
       <Route path='/reg_other_app'>
         <RegOtherApp/>
       </Route>
+<<<<<<< HEAD
 
       <Route path='/liked_study'>
         <LikedStudy/>
       </Route>
+=======
+      <Route path="/post" component={PostPage} />
+      </Switch>
+      </BrowserRouter>
+>>>>>>> 0753940d478dd7b65c2d93dec983c74fbf515e10
     </div>
   );
 }
