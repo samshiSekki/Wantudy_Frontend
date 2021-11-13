@@ -11,6 +11,7 @@ import RegDefaultApp from './pages/ApplicationManage/RegDefaultApp';
 import ModAppLists from './pages/ApplicationManage/ModAppLists';
 import ModDefaultApp from './pages/ApplicationManage/ModDefaultApp';
 import RegOtherApp from './pages/ApplicationManage/RegOtherApp';
+import LikedStudy from './pages/LikedStudy';
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -70,6 +71,10 @@ function App() {
 
       <Route path='/reg_other_app'>
         <RegOtherApp/>
+      </Route>
+
+      <Route path='/liked_study'>
+        <LikedStudy/>
       </Route>
     </div>
   );

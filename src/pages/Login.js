@@ -111,9 +111,13 @@ function Login(props) {
     }
 
     return ( 
-        <div className = "container" >
-            <div className = "logo" > 원터디 로고 </div> 
-            <button className = "loginButton" onClick = {LoginClickHandler} > 카카오로그인 </button> 
+        <div className="loginContainer">
+            <div className="logoImage">
+                <img src="img/Group 291.png"/>
+            </div>
+            <div className="loginButton" onClick={LoginClickHandler}>
+                <img src="img/Group 290.png"/>
+            </div>
         </div>
         
     )
