@@ -9,3 +9,8 @@ export const postUpdate = async (updated, studyId) => {
 export const postSave = async (body) => {
   await axios.post(`http://13.209.66.117:8080/study/`, body);
 };
+export const postScrap = async (studyId) => {
+  await axios.post(`http://13.209.66.117:8080/studylist/${studyId}`, {
+    params: { studyId: studyId },
+  });
+};

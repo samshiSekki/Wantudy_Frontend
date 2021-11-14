@@ -128,7 +128,7 @@ for (let i = 0; i < 9; i++) {
     
   }
   else if (i == 6) {
-    children.push(<Option key={'UX/UI 디자인'}>{'UX/UI 디자인'}</Option>);
+    children.push(<Option key={'디자인'}>{'디자인'}</Option>);
     
   }
   else if (i == 7) {
@@ -140,10 +140,6 @@ for (let i = 0; i < 9; i++) {
     
   }
   else if (i == 9) {
-    children.push(<Option key={'취미 / 생활'}>{'취미 / 생활'}</Option>);
-    
-  }
-  else if (i == 10) {
     children.push(<Option key={'직접 입력'}>{'직접 입력'}</Option>);
     
   }
