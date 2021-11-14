@@ -16,6 +16,7 @@ import "antd/dist/antd.css";
 import PostPage from './pages/PostPage/PostPage'
 import './style/PostList.css'
 import './style/PostWrite.css'
+import Test from './pages/Test';
 
 
 function App() {
@@ -64,10 +65,6 @@ function App() {
         <RegDefaultApp/>
       </Route>
 
-      <Route path='/test'>
-        <LandingPage/>
-      </Route>
-
       <Route path='/mod_app_lists'>
         <ModAppLists/>
       </Route>
@@ -87,6 +84,10 @@ function App() {
       <Route path="/post" component={PostPage} />
       </Switch>
       </BrowserRouter>
+
+      <Route path='/test'>
+        <Test/>
+      </Route>
 
     </div>
   );
