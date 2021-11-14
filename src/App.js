@@ -11,15 +11,12 @@ import RegDefaultApp from './pages/ApplicationManage/RegDefaultApp';
 import ModAppLists from './pages/ApplicationManage/ModAppLists';
 import ModDefaultApp from './pages/ApplicationManage/ModDefaultApp';
 import RegOtherApp from './pages/ApplicationManage/RegOtherApp';
-<<<<<<< HEAD
 import LikedStudy from './pages/LikedStudy';
-=======
 import "antd/dist/antd.css";
 import PostPage from './pages/PostPage/PostPage'
 import './style/PostList.css'
 import './style/PostWrite.css'
 
->>>>>>> 0753940d478dd7b65c2d93dec983c74fbf515e10
 
 function App() {
   const [userInfo, setUserInfo] = useState({
@@ -82,16 +79,15 @@ function App() {
       <Route path='/reg_other_app'>
         <RegOtherApp/>
       </Route>
-<<<<<<< HEAD
 
       <Route path='/liked_study'>
         <LikedStudy/>
       </Route>
-=======
+
       <Route path="/post" component={PostPage} />
       </Switch>
       </BrowserRouter>
->>>>>>> 0753940d478dd7b65c2d93dec983c74fbf515e10
+
     </div>
   );
 }
