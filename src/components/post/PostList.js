@@ -4,6 +4,11 @@ import { Menu, Dropdown, Button, Table, Pagination,List,Skeleton,message,Tag, In
 import axios from 'axios';
 import heart from './heart.png';
 import {postScrap} from '../functions/postFunctions'
+import Navbar from '../../pages/Navbar/NavbarWhite';
+import Footer from '../../pages/Footer/Footer';
+import bi_plus from './bi_plus.png'
+import Saly from './Saly.png'
+
 const { Column } = Table;
 const { Search } = Input;
 function PostList({ match, history,location }) {   
@@ -13,7 +18,11 @@ function PostList({ match, history,location }) {
   const [pages, setPages] = useState(1);
   const [search, setSearch] = useState(null);
   const [mdata, setMdata] = useState([]);
-  var color = new Array("magenta", "red","volcano", "orange", "gold", "lime","green", "blue","purple", "geekblue");
+  const [selectColor, setSelectColor] = useState(false);
+  const [textColor, setTextColor] = useState('black');
+  var color_onoff = '#D0FFBA'
+  var color_category = '#BAFFFF'
+  var color_level = '#EFD5FF'
   /* axios.get(`http://13.209.66.117:8080/studylist/`, {
     params: {
       page: 1
@@ -102,23 +111,29 @@ function PostList({ match, history,location }) {
 
 
 
+
+
   
 
 
  
   return (
     <>
+    <Navbar userInfo={location.state.userInfo}/>
+    <img src={Saly} className='img-saly'></img>
+    <div className='post-list'>
+    
     <div className='post-list-box'>
       <div className='post-list-field'>
-        <button onClick={()=>{categoryChange(null)}}>전체</button>
-        <button onClick={()=>{categoryChange('개발 / 프로그래밍')}}>개발 / 프로그래밍</button>
-        <button onClick={()=>{categoryChange('마케팅')}}>마케팅</button>
-        <button onClick={()=>{categoryChange('기획')}}>기획</button>
-        <button onClick={()=>{categoryChange('데이터 분석')}}>데이터 분석</button>
-        <button onClick={()=>{categoryChange('디자인')}}>디자인</button>
-        <button onClick={()=>{categoryChange('인공지능')}}>인공지능</button>
-        <button onClick={()=>{categoryChange('어학')}}>어학</button>
-        <button onClick={()=>{categoryChange('취업')}}>취업</button>
+        <button className='button-all' onClick={()=>{categoryChange(null)}}>전체</button>
+        <button className='button-1' onClick={()=>{categoryChange('개발 / 프로그래밍')}}>개발 / 프로그래밍</button>
+        <button className='button-2' onClick={()=>{categoryChange('마케팅')}}>마케팅</button>
+        <button className='button-3' onClick={()=>{categoryChange('기획')}}>기획</button>
+        <button className='button-4' onClick={()=>{categoryChange('데이터 분석')}}>데이터 분석</button>
+        <button className='button-5' onClick={()=>{categoryChange('디자인')}}>디자인</button>
+        <button className='button-6' onClick={()=>{categoryChange('인공지능')}}>인공지능</button>
+        <button className='button-7' onClick={()=>{categoryChange('어학')}}>어학</button>
+        <button className='button-8' onClick={()=>{categoryChange('취업')}}>취업</button>
       </div>
       <div className='search-box'><Search placeholder="제목이나 분야를 입력해주세요.(영어는 대문자로 입력해주세요)" onSearch={onSearch} enterButton /></div>
       <div className='post-classification'>
@@ -133,7 +148,7 @@ function PostList({ match, history,location }) {
               onClick={(e) => {
                 register();
               }}
-            >
+            ><img src = {bi_plus}></img>
               스터디 개설하기
             </Button>
             <div className='study-list-box'>
@@ -183,7 +198,8 @@ function PostList({ match, history,location }) {
 
     </div>
     <Pagination defaultCurrent = {1} total={50} onChange={onChange}></Pagination>
-        
+    </div>
+        <Footer/>
         
     </>
   );
@@ -201,8 +217,7 @@ function PostList({ match, history,location }) {
   function tagBox1(tag) {
     let arr = []
     for (let i = 0; i < tag.length; i++) {
-      var selectColor = color[Math.floor(Math.random() * color.length)];
-      arr.push(<Tag color = {selectColor}>{tag[i]}</Tag>)
+      arr.push(<Tag color = {color_onoff} style={{color:'black',float:'left'}}>{tag[i]}</Tag>)
 
 
     }
@@ -211,8 +226,7 @@ function PostList({ match, history,location }) {
     function tagBox2(tag) {
       let arr = []
       for (let i = 0; i < tag.length; i++) {
-        var selectColor = color[Math.floor(Math.random() * color.length)];
-        arr.push(<Tag color = {selectColor}>{tag[i]}</Tag>)
+        arr.push(<Tag color = {color_category} style={{color:'black'}}>{tag[i]}</Tag>)
   
       }
       return arr;

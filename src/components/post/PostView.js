@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Card, message, Popconfirm,Alert} from 'antd';
+import { Card, message, Popconfirm,Alert,Modal,Button} from 'antd';
 import usePostDetail from '../../hooks/usePostDetail';
 import axios from 'axios';
 import {
@@ -16,6 +16,21 @@ function PostView({ match, history, location }) {
   const studyId = match.params.id;
   const [postDetail,setPostDetail] = useState([]);
   const errorHandling = useErrorHandling();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [registerList, setRegisterList]=useState([]);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
 /*   async function fetchData(){
     postDetaill = await axios.get(`http://13.209.66.117:8080/studylist/${studyId}`
     ,{
@@ -86,6 +101,19 @@ function PostView({ match, history, location }) {
       }
     }
 
+    const onRegister=()=>{
+      axios.get(`http://13.209.66.117:8080/users/${userId}/application`, {
+        params: {
+          userId : userId,
+        }
+      })
+      .then(res =>setRegisterList(res.data))
+      .catch(err => console.log(err));
+      console.log(registerList)
+
+    }
+
+
   return (
     <>
         <div>
@@ -125,6 +153,10 @@ function PostView({ match, history, location }) {
                 </span>
               </Popconfirm>
               <button onClick={onUpdate} >수정</button>
+              <button onClick={showModal} >신청 하기</button>
+              <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <p>해당 스터디를 신청하시겠습니까?</p><button onClick={onRegister}>예</button>
+      </Modal>
                 {/* <Link to={`${postDetail.StudyId}/update`}>
                   <span>수정</span>
                 </Link> */}

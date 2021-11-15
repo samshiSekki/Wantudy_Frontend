@@ -22,7 +22,7 @@ function PostWrite(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const errorHandling = useErrorHandling();
-  const [value, setvalue] = useState({ userId:props.location.state.userInfo.userId,studyName:'', category:'', description:'',onoff:'',studyTime:'',peopleNum:0,requiredInfo:'',deadline:'2021-11-03', period:0, level:''});
+  const [value, setvalue] = useState({ userId:props.location.state.userInfo.userId,studyName:'', category:null, description:'',onoff:'',studyTime:'',peopleNum:0,requiredInfo:'',deadline:'2021-11-03', period:0, level:''});
   const [checkedList, setCheckedList] = useState(defaultCheckedList);
   const [indeterminate, setIndeterminate] = useState(true);
   const [checkAll, setCheckAll] = useState(false);
@@ -192,12 +192,15 @@ const plainOptions = ['오프라인', '온라인'];
           }}
         />
         <hr />
-        <div style={{float:'left'}}>분야 : &nbsp;</div><Select
-      mode="multiple"
+        <div style={{float:'left'}}>분야 : &nbsp;</div>
+        <Select
+      mode="tags"
       style={{ width: '80%' }}
-      placeholder="Please select"      
+      placeholder="개설 분야"      
       value = {value.category}
-      defaultValue= {null}
+      showArrow={true}
+      allowClear={true}
+        notFoundContent={null}
       onChange={(e) => {
         setvalue({ ...value, category: e })}}
     >
