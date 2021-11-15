@@ -24,7 +24,7 @@ function ModAppLists(props) {
 
     function writeNewAppBtnClick(){
         history.push({ 
-            pathname: "/reg_other_app",
+            pathname: "/reg_default_app",
             state: {userInfo: userInfo}
         });
     }

@@ -68,6 +68,22 @@ function ModDefaultApp(props) {
         });
     }
 
+    function nextBtnClickHandler(){
+        let appContents = {
+            name: name,
+            gender: gender,
+            age: age,
+            school: school,
+            major: major,
+            attending: attend,
+            address: address
+        }
+        props.history.push({ 
+            pathname: "/mod_default_app2",
+            state: {userInfo: userInfo, appContents: appContents, applicationId: apps.applicationId}
+        });
+    }
+
     
     return (
         <div className="registerAppsContainer">
@@ -143,7 +159,7 @@ function ModDefaultApp(props) {
 
                 <hr className="appHr"/>
                 
-                <div className="nextButton" onClick={submitClickHandler}>
+                <div className="nextButton" onClick={nextBtnClickHandler}>
                     <img src="img/Group 127.png" className="nextVector"/>
                     다음
                 </div>

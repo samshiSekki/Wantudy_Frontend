@@ -10,8 +10,8 @@ function Mypage(props) {
     let location = useLocation();
     const userInfo = location.state.userInfo;
     const [liked, setLiked] = useState("");
-    const [applied, setApplied] = useState("");
-    const [opened, setOpened] = useState("");
+    const [applied, setApplied] = useState([,]);
+    const [opened, setOpened] = useState([,]);
     const [ongoing, setOngoing] = useState("");
 
     useEffect(async()=>{
@@ -20,12 +20,14 @@ function Mypage(props) {
         setLiked(response.data.msg);
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/apply-studylist`);
-        //console.log(response);
-        setApplied(response.data.msg);
+        //console.log(response.data);
+        setApplied(response.data);
+        console.log(applied);
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/opened-studylist`);
         //console.log(response);
-        setOpened(response.data.msg);
+        setOpened(response.data);
+        console.log(opened);
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
         //console.log(response);
@@ -104,9 +106,21 @@ function Mypage(props) {
                 </div>
                 <div className="studyStatus">
                     스터디 등록 현황 <br/><br/>
-                    {applied} <br/>
+                    신청한 스터디 : <br/>
+                    {
+                        applied.map((a,i)=>{
+                            return applied[i].studyName
+                        })
+                    }
+                     <br/>
                     <button onClick={moreApplied}>더보기</button><br/>
-                    {opened}<br/>
+                    개설한 스터디 : <br/>
+                    {
+                        opened.map((a,i)=>{
+                            return opened[i].study.studyName
+                        })
+                    }
+                     <br/>
                     <button onClick={moreOpened}>더보기</button>
                 </div>
                 <div className="participatedStudy">
