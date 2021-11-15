@@ -1,9 +1,6 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 
-body{
+
+.mainPageContainer{
     font-family: 'Noto Sans KR', sans-serif;
     color: #181824;
 }
@@ -23,11 +20,11 @@ body{
     height: 415px;
     margin-left: 359px;
     padding-top: 99px;
-    
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 42px;
-    line-height: 57px;
+    line-height: 60px;
     float: left;
 }
 

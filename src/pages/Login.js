@@ -111,9 +111,29 @@ function Login(props) {
     }
 
     return ( 
-        <div className = "container" >
-            <div className = "logo" > 원터디 로고 </div> 
-            <button className = "loginButton" onClick = {LoginClickHandler} > 카카오로그인 </button> 
+        <div className="loginContainer">
+            <div className="logoImage">
+                <img src="img/Group 291.png"/>
+            </div>
+            <input type="text" placeholder="아이디" className="inputIDPW"/><br/>
+            <input type="text" placeholder="비밀번호" className="inputIDPW"/><br/>
+            <div className="loginTextContainer">
+                <div className="loginText1">
+                    원티드 계정이 없으신가요?
+                </div>
+                <div className="loginText2">
+                    회원가입
+                </div>
+                <div className="loginText3">
+                    아이디/비밀번호 찾기
+                </div>
+            </div>
+            <div className="loginButtons">
+            <div className="normalLoginButton">로그인</div>
+            <div className="kakaoLoginButton" onClick={LoginClickHandler}>
+                <img src="img/Group 290.png"/>
+            </div>
+            </div>
         </div>
         
     )

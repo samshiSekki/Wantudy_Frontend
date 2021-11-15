@@ -57,9 +57,7 @@ function RegOtherApp(props) {
             keyword: ["큐시즘"]
         });
 
-        response = await axios.get('http://13.209.66.117:8080/auth/kakao');
 
-        console.log(response);
 
         history.push({
             pathname: "/mod_app_lists",
@@ -68,7 +66,7 @@ function RegOtherApp(props) {
     }
 
     return (
-        <div>
+        <div className="registerAppsContainer">
             <NavbarWhite userInfo={userInfo}/>
             <div className="regDefaultBanner">
                 <div className="rdbContent1">

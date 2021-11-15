@@ -11,10 +11,12 @@ import RegDefaultApp from './pages/ApplicationManage/RegDefaultApp';
 import ModAppLists from './pages/ApplicationManage/ModAppLists';
 import ModDefaultApp from './pages/ApplicationManage/ModDefaultApp';
 import RegOtherApp from './pages/ApplicationManage/RegOtherApp';
+import LikedStudy from './pages/LikedStudy';
 import "antd/dist/antd.css";
 import PostPage from './pages/PostPage/PostPage'
 import './style/PostList.css'
 import './style/PostWrite.css'
+import Test from './pages/Test';
 
 
 function App() {
@@ -63,10 +65,6 @@ function App() {
         <RegDefaultApp/>
       </Route>
 
-      <Route path='/test'>
-        <LandingPage/>
-      </Route>
-
       <Route path='/mod_app_lists'>
         <ModAppLists/>
       </Route>
@@ -78,9 +76,19 @@ function App() {
       <Route path='/reg_other_app'>
         <RegOtherApp/>
       </Route>
+
+      <Route path='/liked_study'>
+        <LikedStudy/>
+      </Route>
+
       <Route path="/post" component={PostPage} />
       </Switch>
       </BrowserRouter>
+
+      <Route path='/test'>
+        <Test/>
+      </Route>
+
     </div>
   );
 }
