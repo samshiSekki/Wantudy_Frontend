@@ -1,12 +1,13 @@
 import React, { useState,useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Card, message, Popconfirm,Alert,Modal,Button} from 'antd';
+import { Card, message, Popconfirm,Alert,Modal,Button,Radio} from 'antd';
 import usePostDetail from '../../hooks/usePostDetail';
 import axios from 'axios';
 import {
-  postDelete,
+  postDelete,registerPost
 } from '../functions/postFunctions'
 import useErrorHandling from '../../hooks/useErrorHandling';
+
 // 상세 게시글 보기
 // 게시글 내용 불러오기 ->
 function PostView({ match, history, location }) {
@@ -18,6 +19,10 @@ function PostView({ match, history, location }) {
   const errorHandling = useErrorHandling();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [registerList, setRegisterList]=useState([]);
+  const [isButtonVisible, setIstButtonVisible] = useState(true);
+
+  const [isListVisible, setIsListVisible] = useState(false);
+  const [selectList, setSelectList] = useState();
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -102,6 +107,9 @@ function PostView({ match, history, location }) {
     }
 
     const onRegister=()=>{
+      setIstButtonVisible(false);
+      setIsListVisible(!isListVisible);
+      console.log(userId)
       axios.get(`http://13.209.66.117:8080/users/${userId}/application`, {
         params: {
           userId : userId,
@@ -111,6 +119,30 @@ function PostView({ match, history, location }) {
       .catch(err => console.log(err));
       console.log(registerList)
 
+    }
+    
+    const handleSelet=(li)=>{
+      if (selectList ==  null) {
+        setSelectList(li.applicationId)
+      }
+      
+    }
+    
+    const handleRegister=()=>{
+      console.log(selectList)
+      let body = {
+        "userId": userId,
+  "applicationId": selectList,
+      }
+
+      registerPost(studyId, body)
+      .then(() => {
+        history.goBack();
+        message.success('신청 완료!');
+      })
+      .catch((error) => {
+        errorHandling(error.response?.data.message);
+      });
     }
 
 
@@ -154,8 +186,10 @@ function PostView({ match, history, location }) {
               </Popconfirm>
               <button onClick={onUpdate} >수정</button>
               <button onClick={showModal} >신청 하기</button>
-              <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <p>해당 스터디를 신청하시겠습니까?</p><button onClick={onRegister}>예</button>
+              <Modal title="Basic Modal" visible={isModalVisible} okButtonProps={{ style: { display: 'none' } }} cancelButtonProps={{ style: { display: 'none' } }}>
+        <p>해당 스터디를 신청하시겠습니까?</p>{isButtonVisible? (<><button onClick={onRegister}>예</button><button onClick={handleCancel}>아니요</button></>):<div></div>}
+        <div>{isListVisible ? (registerList.map((li)=>showRegisterList(li))) : <div></div>}</div>
+        <div>{isListVisible ? (<><button onClick={handleRegister}>신청</button></>):<div></div>}</div>
       </Modal>
                 {/* <Link to={`${postDetail.StudyId}/update`}>
                   <span>수정</span>
@@ -168,6 +202,20 @@ function PostView({ match, history, location }) {
         </div>
       </>
     );
+  }
+  function showRegisterList(li){
+    let arr = []
+    console.log(li)
+   if (registerList[0].applicationId == li.applicationId) {
+
+
+    arr.push(<><input type="radio" value={li.applicationId} onClick={selectList == null ? setSelectList(li.applicationId):null}></input><label>대표 지원서 : {li.applicationId}</label></>)
+
+   }
+   else{
+    arr.push(<><input type="radio" value={li.applicationId} onClick={selectList == null ? setSelectList(li.applicationId):null}></input><label>{li.applicationId}</label></>)
+   }
+   return arr;
   }
   function insideCard() {
     return (
