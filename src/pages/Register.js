@@ -37,13 +37,13 @@ function Register(props) {
     }
 
     return (
-        <div className = "container" >
-        <div className = "logo" > 원터디 로고 </div> 
-        <div>
-            {userInfo.email}
-        </div>
-        <input type="text" placeholder="닉네임" className="inputNick" onChange={nickChange}></input>
-        <button className="submitBtn" onClick={submitClickHandler}>저장</button>
+        <div className = "registerContainer" >
+        <div className = "logoImage">
+            <img src="img/Group 291.png"/>
+        </div> 
+        
+        <input type="text" placeholder="닉네임 (한영 조합 8자 이내)" className="inputNick" onChange={nickChange}></input>
+        <div className="nickNameSaveBtn" onClick={submitClickHandler}>저장</div>
         </div>
     )
 }

@@ -70,7 +70,7 @@ function RegDefaultApp(props) {
 
     
     return (
-        <div>
+        <div className="registerAppsContainer">
             <NavbarWhite userInfo={userInfo}/>
             <div className="regDefaultBanner">
                 <div className="rdbContent1">

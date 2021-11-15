@@ -1,22 +1,75 @@
-.container{
-    position: relative;
+.loginContainer{
+    background: #22272E;
+    padding-top: 182px;
+    padding-bottom: 259px;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-.logo{
-    margin-top : 75px;
-    margin-left : 806px;
-    width: 380px;
-    height: 115px;
-    background-color: gray;
-    text-align: center;
-    padding-top: 55px;
+.logoImage{
+    margin-bottom: 25px;
 }
 
-.loginButton{
-    width: 331px;
-    height: 72px;
-    margin-left: 806px;
-    margin-top: 169px;
-    background-color:#FFE248;
+.normalLoginButton{
+    width: 645px;
+    height: 81px;
+    background: #497EF1;
+    border-radius: 40.5px;
+    margin-top: 102px;
+    margin-left: 638px;
+    line-height: 81px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    color: white;
+}
+
+.kakaoLoginButton{
+    margin-top: 25px;
+    margin-left: 638px;
+    width: 645px;
+    height: 81px;
+    background: #EEEFF2;
+    border-radius: 40.5px;
     text-align: center;
+    line-height: 81px;
+}
+
+.inputIDPW{
+    width: 646px;
+    height: 81px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    margin-top: 25px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    padding-left: 31px;
+}
+
+.loginTextContainer{
+    margin-top: 31px;
+
+    font-size: 20px;
+    line-height: 27px;
+    color: #FFFFFF;
+    margin-left: 638px;
+}
+
+.loginText1{
+    font-weight: 400;
+    float: left;
+}
+
+.loginText2{
+    font-weight: 600;
+    float: left;
+    margin-left: 16px;
+}
+
+.loginText3{
+    font-weight: 400;
+    float: left;
+    margin-left: 154px;
 }

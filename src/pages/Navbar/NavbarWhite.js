@@ -26,7 +26,7 @@ function LoggedOut(props){
     return(
     <div>
         <div className="navbar_white">
-        <div className="logo_white" onClick={logoClickHandler}>wantudy</div>
+        <div className="wantudyWhite" onClick={logoClickHandler}>wantudy</div>
         <div className="join">스터디 참여</div>
         <div className="make">스터디 개설</div>
         <div className="apply">스터디 신청서 등록</div>
@@ -84,12 +84,19 @@ function LoggedIn(props){
 
     return(
         <div className="navbar_white">
-        <div className="logo_white" onClick={logoClickHandler}>wantudy</div>
+        <img src="img/LOGO 1.png" className="navbarLogoImg"/>
+        <div className="logoWhite" onClick={logoClickHandler}>wantudy</div>
         <div className="join" onClick={goToStudy}>스터디 참여</div>
         <div className="make" onClick={makeStudyPost}>스터디 개설</div>
         <div className="apply">스터디 신청서 등록</div>
-        <div className="nickname" onClick={nickNameClickHandler}>안녕, {props.userInfo.nickname}</div>
         <div className="logout" onClick={LogoutClickHandler}>로그아웃</div>
+        <div className="chatIcon">
+            <img src="img/bi_send-fill_black.png"/>
+        </div>
+        <div className="userIcon" onClick={nickNameClickHandler}>
+            <img src={props.userInfo.profileImage} className="userProfileImageBlack"/>
+        </div>
+
         </div>
     )
 }
