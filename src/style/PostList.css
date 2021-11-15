@@ -1,3 +1,6 @@
+.post-list{
+  background-color: #F8F9FC;
+}
 .post-list-box {
     width: 1200px;
     height: 800px;
@@ -7,32 +10,138 @@
     padding-right: 72px;
     border: solid 1px black;
   }
-  .post-list-field {
-    width: 515px;
-    height: 48px;
-    top: 430px;
-    left: 260px;
-    border: solid 1px black;
-  }
+
   .search-box {
-    position: relative;
-    width: 585px;
-    height: 31px;
-    left:350px;
-    top: 50px;
-    border: solid 1px black;
+    position: absolute;
+width: 702px;
+height: 67px;
+left: 613px;
+top: 432px;
   }
   .post-classification {
-    position: relative;
-    width: 103px;
-    height: 31px;
-    margin-top: 19px;
-    left:950px;
-    border: solid 1px black;
+    position: absolute;
+width: 210px;
+height: 67px;
+left: 1350px;
+top: 432px;
   }
   .makepost {
-    margin-top: 100px;
+    position: absolute;
+width: 218px;
+height: 67px;
+left: 360px;
+top: 432px;
+
+background: #EEEFF2;
+border-radius: 33.5px;
   }
+  .button-all{
+    position: absolute;
+width: 93.14px;
+height: 57.78px;
+left: 360px;
+top: 344px;
+border-radius: 40.5px;
+
+  }
+  .button-1{
+    position: absolute;
+width: 170px;
+height: 57.54px;
+left: 479.84px;
+top: 344px;
+border-radius: 40.5px;
+
+
+    
+  }
+  .button-2{
+    position: absolute;
+width: 101.28px;
+height: 57.54px;
+left: 675.69px;
+top: 344px;
+border-radius: 40.5px;
+
+
+    
+  }
+ 
+  .button-3{
+    position: absolute;
+width: 170px;
+height: 57.54px;
+left: 479.84px;
+top: 344px;
+border-radius: 40.5px;
+    
+  }
+  .button-4{
+    position: absolute;
+width: 93.14px;
+height: 57.78px;
+left: 803.33px;
+top: 344px;
+border-radius: 40.5px;
+    
+  }
+  .button-5{
+    position: absolute;
+width: 130.62px;
+height: 57.54px;
+left: 923.17px;
+top: 344px;
+border-radius: 40.5px;
+    
+  }
+  .button-6{
+    position: absolute;
+    width: 101.28px;
+    height: 57.54px;
+    left: 1080.04px;
+    top: 344px;
+    
+border-radius: 40.5px;
+    
+  }
+  .button-7{
+    position: absolute;
+    width: 113.03px;
+    height: 57.54px;
+    left: 1207.68px;
+    top: 344px;
+border-radius: 40.5px;
+    
+  }
+  .button-8{
+    position: absolute;
+    width: 93.14px;
+    height: 57.78px;
+    left: 1347.02px;
+    top: 344px;
+border-radius: 40.5px;
+    
+  }
+  .button-9{
+    position: absolute;
+    width: 93.14px;
+height: 57.78px;
+left: 1466.86px;
+top: 344px;
+
+border-radius: 40.5px;
+    
+  }
+
+ .img-saly{
+  position: absolute;
+  left: 54.17%;
+  right: 19.9%;
+  top: 7.42%;
+  bottom: 23.18%;
+ }
+ 
+  
 
 
   
