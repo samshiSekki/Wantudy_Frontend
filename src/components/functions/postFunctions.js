@@ -14,3 +14,8 @@ export const postScrap = async (studyId) => {
     params: { studyId: studyId },
   });
 };
+export const registerPost = async (studyId,body) => {
+  await axios.post(`http://13.209.66.117:8080/study/${studyId}/application`, body,{
+    params:{studyId:studyId}
+  });
+};
