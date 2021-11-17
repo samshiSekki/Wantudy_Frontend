@@ -26,7 +26,8 @@ function LoggedOut(props){
     return(
     <div>
         <div className="navbar_white">
-        <div className="wantudyWhite" onClick={logoClickHandler}>wantudy</div>
+        <img src="img/LOGO 1.png" className="navbarLogoImg"/>
+        <div className="logoWhite" onClick={logoClickHandler}>wantudy</div>
         <div className="join">스터디 참여</div>
         <div className="make">스터디 개설</div>
         <div className="apply">스터디 신청서 등록</div>
@@ -60,6 +61,7 @@ function LoggedIn(props){
             pathname: "/main_logged",
             state: {userInfo: props.userInfo}
         });
+        window.location.reload();
     }
 
     function goToStudy(){
@@ -80,6 +82,7 @@ function LoggedIn(props){
             pathname: "/mypage",
             state: {userInfo: props.userInfo}
         });
+        window.location.reload();
     }
 
     return(

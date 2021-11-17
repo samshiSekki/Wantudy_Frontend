@@ -5,18 +5,19 @@ import Register from './pages/Register';
 import Mainpage from './pages/MainPage/MainPage';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import MainPageLogged from './pages/MainPage/Main_logged';
-import Mypage from './pages/Mypage';
+import Mypage from './pages/Mypage/Mypage';
 import ModNick from './pages/ModNick';
 import RegDefaultApp from './pages/ApplicationManage/RegDefaultApp';
 import ModAppLists from './pages/ApplicationManage/ModAppLists';
 import ModDefaultApp from './pages/ApplicationManage/ModDefaultApp';
-import LikedStudy from './pages/LikedStudy';
+import LikedStudy from './pages/Mypage/LikedStudy';
 import "antd/dist/antd.css";
 import PostPage from './pages/PostPage/PostPage'
 import './style/PostList.css'
 import './style/PostWrite.css'
 import RegDefaultApp2 from './pages/ApplicationManage/RegDefaultApp2';
 import ModDefaultApp2 from './pages/ApplicationManage/ModDefaultApp2';
+import AppliedStudy from './pages/Mypage/AppliedStudy';
 
 
 function App() {
@@ -55,6 +56,10 @@ function App() {
 
       <Route path='/mypage'>
         <Mypage/>
+      </Route>
+
+      <Route path='/applied_study'>
+        <AppliedStudy/>
       </Route>
 
       <Route path='/mod_nickname'>

@@ -247,4 +247,4 @@ function PostList({ match, history,location }) {
   
 }
 
-export default PostList;
+export default withRouter(PostList);

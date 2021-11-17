@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { isDOMComponent } from 'react-dom/test-utils';
 import Navbar from '../Navbar/Navbar.js';
 import { useHistory } from 'react-router';

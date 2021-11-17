@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import { withRouter, useLocation, useHistory } from 'react-router';
 import axios from 'axios';
-import Navbar from './Navbar/Navbar.js';
-import Footer from './Footer/Footer.js';
-import '../css/mypage.css';
+import Navbar from '../Navbar/Navbar.js';
+import Footer from '../Footer/Footer.js';
+import '../../css/mypage.css';
 
 
 function Mypage(props) {
     let location = useLocation();
     const userInfo = location.state.userInfo;
     const [liked, setLiked] = useState("");
-    const [applied, setApplied] = useState([,]);
-    const [opened, setOpened] = useState([,]);
+    const [applied, setApplied] = useState([{studyName: null},]);
+    const [opened, setOpened] = useState([{study:{studyName: null}},]);
     const [ongoing, setOngoing] = useState("");
 
     useEffect(async()=>{
@@ -21,18 +21,21 @@ function Mypage(props) {
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/apply-studylist`);
         //console.log(response.data);
-        setApplied(response.data);
-        console.log(applied);
+        response.data.msg == "신청한 스터디가 없습니다"
+        ? applied[0].studyName = "신청한 스터디가 없습니다"
+        : setApplied(response.data)
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/opened-studylist`);
-        //console.log(response);
-        setOpened(response.data);
-        console.log(opened);
+        console.log(response);
+        response.data.msg == "개설한 스터디가 없습니다"
+        ? opened[0].study.studyName = "개설한 스터디가 없습니다"
+        : setOpened(response.data)
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
         //console.log(response);
         setOngoing(response.data.msg);
     },[]);
+
 
     function nickModifyClickHandler(){
         props.history.push({ 
@@ -65,7 +68,7 @@ function Mypage(props) {
 
     function moreApplied(){
         props.history.push({
-            pathname: "",
+            pathname: "/applied_study",
             state: {userInfo: userInfo}
         })
     }
@@ -107,19 +110,11 @@ function Mypage(props) {
                 <div className="studyStatus">
                     스터디 등록 현황 <br/><br/>
                     신청한 스터디 : <br/>
-                    {
-                        applied.map((a,i)=>{
-                            return applied[i].studyName
-                        })
-                    }
+                    {applied[0].studyName}
                      <br/>
                     <button onClick={moreApplied}>더보기</button><br/>
                     개설한 스터디 : <br/>
-                    {
-                        opened.map((a,i)=>{
-                            return opened[i].study.studyName
-                        })
-                    }
+                    {opened[0].study.studyName}
                      <br/>
                     <button onClick={moreOpened}>더보기</button>
                 </div>

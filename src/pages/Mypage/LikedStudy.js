@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { withRouter, useLocation, useHistory } from 'react-router';
-import Navbar from './Navbar/Navbar';
-import Footer from './Footer/Footer';
+import NavbarWhite from '../Navbar/NavbarWhite';
+import Footer from '../Footer/Footer';
 
 function LikedStudy() {
     const location = useLocation();
@@ -18,7 +18,7 @@ function LikedStudy() {
 
     return (
         <div>
-            <Navbar userInfo={userInfo}/>
+            <NavbarWhite userInfo={userInfo}/>
             {liked}
             <Footer/>
         </div>

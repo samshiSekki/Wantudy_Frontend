@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { withRouter, useLocation, useHistory } from 'react-router';
 import axios from 'axios';
 import '../../css/regDefaultApp.css';
-import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import NavbarWhite from '../Navbar/NavbarWhite';
 
