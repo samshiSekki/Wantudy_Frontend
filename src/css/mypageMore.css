@@ -21,6 +21,12 @@
     margin-left: 1067px;
 }
 
+.likedStudyImg{
+    position: absolute;
+    margin-left: 1150px;
+    margin-top: 210px;
+}
+
 .myMorePageTitleText{
     font-style: normal;
     font-weight: 500;

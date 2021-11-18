@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { withRouter, useLocation, useHistory } from 'react-router';
-import Navbar from '../Navbar/Navbar';
+import NavbarWhite from '../Navbar/NavbarWhite';
 import Footer from '../Footer/Footer';
 import '../../css/modAppLists.css';
 
@@ -31,18 +31,44 @@ function ModAppLists(props) {
 
     return (
         <div>
-            <Navbar userInfo={userInfo}/>
-                <div className="appListContainer">
-                    <p className="appListTitle">스터디 신청서 등록</p>
-                    {
-                        apps[0] != 0
-                        ? apps.map((a,i)=>{
-                            return <AppList apps = {apps[i]} i = {i} userInfo={userInfo}/>
-                        })
-                        : "지원서가 없습니다"
-                    }
+            <NavbarWhite userInfo={userInfo}/>
+                <div className="modAppListBanner">
+                    <div className="rdbContent1">
 
-                    <button onClick={writeNewAppBtnClick}>새로운 신청서 작성하기</button>
+                    <div className="rdbDisc">
+                        안녕하세요, {userInfo.nickname}님👋<br/>
+                        스터디 신청을 위한<br/>
+                        신청서를 등록해주세요.
+                    </div>
+
+                    </div>
+                    <div className="malIllust">
+                        <img src="img/Group 347.png"/>
+                    </div>
+                </div>
+                <div className="appListContainer">
+
+                    <div className="malNotify">
+                        <ul>
+                            <li>대표 신청서를 등록 후 추가적인 신청서를 등록할 수 있습니다.</li>
+                            <li>스터디 신청 후 신청서를 수정해도 이전에 신청한 스터디의 신청서에는 반영되지 않습니다.</li>
+                        </ul>
+                    </div>
+
+                    <div className="myAppContainer">
+                        <div className="myApp" onClick={writeNewAppBtnClick}>
+                            <div className="newAppImg">
+                            <img src="img/Group 392.png"/>
+                            </div>
+                        </div>
+                        {
+                            apps.map((a,i)=>{
+                                return <AppList apps = {apps[i]} i = {i} userInfo={userInfo}/>
+                            })
+                        }
+                    </div>
+                    
+                    
                     
                 </div>
 
@@ -71,6 +97,7 @@ function AppList(props){
 
     return(
         <div>
+            {/*
             <div className="apps" onClick={()=>{setModal(!modal)}}>
             {props.i==0
                 ? `기본신청서 : ${props.apps.applicationId}` 
@@ -86,7 +113,25 @@ function AppList(props){
             ?<Modal apps = {props.apps}/>
             :null
             }
+            */}
 
+            <div className={props.i % 3 == 2?"myAppRight":"myApp"} onClick={modifyBtnClickListner}>
+                <div className="myAppTitle">
+                🔗
+                {props.i==0
+                    ? `기본신청서 : ${props.apps.applicationId}` 
+                    : `신청서 ${props.i} : ${props.apps.applicationId}`
+                }
+                <div className="malBtnContainer">
+                {props.i==0
+                    ?null
+                    :<div onClick={deleteBtnClickListner} className="malBtn">삭제</div>
+                }
+                <div onClick={modifyBtnClickListner} className="malBtn">수정</div>
+                
+                </div>
+                </div>
+            </div>
         </div>
     )
 }
