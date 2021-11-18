@@ -50,6 +50,23 @@ function PostList({ match, history,location }) {
     
   }, [pages]);
 
+  for (var f = 0; f < posts.length; f++) {
+    const index = posts.indexOf(posts[f]);
+    if (imageCheck[index] == false){
+      posts[f].img = bookmark2;
+    }
+    else{
+
+      posts[f].img = bookmark1;
+    }
+   /*  console.log(posts[f]) */
+} 
+for (var f = 0; f < posts.length; f++) {
+  posts[f].newId = f;
+  
+ /*  console.log(posts[f]) */
+} 
+
   for (var i = 0; i < posts.length; i++) {
     arr[i] = bookmark1;
 } 
@@ -162,10 +179,6 @@ for (var t = 0; t < posts.length; t++) {
 
 
 
-
-  
-
-
  
   return (
     <>
@@ -219,13 +232,13 @@ for (var t = 0; t < posts.length; t++) {
               <Skeleton avatar title={false} loading={item.loading} active>
                 <List.Item.Meta
                   // eslint-disable-next-line jsx-a11y/alt-text
-                  avatar={<img id = {`${idCheck[posts.indexOf(item)]}`} src={arr[posts.indexOf(item)]} onClick={() => {
+                  avatar={<img id = {item.newId} src={item.img} onClick={() => {
                     const index = posts.indexOf(item);
-                    if (imageCheck[index] === false) {
+                    if (imageCheck[index] == false) {
                       imageCheck[index] = true;
-                      arr[index] = bookmark2;
+                      item.img = bookmark2;
+                      document.getElementById(item.newId).src= bookmark2;
                       
-                    document.getElementById(`${idCheck[posts.indexOf(item)]}`).src = bookmark2;
                       console.log(imageCheck[index], arr[index])
                       let body = {
                         "userId": location.state.userInfo.userId,
@@ -247,8 +260,7 @@ console.log(arr, imageCheck)
                       const index = posts.indexOf(item);
                       imageCheck[index] = false;
                       arr[index] = bookmark1;
-                      document.getElementById(`${idCheck[posts.indexOf(item)]}`).src = bookmark1;
-                      console.log(imageCheck[index], arr[index])
+                      document.getElementById(item.newId).src= bookmark1;
                       let body = {
                         "userId": location.state.userInfo.userId,
                       }
