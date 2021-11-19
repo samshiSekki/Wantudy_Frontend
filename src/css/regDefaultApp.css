@@ -90,6 +90,13 @@
     line-height: 81px;
 }
 
+.rdaItemContainer2{
+    width: 1199px;
+    height: 192px;
+    margin-bottom: 150px;
+    line-height: 192px;
+}
+
 .nameText{
     width: 143px;
     height: 34px;
@@ -164,28 +171,6 @@
     margin-left: 34px;
 }
 
-.twoLineText{
-    width: 477px;
-    height: 71px;
-}
-
-.twoLineText .first{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 25px;
-    color: #181824;
-    padding-bottom: 0px;
-}
-
-.twoLineText .second{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-
-    color: #88898E;
-
-}
-
 .inputAge{
     width: 177px;
     height: 81px;
@@ -218,4 +203,180 @@
     text-align: center;
     line-height: 81px;
     color: #497EF1;
+}
+
+
+.rda2Container{
+    width: 100%;
+    height: 1359px;
+    background: #F8F9FC;
+}
+
+.appText2{
+    width: 399px;
+    height: 71px;
+}
+
+.rda2Btn{
+    width: 183px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #FFFFFF;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+}
+
+.rda2BtnSelected{
+    width: 183px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #497EF1;
+    color: white;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+}
+
+.rda2Btn2{
+    width: 238px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #FFFFFF;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+}
+
+.rda2Btn2Selected{
+    width: 238px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #497EF1;
+    color: white;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+}
+
+
+.rda2Btn3{
+    width: 150px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #FFFFFF;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+    margin-top: 34px;
+}
+
+.rda2Btn3Selected{
+    width: 150px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #497EF1;
+    color: white;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+    margin-top: 34px;
+}
+
+.rda2Btn4{
+    width: 286px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #FFFFFF;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+}
+
+.rda2Btn4Selected{
+    width: 286px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #497EF1;
+    color: white;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+}
+
+.rda2BtnContainer{
+    width: 1000px;
+    height: 197px;
+    float: right;
+}
+
+.rda2BtnContainer2{
+    width: 900px;
+    height: 197px;
+    float: right;
+}
+
+.rda2Btn5{
+    width: 238px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #FFFFFF;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+    margin-top: 34px;
+}
+
+.rda2Btn5Selected{
+    width: 238px;
+    height: 82px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #497EF1;
+    color: white;
+    border-radius: 40.5px;
+    line-height: 82px;
+    float: right;
+    margin-left: 34px;
+    margin-top: 34px;
+}
+
+.rdaSubmitBtn{
+    margin-top: 76px;
+    float: right;
+    margin-right: 360px;
+}
+
+.rdaPrevBtn{
+    margin-top: 76px;
+    float: right;
+    margin-right: 34px;
 }

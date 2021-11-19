@@ -5,6 +5,7 @@ import '../../css/regDefaultApp.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import NavbarWhite from '../Navbar/NavbarWhite';
+import RegDefaultApp2 from './RegDefaultApp2';
 
 /*기본 지원서 등록 페이지*/
 function RegDefaultApp(props) {
@@ -40,45 +41,34 @@ function RegDefaultApp(props) {
         setAddress(e.target.value);
     }
 
-    const submitClickHandler = async() => {
-        let response = await axios.post(`http://13.209.66.117:8080/study/application`,{
-            userId: userInfo.userId,
-            applicationName: "jaemDefaultApp",
+    function nextBtnClickHandler(){
+        let appContents = {
             name: name,
             gender: gender,
-            age: parseInt(age),
+            age: age,
             school: school,
             major: major,
             attending: attend,
-            semester: [1],
-            address: address,
-            interests: ["큐시즘"],
-            keyword: ["큐시즘"]
-        });
-
-        response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}`);
-
-        console.log(response);
-        userInfo.state = true;
-        console.log(userInfo);
-
+            address: address
+        }
         props.history.push({ 
-            pathname: "/mod_app_lists",
-            state: {userInfo: userInfo}
+            pathname: "/reg_default_app2",
+            state: {userInfo: userInfo, appContents: appContents}
         });
     }
 
     
     return (
-        <div className="registerAppsContainer">
+        <>
             <NavbarWhite userInfo={userInfo}/>
+            <div className="registerAppsContainer">
             <div className="regDefaultBanner">
                 <div className="rdbContent1">
 
                     <div className="rdbDisc">
                     안녕하세요, {userInfo.nickname}님👋<br/>
                     스터디 신청을 위한<br/>
-                    대표 신청서를 등록해주세요.
+                    신청서를 등록해주세요.
                     </div>
 
                 </div>
@@ -88,7 +78,7 @@ function RegDefaultApp(props) {
             </div>
             <div className="rdaContainer">
                 <div className="rdaContents">
-                <p className="appTitle">대표 신청서</p>
+                <p className="appTitle">스터디 신청서</p>
                 <hr className="appHr"/>
                 
                 <div className="rdaItemContainer">
@@ -144,17 +134,16 @@ function RegDefaultApp(props) {
 
                 <hr className="appHr"/>
                 
-                <div className="nextButton" onClick={submitClickHandler}>
+                <div className="nextButton" onClick={nextBtnClickHandler}>
                     <img src="img/Group 127.png" className="nextVector"/>
                     다음
                 </div>
 
                 </div>
             </div>
-            <div className="Footer">
-                <Footer/>
             </div>
-        </div>
+                <Footer/>
+        </>
     )
 }
 

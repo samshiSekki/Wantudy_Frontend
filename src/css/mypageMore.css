@@ -1,0 +1,136 @@
+.myMorePageContainer{
+    width: 100%;
+    height: auto;
+    background-color: #F8F9FC;
+    padding-left: 360px;
+    padding-right: 360px;
+    padding-top: 100px;
+    padding-bottom: 135px;
+    font-family: "Noto Sans KR";
+}
+
+.myMorePageBanner{
+    width: 1200px;
+    height: 201px;
+    background: #497EF1;
+    border-radius: 46px 46px 0px 0px;
+}
+
+.appliedStudyImg{
+    position: absolute;
+    margin-left: 1067px;
+}
+
+.likedStudyImg{
+    position: absolute;
+    margin-left: 1150px;
+    margin-top: 210px;
+}
+
+.myMorePageTitleText{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 41px;
+    margin-left: 73px;
+    padding-top: 57px;
+    color: #FFFFFF;
+}
+
+.appliedList{
+    width: 1200px;
+    height: 300px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.likedListContainer{
+    padding-top: 44px;
+    padding-bottom: 28px;
+    width: 1200px;
+    height: auto;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.likedList{
+    text-align: left;
+    display: inline-block;
+    width: 1055px;
+    height: 155px;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+    margin-bottom: 23px;
+}
+
+.bookMarkVector{
+    margin-left: 69.5px;
+    margin-top: 60.5px;
+    float: left;
+}
+
+.likedStudyName{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    margin-left: 53px;
+    color: #22272E;
+    float: left;
+    margin-top: 60px;
+}
+
+.likedStudyStatus{
+    float: right;
+    margin-top: 37px;
+    margin-right: 82.64px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: right;
+}
+
+.appliedStudyName{
+    width: 1014px;
+    height: 71px;
+    background: #F8F9FC;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 71px;
+    margin-top: 44px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+}
+
+
+.applyStatus{
+    position: absolute;
+    margin-left: 550px;
+    margin-top: 30px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    color: #497EF1;
+}
+
+.appliedStudyBtn{
+    width: 178px;
+    height: 49.94px;
+    background: #EEEFF2;
+    border-radius: 40.5px;
+    float: left;
+    text-align: center;
+    line-height: 49.94px;
+    margin-top: 90px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.appliedStudyBtnContainer{
+    display: inline-block;
+}

@@ -1,18 +1,52 @@
 .appListContainer{
     width: 100%;
-    height: 1000px;
+    height: auto;
     text-align: center;
+    font-family: "Noto Sans KR";
     font-size: 20px;
+    padding-top: 110px;
+    padding-bottom: 197px;
+    background: #F8F9FC;
 }
 
-.appListTitle{
-    font-family: Roboto;
+.modAppListBanner{
+    width: 100%;
+    height: 582px;
+    background: white;
+    font-family: "Noto Sans KR";
+}
+.rdbContent1{
+    margin-left: 360px;
+    width: 761px;
+    height: 314px;
+    float: left;
+}
+.rdbDisc{
+    margin-top: 165px;
+    width: 761px;
+    height: 181px;
     font-style: normal;
     font-weight: bold;
-    font-size: 28px;
-    line-height: 33px;
+    font-size: 42px;
+    line-height: 57px;
+}
+.malIllust{
+    float:left;
     margin-top: 50px;
-    margin-bottom: 100px;
+}
+
+.malNotify{
+    width: 1198px;
+    height: 134px;
+    background: #EEEFF2;
+    display: inline-block;
+    text-align: left;
+    padding-top: 37px;
+    padding-left: 34px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #88898E;
 }
 
 .apps{
@@ -29,4 +63,66 @@
     background: #C4C4C4;
     width: 995px;
     height: 300px;
+}
+
+.myAppContainer{
+    width: 1198px;
+    height: auto;
+    display: inline-block;
+    text-align: left;
+    font-family: "Noto Sans KR";
+}
+
+.newAppImg{
+    margin-top: 58px;
+    margin-left: 90px;
+}
+
+.myApp{
+    width: 380px;
+    height: 274px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.06);
+    float: left;
+    margin-right: 19px;
+    margin-top: 52px;
+}
+
+.myAppRight{
+    width: 380px;
+    height: 274px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.06);
+    line-height: 274px;
+    float: left;
+    margin-top: 52px;
+}
+
+.myAppTitle{
+    margin-top: 39px;
+    margin-left: 42px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.malBtnContainer{
+    width: 142px;
+    height: 41px;
+    margin-top: 127px;
+    margin-left: 140px;
+}
+
+.malBtn{
+    width: 63px;
+    height: 41px;
+    text-align: center;
+    line-height: 41px;
+    background: #EEEFF2;
+    border-radius: 40.5px;
+    float: right;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 5px;
 }

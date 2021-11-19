@@ -1,64 +1,257 @@
 .mypageContainer{
     text-align: center;
-    width: 1200px;
-    height: 1393px;
-    margin-left: 360px;
-
-    background: #C4C4C4;
+    width: 100%;
+    height: auto;
+    font-family: "Noto Sans KR";
+    background: #F8F9FC;
+    padding-top: 100px;
+    padding-bottom: 125px;
 }
 
-.mypageTitle{
-    padding-top: 71px;
+.mypageBanner{
+    display: inline-block;
+    width: 1200px;
+    height: 201px;
+    background: #497EF1;
+    border-radius: 46px 46px 0px 0px;
+}
+
+.mypageTitleText{
+    text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 41px;
+    margin-left: 73px;
+    padding-top: 57px;
+    color: #FFFFFF;
+}
+
+.mypageImg{
+    position: absolute;
+    margin-left: 1200px;
+    margin-top: 90px;
+}
+
+.temperatureContainer{
+    margin-top: 13px;
+    display: inline-block;
+    width: 1200px;
+    height: 195px;
+    background: #FFFFFF;
+    padding-top: 43px;
+    padding-left: 73px;
+    text-align: left;
+}
+
+.myTempTitle{
     font-style: normal;
     font-weight: bold;
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 22px;
+    line-height: 30px;
+    color: #22272E;
+    float: left;
 }
 
-.likedStudy{
-    width: 1055px;
-    height: 322px;
-    background: #B1A9A9;
-    margin-left: 73px;
-    margin-top: 42px;
+.myTempStatus{
+    margin-top: 18px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #22272E;
 }
 
-.studyStatus{
-    width: 1055px;
-    height: 322px;
-    background: #B1A9A9;
-    margin-left: 73px;
-    margin-top: 61px;
+.participatedStudyContainer{
+    background: #FFFFFF;
+    width: 1200px;
+    height: 507px;
+    display: inline-block;
+    margin-top: 13px;
+    text-align: left;
+    padding-top: 45px;
+    padding-left: 73px;
 }
 
-.participatedStudy{
+.mypagePreview{
+    width: 446px;
+    height: 135px;
+    background: #F8F9FC;
+    margin-top: 45px;
+    text-align: center;
+    line-height: 135px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #22272E;
+}
+
+.mypagePreview2{
+    width: 446px;
+    height: 52px;
+    background: #F8F9FC;
+    border-radius: 18px;
+    margin-top: 45px;
+    text-align: center;
+    line-height: 52px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #22272E;
+}
+
+.mypagePreview3{
+    position: absolute;
+    padding-left: 30px;
+    padding-right: 30px;
     width: 512px;
-    height: 322px;
-    margin-left: 73px;
-    background: #B1A9A9;
-    float:left;
-    margin-top: 60px;
+    height: 52px;
+    line-height: 52px;
+    border-radius: 18px;
+    background: #F8F9FC;
+    margin-top: 45px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #22272E;
 }
 
-.assignment{
+.mypagePreview4{
+    position: absolute;
+    margin-left: 542px;
+    padding-left: 30px;
+    padding-right: 30px;
     width: 512px;
-    height: 322px;
-    margin-left: 31px;
-    background: #B1A9A9;
-    float:left;
-    margin-top: 60px;
+    height: 52px;
+    line-height: 52px;
+    border-radius: 18px;
+    background: #F8F9FC;
+    margin-top: 45px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #22272E;
 }
 
-.applyModBtn{
-    margin-top: 42px;
-    width: 188px;
-    height: 50px;
-    margin-right: 15px;
+.likedPreviewContainer{
+    width: 1054px;
+    height: 141px;
 }
 
-.nickModBtn{
-    margin-top: 42px;
-    width: 188px;
-    height: 50px;
-    margin-left: 15px;
+.mypageBookmarkimg{
+    margin-top: 10px;
+    float:right
+}
+
+.applyBlockStatus{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    color: #497EF1;
+    margin-top: 25px;
+    width: 446px;
+    text-align: center;
+}
+
+.participatedBlock{
+    float: left;
+    margin-bottom: 45px;
+}
+
+.subjectBlock{
+    float: left;
+    margin-left: 150px;
+    margin-bottom: 45px;
+}
+
+.mypageMoreBtn{
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #497EF1;
+    float: right;
+    margin-right: 25px;
+}
+
+.likedStudyContainer{
+    text-align: left;
+    display: inline-block;
+    width: 1200px;
+    height: auto;
+    background: #FFFFFF;
+    margin-top: 13px;
+    padding-top: 45px;
+    padding-bottom: 30px;
+    padding-left: 73px;
+}
+
+.applyStatusContainer{
+    margin-top: 13px;
+    text-align: left;
+    display: inline-block;
+    width: 1200px;
+    height: 275px;
+}
+
+.appliedBlock{
+    padding-top: 45px;
+    padding-left: 73px;
+    width: 592px;
+    height: 238px;
+    background: #FFFFFF;
+    float: left;
+}
+
+.openedBlock{
+    padding-top: 45px;
+    padding-left: 73px;
+    width: 592px;
+    height: 238px;
+    background: #FFFFFF;
+    float: left;
+    margin-left: 16px;
+}
+
+.appliedUserName{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 19px;
+    color: #22272E;
+    margin-top: 25px;
+    float: left;
+}
+
+.appliedUserDate{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 27px;
+    color: #88898E;
+    float: left;
+    margin-left: 110px;
+}
+
+.mypageBtnContainer{
+    margin-top: 56px;
+    display: inline-block;
+    width: 405px;
+    height: 57px;
+}
+
+.mypageFooterBtn{
+    float: left;
+    width: 166px;
+    height: 57px;
+    line-height: 57px;
+    background: #EEEFF2;
+    border-radius: 40.5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 25px;
 }

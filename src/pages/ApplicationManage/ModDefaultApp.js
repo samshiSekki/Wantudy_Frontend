@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { withRouter, useLocation, useHistory } from 'react-router';
 import axios from 'axios';
 import '../../css/regDefaultApp.css';
-import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import NavbarWhite from '../Navbar/NavbarWhite';
 
@@ -65,6 +64,22 @@ function ModDefaultApp(props) {
         props.history.push({ 
             pathname: "/mod_app_lists",
             state: {userInfo: userInfo}
+        });
+    }
+
+    function nextBtnClickHandler(){
+        let appContents = {
+            name: name,
+            gender: gender,
+            age: age,
+            school: school,
+            major: major,
+            attending: attend,
+            address: address
+        }
+        props.history.push({ 
+            pathname: "/mod_default_app2",
+            state: {userInfo: userInfo, appContents: appContents, applicationId: apps.applicationId}
         });
     }
 
@@ -143,7 +158,7 @@ function ModDefaultApp(props) {
 
                 <hr className="appHr"/>
                 
-                <div className="nextButton" onClick={submitClickHandler}>
+                <div className="nextButton" onClick={nextBtnClickHandler}>
                     <img src="img/Group 127.png" className="nextVector"/>
                     다음
                 </div>

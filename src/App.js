@@ -5,18 +5,19 @@ import Register from './pages/Register';
 import Mainpage from './pages/MainPage/MainPage';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import MainPageLogged from './pages/MainPage/Main_logged';
-import Mypage from './pages/Mypage';
+import Mypage from './pages/Mypage/Mypage';
 import ModNick from './pages/ModNick';
 import RegDefaultApp from './pages/ApplicationManage/RegDefaultApp';
 import ModAppLists from './pages/ApplicationManage/ModAppLists';
 import ModDefaultApp from './pages/ApplicationManage/ModDefaultApp';
-import RegOtherApp from './pages/ApplicationManage/RegOtherApp';
-import LikedStudy from './pages/LikedStudy';
+import LikedStudy from './pages/Mypage/LikedStudy';
 import "antd/dist/antd.css";
 import PostPage from './pages/PostPage/PostPage'
 import './style/PostList.css'
 import './style/PostWrite.css'
-import Test from './pages/Test';
+import RegDefaultApp2 from './pages/ApplicationManage/RegDefaultApp2';
+import ModDefaultApp2 from './pages/ApplicationManage/ModDefaultApp2';
+import AppliedStudy from './pages/Mypage/AppliedStudy';
 
 
 function App() {
@@ -57,12 +58,20 @@ function App() {
         <Mypage/>
       </Route>
 
+      <Route path='/applied_study'>
+        <AppliedStudy/>
+      </Route>
+
       <Route path='/mod_nickname'>
         <ModNick/>
       </Route>
 
       <Route path='/reg_default_app'>
         <RegDefaultApp/>
+      </Route>
+
+      <Route path='/reg_default_app2'>
+        <RegDefaultApp2/>
       </Route>
 
       <Route path='/mod_app_lists'>
@@ -73,8 +82,8 @@ function App() {
         <ModDefaultApp/>
       </Route>
 
-      <Route path='/reg_other_app'>
-        <RegOtherApp/>
+      <Route path='/mod_default_app2'>
+        <ModDefaultApp2/>
       </Route>
 
       <Route path='/liked_study'>
@@ -84,10 +93,6 @@ function App() {
       <Route path="/post" component={PostPage} />
       </Switch>
       </BrowserRouter>
-
-      <Route path='/test'>
-        <Test/>
-      </Route>
 
     </div>
   );

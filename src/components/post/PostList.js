@@ -348,4 +348,4 @@ console.log(arr, imageCheck)
   
 }
 
-export default PostList;
+export default withRouter(PostList);
