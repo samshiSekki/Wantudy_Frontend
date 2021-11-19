@@ -44,6 +44,53 @@
     text-align: center;
 }
 
+.likedListContainer{
+    padding-top: 44px;
+    padding-bottom: 28px;
+    width: 1200px;
+    height: auto;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.likedList{
+    text-align: left;
+    display: inline-block;
+    width: 1055px;
+    height: 155px;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+    margin-bottom: 23px;
+}
+
+.bookMarkVector{
+    margin-left: 69.5px;
+    margin-top: 60.5px;
+    float: left;
+}
+
+.likedStudyName{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    margin-left: 53px;
+    color: #22272E;
+    float: left;
+    margin-top: 60px;
+}
+
+.likedStudyStatus{
+    float: right;
+    margin-top: 37px;
+    margin-right: 82.64px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: right;
+}
+
 .appliedStudyName{
     width: 1014px;
     height: 71px;

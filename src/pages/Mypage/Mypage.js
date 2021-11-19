@@ -9,30 +9,43 @@ import '../../css/mypage.css';
 function Mypage(props) {
     let location = useLocation();
     const userInfo = location.state.userInfo;
-    const [liked, setLiked] = useState("");
-    const [applied, setApplied] = useState([{studyName: null},]);
-    const [opened, setOpened] = useState([{study:{studyName: null}},]);
+    const [liked, setLiked] = useState([{studyName: null}, {studyName: null}]);
+    const [applied, setApplied] = useState([{studyName: null, state: null},]);
+    const [opened, setOpened] = useState([{study:{studyName: null}, applications:[{application: {name: null}, registered: null},]},]);
     const [ongoing, setOngoing] = useState(["",]);
 
     useEffect(async()=>{
         let response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/like-studylist`);
-        //console.log(response);
-        setLiked(response.data.msg);
+        console.log(response);
+        //setLiked(response.data.msg);
+        response.data.msg == "찜한 스터디가 없습니다"
+        ? function(){
+            liked[0].studyName = "찜한 스터디가 없습니다";
+            liked[0].studyName = "찜한 스터디가 없습니다";
+        }()
+        : setLiked(response.data)
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/apply-studylist`);
         //console.log(response.data);
         response.data.msg == "신청한 스터디가 없습니다"
-        ? applied[0].studyName = "신청한 스터디가 없습니다"
+        ? function(){
+            applied[0].studyName = "신청한 스터디가 없습니다";
+            applied[0].state=2;
+        }()
         : setApplied(response.data)
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/opened-studylist`);
-        console.log(response);
+        //console.log(response);
         response.data.msg == "개설한 스터디가 없습니다"
-        ? opened[0].study.studyName = "개설한 스터디가 없습니다"
+        ? function(){
+            opened[0].study.studyName = "개설한 스터디가 없습니다";
+            opened[0].applications[0].application.name = "";
+            opened[0].applications[0].registered = "";
+        }()
         : setOpened(response.data)
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
-        console.log(response);
+        //console.log(response);
         setOngoing(response.data.msg);
     },[]);
 
@@ -118,18 +131,31 @@ function Mypage(props) {
 
                 <div className="participatedStudyContainer">
                     <div className="participatedBlock">
-                    <div className="myTempTitle">📋 참여 스터디</div>
-                    <div className="mypagePreview">
-                        {ongoing}
+                        <div className="myTempTitle">📋 참여 스터디</div>
+                            <div className="mypagePreview">
+                                {ongoing}
+                            </div>
                     </div>
-                    </div>
-                    <div className="subjectBlock">
-                    <div className="myTempTitle">✍ 과제 관리</div>
-                    <div className="mypagePreview">
-                        {ongoing}
-                    </div>
-                    </div>
+                        <div className="subjectBlock">
+                            <div className="mypagePreview">
+                                {ongoing}
+                            </div>
+                        </div>
                     <div className="mypageMoreBtn" onClick={moreOngoing}>+더보기</div>
+                    <div className="participatedBlock">
+                        <div className="myTempTitle">✍ 과제 관리</div>
+                            <div className="mypagePreview">
+                                {ongoing}
+                            </div>
+                    </div>
+                        <div className="subjectBlock">
+                            <div className="mypagePreview">
+                                {ongoing}
+                            </div>
+                        </div>
+
+                    
+
                 </div>
 
                 
@@ -137,16 +163,35 @@ function Mypage(props) {
                     <div className="appliedBlock">
                         <div className="myTempTitle">🚀 신청한 스터디</div>
                         <div className="mypageMoreBtn" onClick={moreApplied}>+더보기</div>
-                        <div className="mypagePreview">
+                        <div className="mypagePreview2">
                             {applied[0].studyName}
-                        </div>  
+                        </div>
+                        <div className="applyBlockStatus">
+                            {
+                                applied[0].state == 0
+                                ? "수락 대기중"
+                                    : applied[0].state == 1
+                                    ? "수락됨"
+                                    : applied[0].state == 2
+                                        ? "거절됨"
+                                        : ""
+                            }
+                        </div>
                     </div>
 
                     <div className="openedBlock">
                         <div className="myTempTitle">🔎 개설한 스터디</div>
                         <div className="mypageMoreBtn" onClick={moreOpened}>+더보기</div>
-                        <div className="mypagePreview">
+                        <div className="mypagePreview2">
                             {opened[0].study.studyName}
+                        </div>
+                        <div>
+                            <div className="appliedUserName">
+                                {opened[0].applications[0].application.name + " "}
+                            </div>
+                            <div className="appliedUserDate">
+                                {opened[0].applications[0].registered} 신청
+                            </div>
                         </div>
                     </div>
                 
@@ -155,8 +200,15 @@ function Mypage(props) {
                 <div className="likedStudyContainer">
                     <div className="myTempTitle">🖇 관심 있는 스터디</div>
                     <div className="mypageMoreBtn" onClick={moreLiked}>+더보기</div>
-                    <div className="mypagePreview">
-                        {liked}
+                    <div className="likedPreviewContainer">
+                        <div className="mypagePreview3">
+                            {liked[0].studyName}
+                            <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                        </div>
+                        <div className="mypagePreview4">
+                            {liked[1].studyName}
+                            <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                    </div>
                     </div>
                 </div>
                 <br/>

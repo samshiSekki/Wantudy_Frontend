@@ -64,7 +64,7 @@
 .participatedStudyContainer{
     background: #FFFFFF;
     width: 1200px;
-    height: 275px;
+    height: 507px;
     display: inline-block;
     margin-top: 13px;
     text-align: left;
@@ -85,13 +85,84 @@
     color: #22272E;
 }
 
+.mypagePreview2{
+    width: 446px;
+    height: 52px;
+    background: #F8F9FC;
+    border-radius: 18px;
+    margin-top: 45px;
+    text-align: center;
+    line-height: 52px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #22272E;
+}
+
+.mypagePreview3{
+    position: absolute;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 512px;
+    height: 52px;
+    line-height: 52px;
+    border-radius: 18px;
+    background: #F8F9FC;
+    margin-top: 45px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #22272E;
+}
+
+.mypagePreview4{
+    position: absolute;
+    margin-left: 542px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 512px;
+    height: 52px;
+    line-height: 52px;
+    border-radius: 18px;
+    background: #F8F9FC;
+    margin-top: 45px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #22272E;
+}
+
+.likedPreviewContainer{
+    width: 1054px;
+    height: 141px;
+}
+
+.mypageBookmarkimg{
+    margin-top: 10px;
+    float:right
+}
+
+.applyBlockStatus{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    color: #497EF1;
+    margin-top: 25px;
+    width: 446px;
+    text-align: center;
+}
+
 .participatedBlock{
     float: left;
+    margin-bottom: 45px;
 }
 
 .subjectBlock{
     float: left;
     margin-left: 150px;
+    margin-bottom: 45px;
 }
 
 .mypageMoreBtn{
@@ -101,7 +172,8 @@
     font-size: 16px;
     line-height: 22px;
     color: #497EF1;
-    float: left;
+    float: right;
+    margin-right: 25px;
 }
 
 .likedStudyContainer{
@@ -112,7 +184,7 @@
     background: #FFFFFF;
     margin-top: 13px;
     padding-top: 45px;
-    padding-bottom: 45px;
+    padding-bottom: 30px;
     padding-left: 73px;
 }
 
@@ -128,7 +200,7 @@
     padding-top: 45px;
     padding-left: 73px;
     width: 592px;
-    height: 275px;
+    height: 238px;
     background: #FFFFFF;
     float: left;
 }
@@ -137,10 +209,31 @@
     padding-top: 45px;
     padding-left: 73px;
     width: 592px;
-    height: 275px;
+    height: 238px;
     background: #FFFFFF;
     float: left;
     margin-left: 16px;
+}
+
+.appliedUserName{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 19px;
+    color: #22272E;
+    margin-top: 25px;
+    float: left;
+}
+
+.appliedUserDate{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 27px;
+    color: #88898E;
+    float: left;
+    margin-left: 110px;
 }
 
 .mypageBtnContainer{

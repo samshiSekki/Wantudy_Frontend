@@ -19,7 +19,7 @@ function AppliedStudy() {
   console.log(appliedList);
 
     return (
-        <div>
+        <div className>
           <NavbarWhite userInfo={userInfo}/>
           <img src="img/Group 408.png" className="appliedStudyImg"/>
           <div className="myMorePageContainer">
