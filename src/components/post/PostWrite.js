@@ -6,6 +6,10 @@ import { Button, Input, message, Select, Form,Radio, InputNumber,Modal, DatePick
 import useErrorHandling from '../../hooks/useErrorHandling';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+import Navbar from '../../pages/Navbar/NavbarWhite';
+import Footer from '../../pages/Footer/Footer';
+import Group1 from './Group-278.png'
+
 const CheckboxGroup = Checkbox.Group;
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
@@ -179,23 +183,30 @@ const plainOptions = ['오프라인', '온라인'];
 
   return (
     <>
+    <Navbar userInfo={props.location.state.userInfo}/>
+    <div className='post-empty'>
+      <img src={Group1}/>
+    </div>
+
      <div className='post-write-box'>
-            <div><div style={{float:'left'}}>스터디명 : &nbsp;</div>
+       <div className='study-title'><h3>스터디원 모집 게시물</h3></div>
+       
+       <hr />
+            <div><div className='study-name'>스터디명 : &nbsp;</div>
       <Input
           className="title-bar"
           type="text"
           placeholder="스터디명"
-          style={{ width: '80%' }}
           value={value.studyName}
           onChange={(e) => {console.log(value)
             setvalue({ ...value, studyName: e.target.value });
           }}
         />
         <hr />
-        <div style={{float:'left'}}>분야 : &nbsp;</div>
+        <div className='field-text'>분야 : &nbsp;</div>
         <Select
       mode="tags"
-      style={{ width: '80%' }}
+      className="field-select"
       placeholder="개설 분야"      
       value = {value.category}
       showArrow={true}
@@ -216,9 +227,9 @@ const plainOptions = ['오프라인', '온라인'];
           }}
         /> */}
         <hr />
-        <div style={{float:'left'}}>상세 설명 : &nbsp;</div>
+        <div className='description-text'>상세 설명 : &nbsp;</div>
         <Input
-          className="title-bar"
+          className="desciprtion-bar"
           style={{width:'80%'}}
           type="text"
           placeholder="상세 설명"
@@ -228,9 +239,9 @@ const plainOptions = ['오프라인', '온라인'];
           }}
         />
         <hr />
-        <div style={{float:'left'}}>난이도 : &nbsp;</div>
+        <div className="level-text">난이도 : &nbsp;</div>
         <Input
-          className="title-bar"
+          className="level-bar"
           style={{width:'80%'}}
           type="text"
           placeholder="level"
@@ -241,8 +252,8 @@ const plainOptions = ['오프라인', '온라인'];
         />
       <Form
       name="validate_other"
-    > <div style={{float:'left'}}>진행 방식 : &nbsp;</div> 
-      <Checkbox.Group options={plainOptions} value = {value.onoff} onChange={(e) => {
+    > <div className="onoff-text">진행 방식 : &nbsp;</div> 
+      <Checkbox.Group className="onoff-bar" options={plainOptions} value = {value.onoff} onChange={(e) => {
         setvalue({ ...value, onoff: e })}}/>
           {/* <Form.Item
         name="radio-button"
@@ -357,6 +368,9 @@ const plainOptions = ['오프라인', '온라인'];
           </Button>
         </div>
       </div>
+      </div>
+      <div id='foot'>
+      <Footer/>
       </div>
     </>
   );

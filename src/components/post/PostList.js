@@ -3,11 +3,15 @@ import { Link, Switch, withRouter } from 'react-router-dom';
 import { Menu, Dropdown, Button, Table, Pagination,List,Skeleton,message,Tag, Input } from 'antd';
 import axios from 'axios';
 import heart from './heart.png';
-import {postScrap} from '../functions/postFunctions'
+import {postScrap,postScrapDelete} from '../functions/postFunctions'
 import Navbar from '../../pages/Navbar/NavbarWhite';
 import Footer from '../../pages/Footer/Footer';
 import bi_plus from './bi_plus.png'
 import Saly from './Saly.png'
+
+import bookmark1 from './icon_bookmark_unclick.png'
+
+import bookmark2 from './icon_bookmark_click.png'
 
 const { Column } = Table;
 const { Search } = Input;
@@ -20,6 +24,11 @@ function PostList({ match, history,location }) {
   const [mdata, setMdata] = useState([]);
   const [selectColor, setSelectColor] = useState(false);
   const [textColor, setTextColor] = useState('black');
+  const [imageset, setImageSet] = useState(bookmark1);
+
+  var arr = new Array();
+  var imageCheck = new Array();
+  var idCheck = new Array();
   var color_onoff = '#D0FFBA'
   var color_category = '#BAFFFF'
   var color_level = '#EFD5FF'
@@ -38,8 +47,36 @@ function PostList({ match, history,location }) {
     } */)
     .then(res =>{setPosts(res.data); setMdata(res.data)})
     .catch(err => console.log(err));
-  console.log(posts) 
+    
   }, [pages]);
+
+  for (var f = 0; f < posts.length; f++) {
+    const index = posts.indexOf(posts[f]);
+    if (imageCheck[index] == false){
+      posts[f].img = bookmark2;
+    }
+    else{
+
+      posts[f].img = bookmark1;
+    }
+   /*  console.log(posts[f]) */
+} 
+for (var f = 0; f < posts.length; f++) {
+  posts[f].newId = f;
+  
+ /*  console.log(posts[f]) */
+} 
+
+  for (var i = 0; i < posts.length; i++) {
+    arr[i] = bookmark1;
+} 
+for (var j = 0; j < posts.length; j++) {
+  imageCheck[j] = false;
+}   
+for (var t = 0; t < posts.length; t++) {
+  idCheck[j] = t;
+}   
+
 
 
   const register = () => {
@@ -109,11 +146,37 @@ function PostList({ match, history,location }) {
 
   }
 
+/*   const onScrap = () => {
+    if (imageCheck) {
+      setImageCheck(false)
+      setImageSet(bookmark1)
+      postScarpDelete(item.StudyId)
+      .then(() => {
+        message.success(
+          '스크랩을 취소하셨습니다.',
+        );
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
+      });
+    }
+    else {
+      setImageCheck(true)
+      setImageSet(bookmark2)
+      postScrap(item.StudyId)
+        .then(() => {
+          message.success(
+            '스크랩에 성공했습니다. 마이페이지에서 확인할 수 있습니다.',
+          );
+        })
+        .catch((error) => {
+          console.log(error.response.data.message);
+        });
+    }
+  }
+  }
+ */
 
-
-
-
-  
 
 
  
@@ -169,8 +232,18 @@ function PostList({ match, history,location }) {
               <Skeleton avatar title={false} loading={item.loading} active>
                 <List.Item.Meta
                   // eslint-disable-next-line jsx-a11y/alt-text
-                  avatar={<img /* src={heart} */ onClick={()=>{
-                    postScrap(item.StudyId)
+                  avatar={<img id = {item.newId} src={item.img} onClick={() => {
+                    const index = posts.indexOf(item);
+                    if (imageCheck[index] == false) {
+                      imageCheck[index] = true;
+                      item.img = bookmark2;
+                      document.getElementById(item.newId).src= bookmark2;
+                      
+                      console.log(imageCheck[index], arr[index])
+                      let body = {
+                        "userId": location.state.userInfo.userId,
+                      }
+                      postScrap(item.StudyId,body)
                       .then(() => {
                         message.success(
                           '스크랩에 성공했습니다. 마이페이지에서 확인할 수 있습니다.',
@@ -179,7 +252,33 @@ function PostList({ match, history,location }) {
                       .catch((error) => {
                         console.log(error.response.data.message);
                       });
-                  }} />}
+                      
+console.log(arr, imageCheck)
+                    
+                    }
+                    else {
+                      const index = posts.indexOf(item);
+                      imageCheck[index] = false;
+                      arr[index] = bookmark1;
+                      document.getElementById(item.newId).src= bookmark1;
+                      let body = {
+                        "userId": location.state.userInfo.userId,
+                      }
+                      
+                      postScrapDelete(item.StudyId,body)
+                      .then(() => {
+                        message.success(
+                          '스크랩을 취소하셨습니다.',
+                        );
+                      })
+                      .catch((error) => {
+                        console.log(error.response.data.message);
+                      });
+                
+                   
+                    }
+                  }
+                  }/>}
                   title={ <Link to={{pathname:`post/${item.StudyId}`,state:{userInfo:location.state.userInfo}}}> {item.studyName.length > 25
                     ? item.studyName.slice(0, 25)
                     : item.studyName}</Link>
@@ -188,7 +287,7 @@ function PostList({ match, history,location }) {
                   <div>{tagBox2(item.category)}</div></>}/>
               </Skeleton>
               <div>{checkDeadline(item.deadline)}</div>
-              <div>마감 D - {calculateDate(item.deadline)}</div>
+              <div>마감 D {calculateDate(item.deadline)}</div>
             </List.Item>
           )
         }
@@ -238,7 +337,9 @@ function PostList({ match, history,location }) {
     let day = date.slice(8,10);
     var now = new Date();	// 현재 날짜 및 시간
     var newDay = day - now.getDate()
-        return newDay;
+    if (newDay > 0) {return '- ' + newDay}
+    else if (newDay == 0) { return '- Day'}
+    else if (newDay < 0 ) {return '+ ' + Math.abs(newDay)}
 
 
 
