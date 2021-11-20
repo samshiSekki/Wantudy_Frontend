@@ -11,6 +11,9 @@ import Navbar from '../../pages/Navbar/NavbarWhite';
 import Footer from '../../pages/Footer/Footer';
 import nicknameImg from './Ellipse1000.png';
 
+import greenlight from "./Ellipse999.png";
+import redlight from "./Ellipse998.png";
+
 // 상세 게시글 보기
 // 게시글 내용 불러오기 ->
 function PostView({ match, history, location }) {
@@ -137,6 +140,16 @@ function PostView({ match, history, location }) {
       }
       
     }
+
+    const tagBox1=(tag)=> {
+      let arr = []
+      for (let i = 0; i < tag.length; i++) {
+        arr.push(<Tag color = {color_category} style={{color:'black',float:'left'}}>{tag[i]}</Tag>)
+  
+  
+      }
+      return arr;
+    }
     
     const handleRegister=()=>{
       console.log(selectList)
@@ -231,10 +244,13 @@ function PostView({ match, history, location }) {
    }
    return arr;
   }
+ 
+  
   
   function insideCard() {
+    
     return (
-      <>
+      <div className="all-box">
         <div className="study-name-box"
         >
            <div>
@@ -246,50 +262,60 @@ function PostView({ match, history, location }) {
             <span className="study-name-detail">
               '{postDetail.userId}'{'님의 스터디 공고입니다! '}
             </span>
+           {/*  <div>{checkDeadline(postDetail.deadline)}</div> 이 부분입니다 이거 풀면 오류나서 주석해놓음*/}
+
+            
             </>
           )}
         </div>
           <p className="study-name-detail2">{postDetail.studyName}</p>
+          
         </div>
        
-        <div>
         <div className="study-view-field-text">
-            <p className="study-view-field-text2">분야</p><div className="study-view-field">{postDetail.category}</div>
+            <p className="study-view-field-text2">분야</p><div className="study-view-field">{tagBox1(postDetail.category)}</div>
           </div>
-          <span style={{ marginLeft: '24px', fontSize: '12px' }}>
-            상세 설명 : {postDetail.description}
-          </span>
+          <div className="study-view-description">
+            <p className="study-view-description-text">상세 설명</p> <div  className="study-view-description-text2"> {postDetail.description}
+          </div></div>
+        <div className="study-view-onoff">
+        <p className="study-view-onoff-text">진행 방식</p> <div className="study-view-onoff-text2"> {postDetail.onoff}</div>
+          </div>
+          <div className="study-view-period">
+          <p className="study-view-period-text">
+            진행 기간</p> <div className="study-view-period-text2">{postDetail.period}</div>
         </div>
-        <div>
-        <span style={{ marginLeft: '24px', fontSize: '12px' }}>
-            진행 방식 : {postDetail.onoff}
-          </span>
-          <span style={{ marginLeft: '24px', fontSize: '12px' }}>
-            희망 시간대 : {postDetail.studyTime}
-          </span>
+          <div className="study-view-studytime">
+          <p className="study-view-studytime-text">
+            희망 시간대</p> <div className="study-view-studytime-text2">{postDetail.studyTime}</div>
         </div>
-        <div>
-          <span style={{ marginLeft: '24px', fontSize: '12px' }}>
-            신청서 필수 열람사항 : {postDetail.requiredInfo}
-          </span>
+        <div className="study-view-required">
+          <p  className="study-view-required-text">
+            신청서 필수 열람사항</p> <div className="study-view-required-text2">{postDetail.requiredInfo}</div>
         </div>
-        <div>
-          <span style={{ marginLeft: '24px', fontSize: '12px' }}>
-            모집 인원 : {postDetail.peopleNum}
-          </span>
+        <div className="study-view-peoplenum">
+          <p className="study-view-peoplenum-text">
+            모집 인원 </p> <div  className="study-view-peoplenum-text2">{postDetail.peopleNum}</div> 
         </div>
-      </>
+        <div className="study-view-deadline">
+          <p className="study-view-deadline-text">
+            모집 마감일 </p> <div  className="study-view-deadline-text2">{postDetail.deadline}</div> 
+        </div>
+      </div>
     );
   }
-  function tagBox1(tag) {
-    let arr = []
-    for (let i = 0; i < tag.length; i++) {
-      arr.push(<Tag color = {color_category} style={{color:'black',float:'left'}}>{tag[i]}</Tag>)
-
-
+  function checkDeadline (deadline) {
+    console.log(deadline)
+    console.log(new Date().toISOString())
+    if (deadline.valueOf() > new Date().toISOString().valueOf()){
+      return <div><img src = {greenlight}></img>    모집 중</div>
     }
-    return arr;
+    else{
+      return <div><img src = {redlight}></img>    모집 완료</div>
+    }
   }
+  
+  
 }
 
 export default withRouter(PostView);

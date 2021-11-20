@@ -1,4 +1,8 @@
-.study-name-box{
+.all-box{
+   background-color:#F8F9FC;
+   padding-top:100px;
+}
+.study-name-box{  
     margin-left:360px;
     padding-left:73px;
     padding-top:71px;
@@ -7,11 +11,13 @@ height: 261px;
 left: 360px;
 top: 170px;
 background: #FFFFFF;
-border-style:solid;
+}
+.study-deadline{
+    margin-left:10px;
 }
 .study-name-detail{
     margin-left:10px;
-    font-family: Noto Sans;
+    font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -24,7 +30,7 @@ border-style:solid;
 .study-name-detail2{
     
     margin-top:50px;
-    font-family: Noto Sans;
+    font-family: 'Noto Sans';
 font-style: normal;
 font-weight: 600;
 font-size: 25px;
@@ -42,17 +48,265 @@ color: #22272E;
 height: 113px;
 left: 360px;
 top: 444px;
-border-style: solid;
 
 background: #FFFFFF;
+
 }
 .study-view-field-text2{
     float:left;
     margin-left:73px;
     margin-top:44px;
+    font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #88898E;
+
+
 
 }
 .study-view-field{
+    padding-top:40px;
     margin-left:100px;
     margin-top:44px;
+}
+.study-view-description{
+    margin-left:360px;
+    margin-top:13px;
+    width: 1200px;
+height: 113px;
+left: 360px;
+top: 444px;
+
+background: #FFFFFF;
+
+}
+.study-view-description-text{
+    float:left;
+    margin-left:73px;
+    margin-top:40px;
+    font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #88898E;
+
+
+
+}
+.study-view-description-text2{
+
+    padding-top:40px;
+    margin-left:30px;
+    margin-top:40px;
+
+}
+.study-view-onoff{
+
+    margin-left:360px;
+    margin-top:13px;
+    width: 1200px;
+height: 113px;
+left: 360px;
+top: 444px;
+background: #FFFFFF;
+}
+.study-view-onoff-text{
+
+    float:left;
+    margin-left:73px;
+    margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #88898E;
+
+
+
+}
+.study-view-onoff-text2{
+
+    padding-top:40px;
+    margin-left:30px;
+    margin-top:40px;
+
+}
+.study-view-period{
+    margin-left:360px;
+    margin-top:13px;
+    width: 1200px;
+height: 113px;
+left: 360px;
+top: 444px;
+
+background: #FFFFFF;
+
+}
+
+.study-view-period-text{
+    float:left;
+    margin-left:73px;
+    margin-top:40px;
+    font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #88898E;
+
+
+}
+
+.study-view-period-text2{
+    padding-top:40px;
+    margin-left:30px;
+    margin-top:40px;
+
+}
+
+.study-view-studytime{
+    margin-left:360px;
+    margin-top:13px;
+    width: 1200px;
+height: 113px;
+left: 360px;
+top: 444px;
+
+background: #FFFFFF;
+
+}
+.study-view-studytime-text{
+    float:left;
+    margin-left:73px;
+    margin-top:40px;
+    font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #88898E;
+
+
+}
+.study-view-studytime-text2{
+    padding-top:40px;
+    margin-left:30px;
+    margin-top:40px;
+
+}
+.study-view-required{
+    margin-left:360px;
+    margin-top:13px;
+    width: 1200px;
+height: 113px;
+left: 360px;
+top: 444px;
+
+background: #FFFFFF;
+
+}
+
+.study-view-required-text{
+    float:left;
+    margin-left:73px;
+    margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #88898E;
+
+
+
+}
+
+.study-view-required-text2{
+    padding-top:40px;
+    margin-left:30px;
+    margin-top:40px;
+}
+
+.study-view-peoplenum{
+    margin-left:360px;
+    margin-top:13px;
+    width: 1200px;
+height: 113px;
+left: 360px;
+top: 444px;
+
+background: #FFFFFF;
+
+}
+.study-view-peoplenum-text{
+    float:left;
+    margin-left:73px;
+    margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #88898E;
+
+
+
+}
+.study-view-peoplenum-text2{
+    padding-top:40px;
+    margin-left:30px;
+    margin-top:40px;
+
+}
+.study-view-deadline{
+    margin-left:360px;
+    margin-top:13px;
+    width: 1200px;
+height: 113px;
+left: 360px;
+top: 444px;
+background: #FFFFFF;
+
+}
+.study-view-deadline-text{
+    float:left;
+    margin-left:73px;
+    margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+color: #88898E;
+}
+.study-view-deadline-text2{
+    padding-top:40px;
+    margin-left:30px;
+    margin-top:40px;
+
 }

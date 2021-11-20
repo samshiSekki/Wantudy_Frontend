@@ -362,7 +362,7 @@ const plainOptions = ['오프라인', '온라인'];
                 onOk={handleOk}
                 onCancel={handleCancel}
               >
-                신청서를 등록하였습니다.
+                스터디를 개설하였습니다.
               </Modal>
           <Button
             type="primary"
