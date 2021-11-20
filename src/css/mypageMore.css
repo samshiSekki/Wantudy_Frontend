@@ -7,6 +7,7 @@
     padding-top: 100px;
     padding-bottom: 135px;
     font-family: "Noto Sans KR";
+    color: #22272E;
 }
 
 .myMorePageBanner{
@@ -52,6 +53,64 @@
     background-color: #FFFFFF;
     text-align: center;
 }
+
+.openedListContainer{
+    width: 1200px;
+    height: auto;
+    background-color: #FFFFFF;
+    padding-top: 43px;
+    padding-left: 73px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.openedStudyTitle{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    color: #22272E;
+    float: left;
+}
+
+.receivedAppContainer{
+    display: inline-block;
+    width: 1055px;
+    height: auto;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+}
+
+.receivedAppUserName{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    float: left;
+    margin-top: 34px;
+    margin-left: 94px;
+}
+
+.fireEmoji{
+    float: left;
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 33px;
+    margin-left: 10px;
+}
+
+.receivedAppUserTemp{
+    margin-left:5px;
+    margin-top: 33px;
+    float: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #497EF1;
+
+}
+
 
 .likedList{
     text-align: left;
