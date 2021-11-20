@@ -185,14 +185,20 @@ const plainOptions = ['오프라인', '온라인'];
     <>
     <Navbar userInfo={props.location.state.userInfo}/>
     <div className='post-empty'>
-      <img src={Group1}/>
+    <div className="post-title">
+                    안녕하세요, {props.location.state.userInfo.nickname}님👋<br/>
+                    스터디 개설을 위한<br/>
+                    스터디원 모집 게시물을 작성해주세요.
+                    </div>
+      <div><img className='imgGroup1' src={Group1}/></div>
     </div>
 
      <div className='post-write-box'>
-       <div className='study-title'><h3>스터디원 모집 게시물</h3></div>
-       
+       <div className='study-title'>스터디원 모집 게시물</div>
+       <div className='study-title-small'>‘’는 반드시 작성해야 하는 필수적인 문항입니다.</div>
        <hr />
-            <div><div className='study-name'>스터디명 : &nbsp;</div>
+            <div><div className='study-name'>스터디명</div>
+            <div>
       <Input
           className="title-bar"
           type="text"
@@ -202,8 +208,9 @@ const plainOptions = ['오프라인', '온라인'];
             setvalue({ ...value, studyName: e.target.value });
           }}
         />
+        </div>
         <hr />
-        <div className='field-text'>분야 : &nbsp;</div>
+        <div className='field-text'>분야</div>
         <Select
       mode="tags"
       className="field-select"
@@ -227,17 +234,17 @@ const plainOptions = ['오프라인', '온라인'];
           }}
         /> */}
         <hr />
-        <div className='description-text'>상세 설명 : &nbsp;</div>
+        <div className='description-text'>상세 설명</div>
+        <div>
         <Input
           className="desciprtion-bar"
-          style={{width:'80%'}}
           type="text"
           placeholder="상세 설명"
           value={value.description}
           onChange={(e) => {
             setvalue({ ...value, description: e.target.value });
           }}
-        />
+        /></div>
         <hr />
         <div className="level-text">난이도 : &nbsp;</div>
         <Input

@@ -1,0 +1,58 @@
+.study-name-box{
+    margin-left:360px;
+    padding-left:73px;
+    padding-top:71px;
+    width: 1200px;
+height: 261px;
+left: 360px;
+top: 170px;
+background: #FFFFFF;
+border-style:solid;
+}
+.study-name-detail{
+    margin-left:10px;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+}
+.study-name-detail2{
+    
+    margin-top:50px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 34px;
+/* identical to box height */
+
+
+color: #22272E;
+}
+
+.study-view-field-text{
+    margin-left:360px;
+    margin-top:13px;
+    width: 1200px;
+height: 113px;
+left: 360px;
+top: 444px;
+border-style: solid;
+
+background: #FFFFFF;
+}
+.study-view-field-text2{
+    float:left;
+    margin-left:73px;
+    margin-top:44px;
+
+}
+.study-view-field{
+    margin-left:100px;
+    margin-top:44px;
+}

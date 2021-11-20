@@ -1,12 +1,15 @@
 import React, { useState,useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Card, message, Popconfirm,Alert,Modal,Button,Radio} from 'antd';
+import { Card, message, Popconfirm,Alert,Modal,Button,Radio,Tag} from 'antd';
 import usePostDetail from '../../hooks/usePostDetail';
 import axios from 'axios';
 import {
   postDelete,registerPost
 } from '../functions/postFunctions'
 import useErrorHandling from '../../hooks/useErrorHandling';
+import Navbar from '../../pages/Navbar/NavbarWhite';
+import Footer from '../../pages/Footer/Footer';
+import nicknameImg from './Ellipse1000.png';
 
 // 상세 게시글 보기
 // 게시글 내용 불러오기 ->
@@ -23,9 +26,16 @@ function PostView({ match, history, location }) {
 
   const [isListVisible, setIsListVisible] = useState(false);
   const [selectList, setSelectList] = useState();
+  var color_onoff = '#D0FFBA'
+  var color_category = '#BAFFFF'
+  var color_level = '#EFD5FF'
 
   const showModal = () => {
-    setIsModalVisible(true);
+    /* setIsModalVisible(true); */
+    history.push({
+      pathname: `${postDetail.StudyId}/apply`,
+      state: {id: postDetail.StudyId, userInfo:location.state.userInfo, posts:postDetail}
+    })
   };
 
   const handleOk = () => {
@@ -148,6 +158,7 @@ function PostView({ match, history, location }) {
 
   return (
     <>
+    <Navbar userInfo={location.state.userInfo}/>
         <div>
           <div>
             <Card title={insideCard()}>
@@ -155,11 +166,14 @@ function PostView({ match, history, location }) {
             </Card>
           </div>
         </div>{' '}
+        
+        <Footer/>
     </>
+
   );
   function postBox() {
     return (
-      <>
+      <>=
         <div
           style={{ padding: 10 }}
           dangerouslySetInnerHTML={{ __html: postDetail.content }}
@@ -217,35 +231,31 @@ function PostView({ match, history, location }) {
    }
    return arr;
   }
+  
   function insideCard() {
     return (
       <>
-        <div
-          style={{
-            display: 'inline-block',
-            width: '100%',
-            fontWeight: 'bold',
-            fontSize: '22px',
-            wordBreak: 'break-word',
-            whiteSpace: 'pre-line',
-            overflowWrap: 'break-word',
-          }}
+        <div className="study-name-box"
         >
-          <p>{postDetail.studyName}</p>
-        </div>
-        <div>
+           <div>
           {postDetail.userId === null ? (
-            <span style={{ fontSize: '8px' }}> 탈퇴한 사용자 </span>
+            <span> 탈퇴한 사용자 </span>
           ) : (
-            <span style={{ fontSize: '13px' }}>
-              {postDetail.userId}{' '}
+            <>
+            <img src={nicknameImg}></img>
+            <span className="study-name-detail">
+              '{postDetail.userId}'{'님의 스터디 공고입니다! '}
             </span>
+            </>
           )}
         </div>
+          <p className="study-name-detail2">{postDetail.studyName}</p>
+        </div>
+       
         <div>
-        <span style={{ marginLeft: '24px', fontSize: '12px' }}>
-            분야 : {postDetail.category}
-          </span>
+        <div className="study-view-field-text">
+            <p className="study-view-field-text2">분야</p><div className="study-view-field">{postDetail.category}</div>
+          </div>
           <span style={{ marginLeft: '24px', fontSize: '12px' }}>
             상세 설명 : {postDetail.description}
           </span>
@@ -270,6 +280,15 @@ function PostView({ match, history, location }) {
         </div>
       </>
     );
+  }
+  function tagBox1(tag) {
+    let arr = []
+    for (let i = 0; i < tag.length; i++) {
+      arr.push(<Tag color = {color_category} style={{color:'black',float:'left'}}>{tag[i]}</Tag>)
+
+
+    }
+    return arr;
   }
 }
 
