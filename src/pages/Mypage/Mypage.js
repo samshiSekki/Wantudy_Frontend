@@ -21,7 +21,7 @@ function Mypage(props) {
         response.data.msg == "찜한 스터디가 없습니다"
         ? function(){
             liked[0].studyName = "찜한 스터디가 없습니다";
-            liked[0].studyName = "찜한 스터디가 없습니다";
+            liked[1].studyName = "찜한 스터디가 없습니다";
         }()
         : setLiked(response.data)
 
@@ -88,19 +88,12 @@ function Mypage(props) {
 
     function moreOpened(){
         props.history.push({
-            pathname: "",
+            pathname: "/opened_study",
             state: {userInfo: userInfo}
         })
     }
 
     function moreOngoing(){
-        props.history.push({
-            pathname: "",
-            state: {userInfo: userInfo}
-        })
-    }
-
-    function moreSubject(){
         props.history.push({
             pathname: "",
             state: {userInfo: userInfo}
