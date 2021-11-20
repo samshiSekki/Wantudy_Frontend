@@ -12,6 +12,8 @@ import Saly from './Saly.png'
 import bookmark1 from './icon_bookmark_unclick.png'
 
 import bookmark2 from './icon_bookmark_click.png'
+import greenlight from "./Ellipse999.png";
+import redlight from "./Ellipse998.png";
 
 const { Column } = Table;
 const { Search } = Input;
@@ -183,11 +185,16 @@ for (var t = 0; t < posts.length; t++) {
   return (
     <>
     <Navbar userInfo={location.state.userInfo}/>
+    <div className="post-title">
+                    안녕하세요, {location.state.userInfo.nickname}님👋<br/>
+                    원터디와 함께<br/>
+                    원하는 스터디를 찾아보세요.
+                    </div>
     <img src={Saly} className='img-saly'></img>
     <div className='post-list'>
     
     <div className='post-list-box'>
-      <div className='post-list-field'>
+      <div>
         <button className='button-all' onClick={()=>{categoryChange(null)}}>전체</button>
         <button className='button-1' onClick={()=>{categoryChange('개발 / 프로그래밍')}}>개발 / 프로그래밍</button>
         <button className='button-2' onClick={()=>{categoryChange('마케팅')}}>마케팅</button>
@@ -198,14 +205,6 @@ for (var t = 0; t < posts.length; t++) {
         <button className='button-7' onClick={()=>{categoryChange('어학')}}>어학</button>
         <button className='button-8' onClick={()=>{categoryChange('취업')}}>취업</button>
       </div>
-      <div className='search-box'><Search placeholder="제목이나 분야를 입력해주세요.(영어는 대문자로 입력해주세요)" onSearch={onSearch} enterButton /></div>
-      <div className='post-classification'>
-      <Dropdown overlay={postClassification} trigger={['click']}>
-    <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
-      정렬
-    </a>
-  </Dropdown>
-      </div>
       <Button
               className="makepost"
               onClick={(e) => {
@@ -214,6 +213,15 @@ for (var t = 0; t < posts.length; t++) {
             ><img src = {bi_plus}></img>
               스터디 개설하기
             </Button>
+      <div className='search-box'><Search placeholder="제목이나 분야를 입력해주세요.(영어는 대문자로 입력해주세요)" onSearch={onSearch} enterButton /></div>
+      <div className='post-classification'>
+      <Dropdown overlay={postClassification} trigger={['click']}>
+    <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+      정렬
+    </a>
+  </Dropdown>
+      </div>
+  
             <div className='study-list-box'>
             <List
         className="demo-loadmore-list"
@@ -229,8 +237,10 @@ for (var t = 0; t < posts.length; t++) {
           console.log(item) || (
             <List.Item
             >
-              <Skeleton avatar title={false} loading={item.loading} active>
+             
                 <List.Item.Meta
+                  // eslint-disable-next-line jsx-a11y/alt-text
+                  className="post-lists"
                   // eslint-disable-next-line jsx-a11y/alt-text
                   avatar={<img id = {item.newId} src={item.img} onClick={() => {
                     const index = posts.indexOf(item);
@@ -256,7 +266,7 @@ for (var t = 0; t < posts.length; t++) {
 console.log(arr, imageCheck)
                     
                     }
-                    else {
+                    else if (imageCheck[index] == true) {
                       const index = posts.indexOf(item);
                       imageCheck[index] = false;
                       arr[index] = bookmark1;
@@ -264,8 +274,25 @@ console.log(arr, imageCheck)
                       let body = {
                         "userId": location.state.userInfo.userId,
                       }
-                      
-                      postScrapDelete(item.StudyId,body)
+                      axios.delete(`http://13.209.66.117:8080/studylist/${item.StudyId}/cancel-like`,{
+                        data: {
+                          userId: location.state.userInfo.userId,
+                          studyId:item.StudyId,
+                        }
+                      })
+                      .then(function (response) {
+                        message.success(
+                          '스크랩을 취소하셨습니다.',
+                        );
+                      })
+                      .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                      })
+                      .then(function () {
+                        // always executed
+                      });
+                      /* postScrapDelete(item.StudyId,body)
                       .then(() => {
                         message.success(
                           '스크랩을 취소하셨습니다.',
@@ -274,7 +301,7 @@ console.log(arr, imageCheck)
                       .catch((error) => {
                         console.log(error.response.data.message);
                       });
-                
+                 */
                    
                     }
                   }
@@ -284,10 +311,17 @@ console.log(arr, imageCheck)
                     : item.studyName}</Link>
                     /* <Button onClick={()=>{history.push({pathname: `post/view/${item.StudyId}`,state: {StudyId:item.StudyId}})}}>{item.studyName}</Button> */}
                   description={<><div>{tagBox1(item.onoff)}</div>
-                  <div>{tagBox2(item.category)}</div></>}/>
-              </Skeleton>
-              <div>{checkDeadline(item.deadline)}</div>
-              <div>마감 D {calculateDate(item.deadline)}</div>
+                  <div style={{float:'left'}}>{tagBox2(item.category)}</div>
+                  
+              </>}
+              
+              />
+              <div className="check-deadline">{checkDeadline(item.deadline)}</div>
+              <div className="calculate-date">마감 D {calculateDate(item.deadline)}</div>
+              <div className="people-number"> 인원 현황 {item.currentNum} / {item.peopleNum}</div>
+              
+             
+             
             </List.Item>
           )
         }
@@ -307,10 +341,10 @@ console.log(arr, imageCheck)
     console.log(deadline)
     console.log(new Date().toISOString())
     if (deadline.valueOf() > new Date().toISOString().valueOf()){
-      return <div>모집중</div>
+      return <div><img src = {greenlight}></img>    모집 중</div>
     }
     else{
-      return <div>모집 완료</div>
+      return <div><img src = {redlight}></img>    모집 완료</div>
     }
   }
   function tagBox1(tag) {
