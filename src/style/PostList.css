@@ -2,143 +2,201 @@
   background-color: #F8F9FC;
 }
 .post-list-box {
-    width: 1200px;
-    height: 800px;
-    margin-top: 360px;
+    width: 100%;
+    height: 2324px;
     padding-top:34px;
     padding-left: 72px;
     padding-right: 72px;
-    border: solid 1px black;
+  }
+  .post-lists{
+    position:relative;
+    float:left;
+    margin-left:360px;
+    margin-right:360px;
+    padding-left:88px;
+    padding-top:50px;
+    width: 1200px;
+height: 172px;
+background: #FFFFFF;
+box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
   }
 
   .search-box {
-    position: absolute;
+    float:left;
+    margin-left:35px;
+    margin-top:30.46px;
 width: 702px;
 height: 67px;
-left: 613px;
-top: 432px;
   }
   .post-classification {
-    position: absolute;
-width: 210px;
+    
+    margin-left:1500px;
+    margin-top:30.46px;
+    background: #FFFFFF;
+border-radius: 18px;
 height: 67px;
-left: 1350px;
-top: 432px;
   }
   .makepost {
-    position: absolute;
+    float:left;
+    margin-left:360px;
+    margin-top:30.22px;
 width: 218px;
 height: 67px;
-left: 360px;
-top: 432px;
-
 background: #EEEFF2;
 border-radius: 33.5px;
   }
-  .button-all{
-    position: absolute;
+  .button-all{ 
+    margin-left:360px; 
+    margin-top:177px;
 width: 93.14px;
 height: 57.78px;
 left: 360px;
 top: 344px;
+
 border-radius: 40.5px;
+background: #FFFFFF;
+border:none;
 
   }
   .button-1{
-    position: absolute;
+    margin-left:26.7px; 
+    margin-top:177px;
 width: 170px;
 height: 57.54px;
 left: 479.84px;
 top: 344px;
 border-radius: 40.5px;
+background: #FFFFFF;
+border:none;
 
 
     
   }
   .button-2{
-    position: absolute;
+    margin-left:25.84px; 
+    margin-top:177px;
 width: 101.28px;
 height: 57.54px;
 left: 675.69px;
 top: 344px;
 border-radius: 40.5px;
+background: #FFFFFF;
+border:none;
 
 
     
   }
  
   .button-3{
-    position: absolute;
-width: 170px;
+    margin-left:26.36px; 
+    margin-top:177px;
+width: 93.14px;
 height: 57.54px;
 left: 479.84px;
 top: 344px;
 border-radius: 40.5px;
+background: #FFFFFF;
+border:none;
     
   }
   .button-4{
-    position: absolute;
-width: 93.14px;
+    margin-left:26.7px; 
+    margin-top:177px;
+width: 130.62px;
 height: 57.78px;
 left: 803.33px;
 top: 344px;
 border-radius: 40.5px;
+background: #FFFFFF;
+border:none;
     
   }
   .button-5{
-    position: absolute;
-width: 130.62px;
+    margin-left:26.25px; 
+    margin-top:177px;
+width: 101.28px;
 height: 57.54px;
 left: 923.17px;
 top: 344px;
 border-radius: 40.5px;
+background: #FFFFFF;
+border:none;
     
   }
   .button-6{
-    position: absolute;
-    width: 101.28px;
+    margin-left:26.36px; 
+    margin-top:177px;
+    width:113.03px;
     height: 57.54px;
     left: 1080.04px;
     top: 344px;
     
 border-radius: 40.5px;
+background: #FFFFFF;
+border:none;
     
   }
   .button-7{
-    position: absolute;
+    margin-left:26.7px; 
+    margin-top:177px;
     width: 113.03px;
     height: 57.54px;
     left: 1207.68px;
     top: 344px;
 border-radius: 40.5px;
+background: #FFFFFF;
+border:none;
     
   }
   .button-8{
-    position: absolute;
+    margin-left:26.3px; 
+    margin-top:177px;
     width: 93.14px;
-    height: 57.78px;
-    left: 1347.02px;
+    height: 57.54px;
+    left: 1207.68px;
     top: 344px;
 border-radius: 40.5px;
+background: #FFFFFF;
+border:none;
     
   }
-  .button-9{
-    position: absolute;
-    width: 93.14px;
-height: 57.78px;
-left: 1466.86px;
-top: 344px;
-
-border-radius: 40.5px;
+  .post-title{
+    float: left;
+    margin-left:360px;
+    padding-bottom:80px;
+    padding-top:100px;
+    width: 761px;
+    height: 191px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 57px;
     
   }
 
- .img-saly{
-  position: absolute;
-  left: 54.17%;
-  right: 19.9%;
-  top: 7.42%;
-  bottom: 23.18%;
+ .check-deadline{
+   position:absolute;
+   padding-bottom:60px;
+   right:0px;
+   padding-right:400px;
+   /* padding-left:1300px; */
+   width:auto;
+ }
+ .calculate-date{
+  width:auto;
+  position:absolute;
+  right:0px;
+   padding-right:400px;
+  /* padding-left:1300px; */
+  padding-top:10px;
+
+ }
+ .people-number{
+  position:absolute;
+  /* padding-left:1300px; */
+  padding-top:70px;
+  right:0px;
+   padding-right:400px;
  }
  
   
