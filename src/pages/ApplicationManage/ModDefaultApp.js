@@ -15,6 +15,7 @@ function ModDefaultApp(props) {
     console.log(userInfo);
     console.log(apps.applicationId);
 
+    const [appName, setAppName] = useState(apps.applicationName); //신청서명
     const [name, setName] = useState(apps.name); //성명
     const [gender, setGender] = useState(apps.gender); //성별
     const [age, setAge] = useState(apps.age); //나이
@@ -22,6 +23,11 @@ function ModDefaultApp(props) {
     const [major, setMajor] = useState(apps.major); //전공
     const [attend, setAttend] = useState(apps.attending); //재학 여부
     const [address, setAddress] = useState(apps.address); //거주지
+    const [record, setRecord] = useState(apps.specification); //이력
+
+    function appNameChange(e){
+        setAppName(e.target.value);
+    }
 
     function nameChange(e){
         setName(e.target.value);
@@ -43,39 +49,22 @@ function ModDefaultApp(props) {
         setAddress(e.target.value);
     }
 
-    const submitClickHandler = async() => {
-        let response = await axios.put(`http://13.209.66.117:8080/study/application/${apps.applicationId}`,{
-            userId: userInfo.userId,
-            applicationName: "jaemDefaultApp",
-            name: name,
-            gender: gender,
-            age: parseInt(age),
-            school: school,
-            major: major,
-            attending: attend,
-            semester: [1],
-            address: address,
-            interests: ["큐시즘"],
-            keyword: ["큐시즘"]
-        });
-
-        console.log(response);
-
-        props.history.push({ 
-            pathname: "/mod_app_lists",
-            state: {userInfo: userInfo}
-        });
+    function recordChange(e){
+        setRecord(e.target.value);
     }
+
 
     function nextBtnClickHandler(){
         let appContents = {
+            appName: appName,
             name: name,
             gender: gender,
             age: age,
             school: school,
             major: major,
             attending: attend,
-            address: address
+            address: address,
+            record: record
         }
         props.history.push({ 
             pathname: "/mod_default_app2",
@@ -103,6 +92,12 @@ function ModDefaultApp(props) {
             <div className="rdaContainer">
                 <div className="rdaContents">
                 <p className="appTitle">신청서 수정</p>
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
+                    <p className="nameText">신청서명</p>
+                    <input type="text" className="inputSchool" onChange={appNameChange} value={appName}/><br/>
+                </div>
                 <hr className="appHr"/>
                 
                 <div className="rdaItemContainer">
@@ -147,6 +142,13 @@ function ModDefaultApp(props) {
                     <div className={attend=="졸업"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("졸업"))}>졸업</div>
                     <div className={attend=="휴학"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("휴학"))}>휴학</div>
                     <div className={attend=="재학"? "femaleSelectedButton" : "femaleButton"} onClick={()=>(setAttend("재학"))}>재학</div>
+                </div>
+
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
+                    <p className="nameText">이력</p>
+                    <input type="text" className="inputSchool" onChange={recordChange} placeholder="교내활동, 대외활동, 인턴, 동아리, 프로젝트 등" value={record}/><br/>
                 </div>
 
                 <hr className="appHr"/>

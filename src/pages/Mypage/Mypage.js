@@ -16,14 +16,22 @@ function Mypage(props) {
 
     useEffect(async()=>{
         let response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/like-studylist`);
-        console.log(response);
+        //console.log(response);
         //setLiked(response.data.msg);
         response.data.msg == "찜한 스터디가 없습니다"
         ? function(){
             liked[0].studyName = "찜한 스터디가 없습니다";
-            liked[0].studyName = "찜한 스터디가 없습니다";
+            liked[1].studyName = "찜한 스터디가 없습니다";
         }()
-        : setLiked(response.data)
+        : function(){
+            if(response.data.length == 1){
+                liked[0] = response.data[0];
+                liked[1].studyName = "찜한 스터디가 없습니다";
+            }
+            else{
+                setLiked(response.data);
+            }
+        }()
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/apply-studylist`);
         //console.log(response.data);
@@ -45,8 +53,13 @@ function Mypage(props) {
         : setOpened(response.data)
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
-        //console.log(response);
-        setOngoing(response.data.msg);
+        console.log(response);
+        /*
+        response.data.msg == "참여하는 스터디가 없습니다"
+        ? function(){
+            
+        }()*/
+        //setOngoing(response.data.msg);
     },[]);
 
 
@@ -88,21 +101,14 @@ function Mypage(props) {
 
     function moreOpened(){
         props.history.push({
-            pathname: "",
+            pathname: "/opened_study",
             state: {userInfo: userInfo}
         })
     }
 
     function moreOngoing(){
         props.history.push({
-            pathname: "",
-            state: {userInfo: userInfo}
-        })
-    }
-
-    function moreSubject(){
-        props.history.push({
-            pathname: "",
+            pathname: "/ongoing_study",
             state: {userInfo: userInfo}
         })
     }

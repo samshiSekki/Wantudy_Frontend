@@ -7,6 +7,7 @@
     padding-top: 100px;
     padding-bottom: 135px;
     font-family: "Noto Sans KR";
+    color: #22272E;
 }
 
 .myMorePageBanner{
@@ -27,10 +28,22 @@
     margin-top: 210px;
 }
 
+.openedStudyImg{
+    position: absolute;
+    margin-left: 1176px;
+    margin-top: 90px;
+}
+
+.ongoingStudyImg{
+    position: absolute;
+    margin-left: 1176px;
+    margin-top: 130px;
+}
+
 .myMorePageTitleText{
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 41px;
     margin-left: 73px;
     padding-top: 57px;
@@ -51,6 +64,95 @@
     height: auto;
     background-color: #FFFFFF;
     text-align: center;
+}
+
+.openedListContainer{
+    width: 1200px;
+    height: auto;
+    background-color: #FFFFFF;
+    padding-top: 43px;
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.openedStudyTitle{
+    margin-left: 73px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    color: #22272E;
+    float: left;
+}
+
+.receivedAppContainer{
+    display: inline-block;
+    width: 1055px;
+    height: auto;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+    padding-bottom: 26px;
+    margin-bottom: 21px;
+}
+
+.receivedAppUserName{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    float: left;
+    margin-top: 34px;
+    margin-left: 94px;
+}
+
+.fireEmoji{
+    float: left;
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 33px;
+    margin-left: 10px;
+}
+
+.receivedAppUserTemp{
+    margin-left:5px;
+    margin-top: 33px;
+    float: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #497EF1;
+
+}
+
+.receivedAppViewDetail{
+    float: right;
+    width: 98.73px;
+    height: 40px;
+    background: #497EF1;
+    border-radius: 40.5px;
+    line-height: 40px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+
+    color: #FFFFFF;
+    margin-top: 26px;
+    margin-right: 42.27px;
+}
+
+.receivedAppRegDate{
+    float: right;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    color: #88898E;
+    margin-right: 33px;
+    margin-top: 35px;
 }
 
 .likedList{
@@ -132,5 +234,124 @@
 }
 
 .appliedStudyBtnContainer{
+    display: inline-block;
+}
+
+
+.ongoingStudyListContainer{
+    width:1200px;
+    padding-top: 44px;
+    text-align: center;
+    background: #FFFFFF;
+}
+
+.ongoingStudyName{
+    display: inline-block;
+    width: 1054px;
+    height: 71px;
+    line-height: 71px;
+    background: #F8F9FC;
+    border-radius: 20px;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 42px;
+}
+
+.ongoingStudyDetailTitle{
+    padding-left: 73px;
+    width: 1200px;
+    height: 100px;
+    background: #497EF1;
+    border-radius: 35px;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 100px;
+    color: #FFFFFF;
+}
+
+.participantsPics{
+    padding-top: 26.23px;
+    margin-top: 13px;
+    width: 1200px;
+    height: 98px;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.participantsProfileImg{
+    margin-left: 23px;
+    width: 50.77px;
+    height: 50.77px;
+    border-radius: 70%;
+    float: left;
+}
+
+.participantsPicsContainer{
+    display: inline-block;
+}
+
+.managerLabelImg{
+    margin-left: 20px;
+    position: absolute;
+}
+
+.ongoingDetailContainers{
+    margin-top: 13px;
+    text-align: center;
+    width: 1200px;
+    height: auto;
+    background: #FFFFFF;
+    padding-bottom: 43px;
+}
+
+.scheduleBox{
+    padding-top: 57px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #88898E;
+    text-align: center;
+    display: inline-block;
+    width: 1055px;
+    height: 235px;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+}
+
+.ongoingSubTitle{
+    margin-top: 43px;
+    margin-left: 73px;
+    margin-bottom: 21px;
+    float: left;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.scheduleAdjustBtn{
+    display: inline-block;
+    width: 130px;
+    height: 40.27px;
+    border: 1px solid #497EF1;
+    box-sizing: border-box;
+    border-radius: 40.5px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 40.27px;
+    text-align: center;
+
+    color: #497EF1;
+    margin-top: 25px;
+}
+
+.subjectTodoBox{
+    width: 1055px;
+    height: 92px;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
     display: inline-block;
 }

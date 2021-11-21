@@ -170,8 +170,8 @@ function AppList(props){
                 <div className="myAppTitle">
                 🔗
                 {props.i==0
-                    ? `대표 신청서 : ${props.apps.applicationId}` 
-                    : `신청서 ${props.i} : ${props.apps.applicationId}`
+                    ? `대표 신청서 : ${props.apps.applicationName}` 
+                    : `신청서 ${props.i} : ${props.apps.applicationName}`
                 }
                 <div className="malBtnContainer">
                 <div onClick={showModal} style={{backgroundColor:'#497EF1',color:'white'}} className="malBtn">신청</div>

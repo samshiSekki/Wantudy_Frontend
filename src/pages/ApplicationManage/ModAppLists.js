@@ -119,8 +119,8 @@ function AppList(props){
                 <div className="myAppTitle">
                 🔗
                 {props.i==0
-                    ? `기본신청서 : ${props.apps.applicationId}` 
-                    : `신청서 ${props.i} : ${props.apps.applicationId}`
+                    ? `기본신청서 : ${props.apps.applicationName}` 
+                    : `신청서 ${props.i} : ${props.apps.applicationName}`
                 }
                 <div className="malBtnContainer">
                 {props.i==0
