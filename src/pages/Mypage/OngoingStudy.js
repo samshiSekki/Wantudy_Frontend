@@ -14,6 +14,7 @@ function OngoingStudy() {
     const [memberList, setMemberList] = useState(["",]);
 
     useEffect(async()=>{
+        console.log(userInfo);
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
         console.log(response);
         console.log(response.data.studyManager);
