@@ -66,16 +66,17 @@ function AppliedList(props){
           <div className="appliedList">
             <div className="appliedStudyName">
               {props.appliedList.studyName}
+              <div className="applyStatus">
+              {
+                props.appliedList.state == 0
+                ? "수락 대기중"
+                : props.appliedList.state == 1
+                  ? "수락됨"
+                  : "거절됨"
+              }
             </div>
-            <div className="applyStatus">
-            {
-              props.appliedList.state == 0
-              ? "수락 대기중"
-              : props.appliedList.state == 1
-                ? "수락됨"
-                : "거절됨"
-            }
             </div>
+            
             <div className="appliedStudyBtnContainer">
                 
                 <div className="appliedStudyBtn" onClick={applyCancelBtnListner}>
@@ -84,7 +85,7 @@ function AppliedList(props){
                 <div className="appliedStudyBtn" onClick={modAppBtnListner}>
                   신청서 수정
                 </div>
-                <div className="appliedStudyBtn">
+                <div className="appliedStudyBtn2">
                   스터디장과 채팅
                 </div>
             </div>

@@ -22,6 +22,7 @@ import AppliedStudy from './pages/Mypage/AppliedStudy';
 import OpenedStudy from './pages/Mypage/OpenedStudy';
 import OngoingStudy from './pages/Mypage/OngoingStudy';
 import OngoingStudyDetail from './pages/Mypage/OngoingStudyDetail';
+import ReceivedAppViewDetail from './pages/Mypage/ReceivedAppViewDetail';
 
 
 function App() {
@@ -96,6 +97,10 @@ function App() {
 
       <Route path='/opened_study'>
         <OpenedStudy/>
+      </Route>
+
+      <Route path='/received_app'>
+        <ReceivedAppViewDetail/>
       </Route>
 
       <Route path='/ongoing_study'>
