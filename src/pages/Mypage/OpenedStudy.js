@@ -51,6 +51,7 @@ function OpenedList(props){
         console.log(props.userInfo.userId);
         console.log(props.openedList.study.StudyId);
         const response = await axios.put(`http://13.209.66.117:8080/users/${props.userInfo.userId}/opened-studylist/${props.openedList.study.StudyId}`);
+        window.location.reload();
     }
 
     console.log(props.openedList.applications);
@@ -62,7 +63,7 @@ function OpenedList(props){
                     {props.openedList.study.studyName}
                 </div>
                 <br/>
-                <button onClick={startStudyBtnClickHandler}>스터디 시작하기</button>
+                
                 <br/>
                 {
                     props.openedList.applications[0] != null
@@ -71,6 +72,11 @@ function OpenedList(props){
                     })
                     :null
                 }
+                {
+                    props.openedList.study.state == 0
+                    ?<div onClick={startStudyBtnClickHandler} className="startStudyBtn">스터디 시작하기</div>
+                    :<div className="openedStudyStartedMsg">스터디가 시작되었습니다<br/>참여 스터디 페이지에서 스터디를 확인하고, 관리하세요.</div>
+                }
             </div>
         </>
     )
@@ -78,7 +84,15 @@ function OpenedList(props){
 
 function ReceivedAppList(props){
     const [modal, setModal] = useState(false);
+    let history = useHistory();
     //console.log(props.applications.state);
+
+    function receivedAppViewDetailClickListner(){
+        history.push({
+            pathname: `/received_app`,
+            state: {userInfo: props.userInfo, applications: props.applications}
+          })
+    }
 
     return(
         <>
@@ -93,7 +107,7 @@ function ReceivedAppList(props){
                     {props.applications.temperature}°C
                 </div>
                 
-                <div className="receivedAppViewDetail">
+                <div className="receivedAppViewDetail" onClick={receivedAppViewDetailClickListner}>
                     상세보기
                 </div>
                 <div className="receivedAppRegDate">
