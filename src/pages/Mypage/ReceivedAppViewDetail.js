@@ -5,11 +5,43 @@ import NavbarWhite from '../Navbar/NavbarWhite';
 import Footer from '../Footer/Footer';
 import '../../css/mypageMore.css';
 
-function ReceivedAppViewDetail() {
+function ReceivedAppViewDetail(props) {
     const location = useLocation();
     const userInfo = location.state.userInfo;
     const applications = location.state.applications;
+    const studyId = location.state.studyId;
+    let history = useHistory();
     console.log(applications);
+
+    console.log(applications.application.userId);
+    console.log(applications.application.applicationId);
+    console.log(studyId);
+
+    const acceptBtnClickHandler = async() => {
+        const response = await axios.put(`http://13.209.66.117:8080/users/${applications.application.userId}/opened-studylist/manageMember/${applications.application.applicationId}`,{
+            choice: "수락",
+            studyId: studyId
+        });
+        alert("수락했습니다! 해당 스터디 페이지에서 확인하세요");
+        
+        history.push({
+            pathname: "/opened_study",
+            state: {userInfo: userInfo}
+        })
+    }
+
+    const declineBtnClickHandler = async() => {
+        const response = await axios.put(`http://13.209.66.117:8080/users/${applications.application.userId}/opened-studylist/manageMember/${applications.application.applicationId}`,{
+            choice: "거절",
+            studyId: studyId
+        });
+        alert("거절했습니다! 해당 스터디 페이지에서 확인하세요");
+        
+        history.push({
+            pathname: "/opened_study",
+            state: {userInfo: userInfo}
+        })
+    }
 
     return (
         <div>
@@ -25,7 +57,7 @@ function ReceivedAppViewDetail() {
                             신청서명
                         </div>
                         <div className="appViewdetailContainerContent">
-                            {}
+                            {applications.application.applicationName}
                         </div>
                     </div>
 
@@ -88,7 +120,7 @@ function ReceivedAppViewDetail() {
                             이력
                         </div>
                         <div className="appViewdetailContainerContent">
-                            {}
+                            {applications.application.specification}
                         </div>
                     </div>
 
@@ -132,6 +164,10 @@ function ReceivedAppViewDetail() {
                             {applications.application.message}
                         </div>
                     </div>
+
+                    <img src="img/Group 258.png" className="raChatBtn"/>
+                    <img src="img/Group 322.png" className="raDeclineBtn" onClick={declineBtnClickHandler}/>
+                    <img src="img/Group 500.png" className="raAcceptBtn" onClick={acceptBtnClickHandler}/>
                 </div>
             <Footer/>
         </div>

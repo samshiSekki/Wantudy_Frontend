@@ -90,7 +90,7 @@ function ReceivedAppList(props){
     function receivedAppViewDetailClickListner(){
         history.push({
             pathname: `/received_app`,
-            state: {userInfo: props.userInfo, applications: props.applications}
+            state: {userInfo: props.userInfo, applications: props.applications, studyId:props.studyId}
           })
     }
 
@@ -112,6 +112,16 @@ function ReceivedAppList(props){
                 </div>
                 <div className="receivedAppRegDate">
                     {props.applications.registered.substr(0,10)} 등록
+                </div>
+
+                <div className="receivedAppRegDate">
+                    {
+                        props.applications.state == 0
+                        ? "대기중"
+                        : props.applications.state == 1
+                            ? "수락함"
+                            : "거절함"
+                    }
                 </div>
             </div>
 
@@ -142,7 +152,7 @@ function ReceivedAppList(props){
         </>
     )
 }
-
+/*
 function Modal(props){
     const [declineModal, setDeclineModal] = useState(false);
 
@@ -199,6 +209,6 @@ function DeclineModal(props){
             <button>기타</button>
         </>
     )
-}
+}*/
 
 export default withRouter(OpenedStudy)
