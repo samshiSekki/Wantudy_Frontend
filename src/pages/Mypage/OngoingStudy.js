@@ -16,33 +16,27 @@ function OngoingStudy() {
     useEffect(async()=>{
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
         console.log(response);
-        setOngoingList(response.data);
-        setManagerList(ongoingList.studyManager);
-        setMemberList(ongoingList.studyMember);
+        console.log(response.data.studyManager);
+        console.log(response.data.studyMember);
+
+        setManagerList(response.data.studyManager);
+        setMemberList(response.data.studyMember);
+
     },[]);
 
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    function tabClickHandler(index){
-        setActiveIndex(index);
-    }
 
     console.log(managerList);
     console.log(memberList);
 
     /*
-    let i=0;
-    const tabContArr = [{tabTitle:null, tabCont: null},{tabTitle:null, tabCont: null},{tabTitle:null, tabCont: null}];
-    for(i=0; i<managerList.length; i++){
-        tabContArr[i].tabTitle = <li onClick={tabClickHandler(i)}>{managerList[i].studyInfo.studyName}</li>
-        tabContArr[i].tabCont = <StudyNameTab/>
-    }
-    if((managerList.length<3) && (memberList.length != 0)){
-        for(let j=i; j<3; j++){
-            tabContArr[j].tabTitle = <li onClick={tabClickHandler(j)}>{managerList[i].studyInfo.studyName}</li>
-            tabContArr[j].tabCont = <StudyNameTab/>
+    function showOngoingList(list,length){
+        if(length != 0){
+            for(let i=0; i<list.length; i++){
+                return <OngoingStudyList ongoingStudy = {list[i]} i = {i} userInfo={userInfo}/>
+            }
         }
     }*/
+
 
     return (
         <div>
@@ -51,27 +45,32 @@ function OngoingStudy() {
             <div className="myMorePageContainer">
                 <div className="myMorePageBanner">
                     <div className="myMorePageTitleText">
-                    <p>📋 참여 스터디 <br/>{userInfo.nickname}님이 참여 중인 스터디의 일정 및 과제 안내입니다.</p>
+                    <p>📋 참여 스터디 <br/>{userInfo.nickname}님이 참여 중인 스터디 목록입니다.</p>
                     </div>
                 </div>
+
                 {/*
-                <div class="ongoingStudyNameTab">
-                    {
-                        managerList.length != 0
-                        ?managerList.map((a,i)=>{
-                            return <StudyNameTab managerList = {managerList[i]} i={i} userInfo={userInfo}/>
-                        })
-                        : null
-                    }
-                    {
-                        memberList.length != 0
-                        ?memberList.map((a,i)=>{
-                            return <StudyNameTab memberList = {memberList[i]} i={i} userInfo={userInfo}/>
-                        })
-                        : null
-                    }
-                </div>
-                */}
+                    showOngoingList(managerList, managerList.length)*/
+                }
+                
+                {
+                    (managerList.length > 0 && managerList[0] != "")
+                    ? managerList.map((a,i)=>{
+                        return <OngoingStudyList ongoingStudy = {managerList[i]} i = {i} userInfo={userInfo} isManager={1}/>
+                    })
+                    : null
+                    
+                }
+
+                {
+                    (memberList.length > 0 && memberList[0] != "")
+                    ? memberList.map((a,i)=>{
+                        return <OngoingStudyList ongoingStudy = {memberList[i]} i = {i} userInfo={userInfo} isManager={0}/>
+                    })
+                    : null
+                    
+                }
+
             </div>
 
             <Footer/>
@@ -79,12 +78,23 @@ function OngoingStudy() {
     )
 }
 
-function StudyNameTab(props){
+function OngoingStudyList(props){
+    let history = useHistory();
+
+    function ongoingStudyBtnClickHandler(){
+        history.push({ 
+            pathname: "/ongoing_study_detail",
+            state: {userInfo: props.userInfo, ongoingStudy: props.ongoingStudy, isManager: props.isManager}
+        });
+    }
+
+    //console.log(props.isManager);
 
     return(
-        <div className="ongoingStudyNameTabText">
-            {/*props.managerList.studyInfo.studyName*/}
-            Test
+        <div className="ongoingStudyListContainer">
+            <div className="ongoingStudyName" onClick={ongoingStudyBtnClickHandler}>
+                {props.ongoingStudy.studyInfo.studyName}
+            </div>
         </div>
     )
 }

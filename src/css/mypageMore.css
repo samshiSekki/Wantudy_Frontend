@@ -237,9 +237,121 @@
     display: inline-block;
 }
 
-.ongoingStudyNameTabText{
+
+.ongoingStudyListContainer{
+    width:1200px;
+    padding-top: 44px;
+    text-align: center;
+    background: #FFFFFF;
+}
+
+.ongoingStudyName{
+    display: inline-block;
+    width: 1054px;
+    height: 71px;
+    line-height: 71px;
+    background: #F8F9FC;
+    border-radius: 20px;
+
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
-    line-height: 27px;
+    margin-bottom: 42px;
+}
+
+.ongoingStudyDetailTitle{
+    padding-left: 73px;
+    width: 1200px;
+    height: 100px;
+    background: #497EF1;
+    border-radius: 35px;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 100px;
+    color: #FFFFFF;
+}
+
+.participantsPics{
+    padding-top: 26.23px;
+    margin-top: 13px;
+    width: 1200px;
+    height: 98px;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.participantsProfileImg{
+    margin-left: 23px;
+    width: 50.77px;
+    height: 50.77px;
+    border-radius: 70%;
+    float: left;
+}
+
+.participantsPicsContainer{
+    display: inline-block;
+}
+
+.managerLabelImg{
+    margin-left: 20px;
+    position: absolute;
+}
+
+.ongoingDetailContainers{
+    margin-top: 13px;
+    text-align: center;
+    width: 1200px;
+    height: auto;
+    background: #FFFFFF;
+    padding-bottom: 43px;
+}
+
+.scheduleBox{
+    padding-top: 57px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #88898E;
+    text-align: center;
+    display: inline-block;
+    width: 1055px;
+    height: 235px;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+}
+
+.ongoingSubTitle{
+    margin-top: 43px;
+    margin-left: 73px;
+    margin-bottom: 21px;
+    float: left;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.scheduleAdjustBtn{
+    display: inline-block;
+    width: 130px;
+    height: 40.27px;
+    border: 1px solid #497EF1;
+    box-sizing: border-box;
+    border-radius: 40.5px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 40.27px;
+    text-align: center;
+
+    color: #497EF1;
+    margin-top: 25px;
+}
+
+.subjectTodoBox{
+    width: 1055px;
+    height: 92px;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+    display: inline-block;
 }

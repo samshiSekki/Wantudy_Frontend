@@ -21,6 +21,7 @@ import ModDefaultApp2 from './pages/ApplicationManage/ModDefaultApp2';
 import AppliedStudy from './pages/Mypage/AppliedStudy';
 import OpenedStudy from './pages/Mypage/OpenedStudy';
 import OngoingStudy from './pages/Mypage/OngoingStudy';
+import OngoingStudyDetail from './pages/Mypage/OngoingStudyDetail';
 
 
 function App() {
@@ -99,6 +100,10 @@ function App() {
 
       <Route path='/ongoing_study'>
         <OngoingStudy/>
+      </Route>
+
+      <Route path='/ongoing_study_detail'>
+        <OngoingStudyDetail/>
       </Route>
 
       <Route path="/post" component={PostPage} />
