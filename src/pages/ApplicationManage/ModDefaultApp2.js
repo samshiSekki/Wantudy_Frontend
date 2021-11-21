@@ -50,7 +50,7 @@ function ModDefaultApp2() {
 
         let response = await axios.put(`http://13.209.66.117:8080/study/application/${applicationId}`,{
             userId: userInfo.userId,
-            applicationName: "jaemDefaultApp",
+            applicationName: appContents.appName,
             name: appContents.name,
             gender: appContents.gender,
             age: parseInt(appContents.age),
@@ -60,7 +60,8 @@ function ModDefaultApp2() {
             semester: [1],
             address: appContents.address,
             interests: resultInterests,
-            keyword: reslutKeywords
+            keyword: reslutKeywords,
+            specification: appContents.record
         });
 
         history.push({ 

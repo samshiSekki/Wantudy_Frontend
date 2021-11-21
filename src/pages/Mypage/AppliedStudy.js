@@ -31,7 +31,7 @@ function AppliedStudy() {
             </div>
 
             {
-                  appliedList[0] != ""
+                  appliedList.msg != "신청한 스터디가 없습니다"
                   ? appliedList.map((a,i)=>{
                       return <AppliedList appliedList = {appliedList[i]} i={i} userInfo={userInfo}/>
                   })

@@ -98,6 +98,7 @@ function LoggedIn(props){
                 state: {userInfo: props.userInfo}
             });
         }
+        window.location.reload();
     }
 
     return(
