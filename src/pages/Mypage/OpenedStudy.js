@@ -20,6 +20,7 @@ function OpenedStudy() {
     return (
         <>
           <NavbarWhite userInfo={userInfo}/>
+          <img src="img/Group 477.png" className="openedStudyImg"/>
           <div className="myMorePageContainer">
             <div className="myMorePageBanner">
               <div className="myMorePageTitleText">
@@ -52,6 +53,8 @@ function OpenedList(props){
         const response = await axios.put(`http://13.209.66.117:8080/users/${props.userInfo.userId}/opened-studylist/${props.openedList.study.StudyId}`);
     }
 
+    console.log(props.openedList.applications);
+
     return(
         <>
             <div className="openedListContainer">
@@ -61,11 +64,12 @@ function OpenedList(props){
                 <br/>
                 <button onClick={startStudyBtnClickHandler}>스터디 시작하기</button>
                 <br/>
-                신청서 목록 : <br/>
                 {
-                    props.openedList.applications.map((a,i)=>{
-                        return <ReceivedAppList applications = {props.openedList.applications[i]} i={i} userInfo={props.userInfo} studyId={props.openedList.study.StudyId}/>
+                    props.openedList.applications[0] != null
+                    ?props.openedList.applications.map((a,j)=>{
+                        return <ReceivedAppList applications = {props.openedList.applications[j]} j={j} userInfo={props.userInfo} studyId={props.openedList.study.StudyId}/>
                     })
+                    :null
                 }
             </div>
         </>
@@ -74,7 +78,7 @@ function OpenedList(props){
 
 function ReceivedAppList(props){
     const [modal, setModal] = useState(false);
-    console.log(props.applications.state);
+    //console.log(props.applications.state);
 
     return(
         <>
@@ -88,10 +92,17 @@ function ReceivedAppList(props){
                 <div className = "receivedAppUserTemp">
                     {props.applications.temperature}°C
                 </div>
+                
+                <div className="receivedAppViewDetail">
+                    상세보기
+                </div>
+                <div className="receivedAppRegDate">
+                    {props.applications.registered.substr(0,10)} 등록
+                </div>
             </div>
 
             
-            
+            {/*
             <div>
                 {props.applications.application.name}
             </div>
@@ -113,6 +124,7 @@ function ReceivedAppList(props){
                 ?<Modal apps = {props.applications} studyId={props.studyId}/>
                 :null
             }
+            */}
         </>
     )
 }

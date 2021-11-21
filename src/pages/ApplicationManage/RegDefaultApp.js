@@ -13,6 +13,7 @@ function RegDefaultApp(props) {
     let location = useLocation();
     const userInfo = location.state.userInfo;
 
+    const [appName, setAppName] = useState("default app"); //신청서명
     const [name, setName] = useState("default name"); //성명
     const [gender, setGender] = useState("남자"); //성별
     const [age, setAge] = useState("default age"); //나이
@@ -20,6 +21,11 @@ function RegDefaultApp(props) {
     const [major, setMajor] = useState("default major"); //전공
     const [attend, setAttend] = useState("재학"); //재학 여부
     const [address, setAddress] = useState("default address"); //거주지
+    const [record, setRecord] = useState(" "); //이력
+
+    function appNameChange(e){
+        setAppName(e.target.value);
+    }
 
     function nameChange(e){
         setName(e.target.value);
@@ -41,15 +47,21 @@ function RegDefaultApp(props) {
         setAddress(e.target.value);
     }
 
+    function recordChange(e){
+        setRecord(e.target.value);
+    }
+
     function nextBtnClickHandler(){
         let appContents = {
+            appName: appName,
             name: name,
             gender: gender,
             age: age,
             school: school,
             major: major,
             attending: attend,
-            address: address
+            address: address,
+            record: record
         }
         props.history.push({ 
             pathname: "/reg_default_app2",
@@ -79,6 +91,12 @@ function RegDefaultApp(props) {
             <div className="rdaContainer">
                 <div className="rdaContents">
                 <p className="appTitle">스터디 신청서</p>
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
+                    <p className="nameText">신청서명</p>
+                    <input type="text" className="inputSchool" onChange={appNameChange}/><br/>
+                </div>
                 <hr className="appHr"/>
                 
                 <div className="rdaItemContainer">
@@ -128,11 +146,20 @@ function RegDefaultApp(props) {
                 <hr className="appHr"/>
 
                 <div className="rdaItemContainer">
+                    <p className="nameText">이력</p>
+                    <input type="text" className="inputSchool" onChange={recordChange} placeholder="교내활동, 대외활동, 인턴, 동아리, 프로젝트 등"/><br/>
+                </div>
+
+                <hr className="appHr"/>
+
+                <div className="rdaItemContainer">
                     <p className="nameText">거주지</p>
                     <input type="text" className="inputSchool" onChange={addressChange} placeholder="'구'단위까지"/><br/>
                 </div>
 
                 <hr className="appHr"/>
+
+                
                 
                 <div className="nextButton" onClick={nextBtnClickHandler}>
                     <img src="img/Group 127.png" className="nextVector"/>

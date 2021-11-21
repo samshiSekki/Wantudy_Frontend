@@ -108,7 +108,7 @@ function Mypage(props) {
 
     function moreOngoing(){
         props.history.push({
-            pathname: "",
+            pathname: "/ongoing_study",
             state: {userInfo: userInfo}
         })
     }

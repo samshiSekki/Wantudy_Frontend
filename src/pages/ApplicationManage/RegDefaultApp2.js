@@ -49,7 +49,7 @@ function RegDefaultApp2(props) {
 
         let response = await axios.post(`http://13.209.66.117:8080/study/application`,{
             userId: userInfo.userId,
-            applicationName: "jaemDefaultApp",
+            applicationName: appContents.appName,
             name: appContents.name,
             gender: appContents.gender,
             age: parseInt(appContents.age),
@@ -59,7 +59,8 @@ function RegDefaultApp2(props) {
             semester: [1],
             address: appContents.address,
             interests: resultInterests,
-            keyword: reslutKeywords
+            keyword: reslutKeywords,
+            specification: appContents.record
         });
 
         userInfo.state = true;
