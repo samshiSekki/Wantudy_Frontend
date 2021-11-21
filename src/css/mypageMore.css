@@ -424,3 +424,17 @@
     float: left;
     margin-left: 53px;
 }
+
+.raChatBtn{
+    margin-top: 32px;
+}
+
+.raDeclineBtn{
+    margin-top: 32px;
+    margin-left: 25px;
+}
+
+.raAcceptBtn{
+    margin-top: 32px;
+    float:right;
+}
