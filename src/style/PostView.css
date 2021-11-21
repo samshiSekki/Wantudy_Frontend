@@ -70,9 +70,18 @@ color: #88898E;
 
 }
 .study-view-field{
-    padding-top:40px;
-    margin-left:100px;
-    margin-top:44px;
+    padding-left:150px;
+
+    padding-top:43px;
+    margin-left:30px;
+    margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+
+color: #22272E;
 }
 .study-view-description{
     margin-left:360px;
@@ -104,10 +113,64 @@ color: #88898E;
 }
 .study-view-description-text2{
 
+    padding-left:150px;
+
     padding-top:40px;
     margin-left:30px;
     margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
 
+color: #22272E;
+
+
+}
+.study-view-level{
+    margin-left:360px;
+    margin-top:13px;
+    width: 1200px;
+height: 113px;
+left: 360px;
+top: 444px;
+
+background: #FFFFFF;
+
+}
+
+.study-view-level-text{
+    float:left;
+    margin-left:73px;
+    margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #88898E;
+
+
+
+}
+
+.study-view-level-text2{
+    padding-left:150px;
+
+    padding-top:40px;
+    margin-left:30px;
+    margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+
+color: #22272E;
 }
 .study-view-onoff{
 
@@ -139,9 +202,18 @@ color: #88898E;
 }
 .study-view-onoff-text2{
 
+    padding-left:150px;
+
     padding-top:40px;
     margin-left:30px;
     margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+
+color: #22272E;
 
 }
 .study-view-period{
@@ -174,9 +246,18 @@ color: #88898E;
 }
 
 .study-view-period-text2{
+    padding-left:150px;
+
     padding-top:40px;
     margin-left:30px;
     margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+
+color: #22272E;
 
 }
 
@@ -208,9 +289,18 @@ color: #88898E;
 
 }
 .study-view-studytime-text2{
+    padding-left:150px;
+
     padding-top:40px;
     margin-left:30px;
     margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+
+color: #22272E;
 
 }
 .study-view-required{
@@ -244,9 +334,18 @@ color: #88898E;
 }
 
 .study-view-required-text2{
+    padding-left:230px;
+
     padding-top:40px;
     margin-left:30px;
     margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+
+color: #22272E;
 }
 
 .study-view-peoplenum{
@@ -278,9 +377,18 @@ color: #88898E;
 
 }
 .study-view-peoplenum-text2{
+    padding-left:150px;
+
     padding-top:40px;
     margin-left:30px;
     margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
+
+color: #22272E;
 
 }
 .study-view-deadline{
@@ -305,8 +413,16 @@ line-height: 25px;
 color: #88898E;
 }
 .study-view-deadline-text2{
+    padding-left:150px;
+
     padding-top:40px;
     margin-left:30px;
     margin-top:40px;
+    font-family: Noto Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 25px;
 
+color: #22272E;
 }

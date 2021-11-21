@@ -29,6 +29,7 @@ function PostView({ match, history, location }) {
 
   const [isListVisible, setIsListVisible] = useState(false);
   const [selectList, setSelectList] = useState();
+
   var color_onoff = '#D0FFBA'
   var color_category = '#BAFFFF'
   var color_level = '#EFD5FF'
@@ -139,16 +140,6 @@ function PostView({ match, history, location }) {
         setSelectList(li.applicationId)
       }
       
-    }
-
-    const tagBox1=(tag)=> {
-      let arr = []
-      for (let i = 0; i < tag.length; i++) {
-        arr.push(<Tag color = {color_category} style={{color:'black',float:'left'}}>{tag[i]}</Tag>)
-  
-  
-      }
-      return arr;
     }
     
     const handleRegister=()=>{
@@ -262,6 +253,7 @@ function PostView({ match, history, location }) {
             <span className="study-name-detail">
               '{postDetail.userId}'{'님의 스터디 공고입니다! '}
             </span>
+            {postDetail.deadline != null ? (<div>{checkDeadline(postDetail.deadline)}</div>):<div>hi</div>}
            {/*  <div>{checkDeadline(postDetail.deadline)}</div> 이 부분입니다 이거 풀면 오류나서 주석해놓음*/}
 
             
@@ -273,21 +265,28 @@ function PostView({ match, history, location }) {
         </div>
        
         <div className="study-view-field-text">
-            <p className="study-view-field-text2">분야</p><div className="study-view-field">{tagBox1(postDetail.category)}</div>
+            <p className="study-view-field-text2">분야</p><div className="study-view-field">
+              {postDetail.category != null ?(<div>{tagBox2(postDetail.category)}</div>):<div></div>}</div>
           </div>
           <div className="study-view-description">
             <p className="study-view-description-text">상세 설명</p> <div  className="study-view-description-text2"> {postDetail.description}
           </div></div>
+          <div className="study-view-level">
+            <p className="study-view-level-text">난이도</p> <div  className="study-view-level-text2">
+               {postDetail.level != null ?(<div>{tagBox4(postDetail.category)}</div>):<div></div>}
+          </div></div>
         <div className="study-view-onoff">
-        <p className="study-view-onoff-text">진행 방식</p> <div className="study-view-onoff-text2"> {postDetail.onoff}</div>
+        <p className="study-view-onoff-text">진행 방식</p> <div className="study-view-onoff-text2"> 
+        {postDetail.onoff != null ?(<div>{tagBox1(postDetail.onoff)}</div>):<div></div>}</div>
           </div>
           <div className="study-view-period">
           <p className="study-view-period-text">
-            진행 기간</p> <div className="study-view-period-text2">{postDetail.period}</div>
+            진행 기간</p> <div className="study-view-period-text2">{postDetail.period}개월</div>
         </div>
           <div className="study-view-studytime">
           <p className="study-view-studytime-text">
-            희망 시간대</p> <div className="study-view-studytime-text2">{postDetail.studyTime}</div>
+            희망 시간대</p> <div className="study-view-studytime-text2">
+              {postDetail.studyTime != null ?(<div>{tagBox3(postDetail.studyTime)}</div>):<div></div>}</div>
         </div>
         <div className="study-view-required">
           <p  className="study-view-required-text">
@@ -295,7 +294,7 @@ function PostView({ match, history, location }) {
         </div>
         <div className="study-view-peoplenum">
           <p className="study-view-peoplenum-text">
-            모집 인원 </p> <div  className="study-view-peoplenum-text2">{postDetail.peopleNum}</div> 
+            모집 인원 </p> <div  className="study-view-peoplenum-text2">{postDetail.peopleNum}명</div> 
         </div>
         <div className="study-view-deadline">
           <p className="study-view-deadline-text">
@@ -304,6 +303,7 @@ function PostView({ match, history, location }) {
       </div>
     );
   }
+
   function checkDeadline (deadline) {
     console.log(deadline)
     console.log(new Date().toISOString())
@@ -316,6 +316,48 @@ function PostView({ match, history, location }) {
   }
   
   
+}
+
+var color_onoff = '#D0FFBA'
+var color_category = '#BAFFFF'
+var color_level = '#EFD5FF'
+var color_time = '#FFE194'
+
+function tagBox1(tag) {
+  let arr = []
+  for (let i = 0; i < tag.length; i++) {
+    arr.push(<Tag color = {color_onoff} style={{color:'black',float:'left'}}>{tag[i]}</Tag>)
+
+
+  }
+  return arr;
+}
+function tagBox2(tag) {
+  let arr = []
+  for (let i = 0; i < tag.length; i++) {
+    arr.push(<Tag color = {color_category} style={{color:'black'}}>{tag[i]}</Tag>)
+
+  }
+  return arr;
+
+}
+function tagBox3(tag) {
+  let arr = []
+  for (let i = 0; i < tag.length; i++) {
+    arr.push(<Tag color = {color_time} style={{color:'black'}}>{tag[i]}</Tag>)
+
+  }
+  return arr;
+
+}
+function tagBox4(tag) {
+  let arr = []
+  for (let i = 0; i < tag.length; i++) {
+    arr.push(<Tag color = {color_level} style={{color:'black'}}>{tag[i]}</Tag>)
+
+  }
+  return arr;
+
 }
 
 export default withRouter(PostView);

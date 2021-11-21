@@ -135,6 +135,7 @@ function AppList(props){
       let body = {
         "userId": props.userInfo.userId,
   "applicationId": props.apps.applicationId,
+  "message":value.message
       }
         registerPost(props.studyId, body)
         .then(() => {

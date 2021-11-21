@@ -319,6 +319,7 @@ console.log(arr, imageCheck)
               <div className="check-deadline">{checkDeadline(item.deadline)}</div>
               <div className="calculate-date">마감 D {calculateDate(item.deadline)}</div>
               <div className="people-number"> 인원 현황 {item.currentNum} / {item.peopleNum}</div>
+              <div>{item.likeNum}</div>
               
              
              
