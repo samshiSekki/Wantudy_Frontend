@@ -172,6 +172,7 @@ function Mypage(props) {
                         <div className="mypagePreview2">
                             {applied[0].studyName}
                         </div>
+                        {/*
                         <div className="applyBlockStatus">
                             {
                                 applied[0].state == 0
@@ -183,6 +184,7 @@ function Mypage(props) {
                                         : ""
                             }
                         </div>
+                        */}
                     </div>
 
                     <div className="openedBlock">
@@ -191,6 +193,7 @@ function Mypage(props) {
                         <div className="mypagePreview2">
                             {opened[0].study.studyName}
                         </div>
+                        {/*
                         <div>
                             <div className="appliedUserName">
                                 {opened[0].applications[0].application.name + " "}
@@ -199,6 +202,8 @@ function Mypage(props) {
                                 {opened[0].applications[0].registered} 신청
                             </div>
                         </div>
+                        */}
+                        
                     </div>
                 
                 </div>

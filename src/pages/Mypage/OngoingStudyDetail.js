@@ -10,9 +10,17 @@ function OngoingStudyDetail() {
     const userInfo = location.state.userInfo;
     const ongoingStudy = location.state.ongoingStudy;
     const isManager = location.state.isManager;
+    const history = useHistory();
 
     console.log(ongoingStudy);
     console.log(isManager);
+
+    function scheduleBtnClickHandler(){
+        history.push({ 
+            pathname: "/schedule",
+            state: {userInfo: userInfo, studyInfo: ongoingStudy.studyInfo, isManager: isManager, participants: ongoingStudy.participants}
+          });
+    }
 
     return (
         <div>
@@ -45,7 +53,7 @@ function OngoingStudyDetail() {
 
                     <div className="scheduleBox">
                     스터디 일정이 아직 확정되지 않았습니다.<br/> 아래 버튼을 통해 스터디원과 일정을 조율하여 확정해주세요.<br/>
-                    <div className="scheduleAdjustBtn">일정 조율하기</div>
+                    <div className="scheduleAdjustBtn" onClick={scheduleBtnClickHandler}>일정 조율하기</div>
                     </div>
                 </div>
 
