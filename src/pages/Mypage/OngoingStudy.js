@@ -14,11 +14,11 @@ function OngoingStudy() {
     const [memberList, setMemberList] = useState(["",]);
 
     useEffect(async()=>{
-        console.log(userInfo);
+        //console.log(userInfo);
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
         console.log(response);
-        console.log(response.data.studyManager);
-        console.log(response.data.studyMember);
+        //console.log(response.data.studyManager);
+        //console.log(response.data.studyMember);
 
         setManagerList(response.data.studyManager);
         setMemberList(response.data.studyMember);
@@ -26,8 +26,8 @@ function OngoingStudy() {
     },[]);
 
 
-    console.log(managerList);
-    console.log(memberList);
+    //console.log(managerList);
+    //console.log(memberList);
 
     /*
     function showOngoingList(list,length){

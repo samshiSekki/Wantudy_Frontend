@@ -30,7 +30,7 @@ function OpenedStudy() {
             </div>
 
             {
-                openedList[0] != ""
+                (openedList[0] != "" && openedList.msg != "개설한 스터디가 없습니다")
                 ? openedList.map((a,i)=>{
                     return <OpenedList openedList = {openedList[i]} i={i} userInfo={userInfo}/>
                 })
