@@ -451,3 +451,77 @@
     margin-top: 32px;
     float:right;
 }
+
+.scheduleContainer{
+    width: 1200px;
+    height: 1388px;
+    background: #FFFFFF;
+    margin-top: 13px;
+    padding-top: 60px;
+}
+
+.dayOfWeek{
+    width: 143px;
+    text-align: center;
+    float:left;
+    font-weight: 600;
+    font-size: 18px;
+    color: #88898E;
+}
+
+.dayOfWeekContainer{
+    margin-left: 125px;
+}
+
+.timeContainer{
+    margin-top: 15px;
+    float: left;
+    margin-left: 72px;
+    width: 53px;
+    height: 1268px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 10px;
+    color: #88898E;
+}
+
+.timeNumber{
+    height: 61px;
+    padding-bottom: 46px;
+}
+
+.tablesOfDayOfWeek{
+    margin-top: 22.49px;
+    float: left;
+    width: 143px;
+    height: 1226px;
+}
+
+.timeTable{
+    width: 143px;
+    height: 61px;
+    background: #F8F9FC;
+    border: 1px solid #CACACA;
+}
+
+.timeTableColored{
+    width: 143px;
+    height: 61px;
+    background: rgba(53, 174, 174, 0.3);
+    border: 1px solid #CACACA;
+}
+
+.scheduleBtns{
+    width: 106.43px;
+    height: 57px;
+    line-height: 57px;
+    background: #EEEFF2;
+    border-radius: 40.5px;
+    float: left;
+    margin-top: 41px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 25px;
+}
