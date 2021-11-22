@@ -193,14 +193,14 @@
     text-align: left;
     display: inline-block;
     width: 1200px;
-    height: 275px;
+    height: auto;
 }
 
 .appliedBlock{
     padding-top: 45px;
     padding-left: 73px;
     width: 592px;
-    height: 238px;
+    height: 200px;
     background: #FFFFFF;
     float: left;
 }
@@ -209,7 +209,7 @@
     padding-top: 45px;
     padding-left: 73px;
     width: 592px;
-    height: 238px;
+    height: 200px;
     background: #FFFFFF;
     float: left;
     margin-left: 16px;

@@ -30,11 +30,11 @@ function LikedStudy() {
             </div>
 
                 {
-                  likedList[0] != ""
+                  (likedList[0] != "" && likedList.msg != "찜한 스터디가 없습니다")
                   ? likedList.map((a,i)=>{
                       return <LikedList likedList = {likedList[i]} i={i} userInfo={userInfo}/>
                   })
-                  : "신청한 스터디가 없습니다"
+                  : "찜한 스터디가 없습니다"
                 }
 
             

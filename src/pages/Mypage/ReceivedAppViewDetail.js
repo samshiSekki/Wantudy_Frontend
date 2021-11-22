@@ -13,9 +13,9 @@ function ReceivedAppViewDetail(props) {
     let history = useHistory();
     console.log(applications);
 
-    console.log(applications.application.userId);
-    console.log(applications.application.applicationId);
-    console.log(studyId);
+    //console.log(applications.application.userId);
+    //console.log(applications.application.applicationId);
+    //console.log(studyId);
 
     const acceptBtnClickHandler = async() => {
         const response = await axios.put(`http://13.209.66.117:8080/users/${applications.application.userId}/opened-studylist/manageMember/${applications.application.applicationId}`,{
@@ -47,7 +47,7 @@ function ReceivedAppViewDetail(props) {
         <div>
             <NavbarWhite userInfo={userInfo}/>
                 <div className="myMorePageContainer">
-                    <div className="ongoingStudyDetailTitle">
+                    <div className="receivedAppViewTitle">
                         {applications.application.name}님의 신청서입니다!
                         <div className="recivedAppRegisteredDate">{applications.registered.substr(0,10)} 등록</div>
                     </div>

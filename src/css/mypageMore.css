@@ -291,7 +291,6 @@
 }
 
 .ongoingStudyDetailTitle{
-    padding-left: 73px;
     width: 1200px;
     height: 100px;
     background: #497EF1;
@@ -300,6 +299,19 @@
     font-size: 25px;
     line-height: 100px;
     color: #FFFFFF;
+    text-align: center;
+}
+
+.receivedAppViewTitle{
+    width: 1200px;
+    height: 100px;
+    background: #497EF1;
+    border-radius: 35px;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 100px;
+    color: #FFFFFF;
+    padding-left: 73px;
 }
 
 .participantsPics{
@@ -313,6 +325,7 @@
 
 .participantsProfileImg{
     margin-left: 23px;
+    margin-right: 23px;
     width: 50.77px;
     height: 50.77px;
     border-radius: 70%;
@@ -324,7 +337,7 @@
 }
 
 .managerLabelImg{
-    margin-left: 20px;
+    margin-left: 10px;
     position: absolute;
 }
 
