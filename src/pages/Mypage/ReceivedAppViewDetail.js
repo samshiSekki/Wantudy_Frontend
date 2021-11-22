@@ -161,7 +161,7 @@ function ReceivedAppViewDetail(props) {
                             스터디장에게 전달할 메시지
                         </div>
                         <div className="appViewdetailContainerContent">
-                            {applications.application.message}
+                            {applications.message}
                         </div>
                     </div>
 
