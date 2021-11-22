@@ -9,6 +9,7 @@ import 'moment/locale/zh-cn';
 import Navbar from '../../pages/Navbar/NavbarWhite';
 import Footer from '../../pages/Footer/Footer';
 import Group1 from './Group-278.png'
+import vectorimg from './Vector395.png'
 
 const CheckboxGroup = Checkbox.Group;
 
@@ -26,10 +27,12 @@ function PostWrite(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const errorHandling = useErrorHandling();
-  const [value, setvalue] = useState({ userId:props.location.state.userInfo.userId,studyName:'', category:null, description:'',onoff:'',studyTime:'',peopleNum:0,requiredInfo:'',deadline:'2021-11-03', period:0, level:''});
+  const [level, setLevel] = useState(); //난이도
+  const [value, setvalue] = useState({ userId:props.location.state.userInfo.userId,studyName:'', category:[], description:'',onoff:'',studyTime:'',peopleNum:0,requiredInfo:[],deadline:'2021-11-03', period:0, level:level});
   const [checkedList, setCheckedList] = useState(defaultCheckedList);
   const [indeterminate, setIndeterminate] = useState(true);
   const [checkAll, setCheckAll] = useState(false);
+  
 
   const onChange = list => {
     setCheckedList(list);
@@ -46,7 +49,6 @@ function PostWrite(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setIsModalVisible(true);
 
     let body = {
       userId: value.userId,
@@ -179,7 +181,11 @@ for (let i = 0; i < 10; i++) {
   }
   
 }
-const plainOptions = ['오프라인', '온라인'];
+const plainOptions = [
+  {label:'오프라인', value:'오프라인'},
+  {label: '온라인', value:'온라인'}
+];
+
 
   return (
     <>
@@ -195,14 +201,13 @@ const plainOptions = ['오프라인', '온라인'];
 
      <div className='post-write-box'>
        <div className='study-title'>스터디원 모집 게시물</div>
-       <div className='study-title-small'>‘’는 반드시 작성해야 하는 필수적인 문항입니다.</div>
+       <div className='study-title-small'>‘<img src={vectorimg}/>’는 반드시 작성해야 하는 필수적인 문항입니다.</div>
        <hr />
-            <div><div className='study-name'>스터디명</div>
+      <div><div className='study-name'> <img src={vectorimg} />          스터디명</div>
             <div>
       <Input
           className="title-bar"
           type="text"
-          placeholder="스터디명"
           value={value.studyName}
           onChange={(e) => {console.log(value)
             setvalue({ ...value, studyName: e.target.value });
@@ -210,7 +215,7 @@ const plainOptions = ['오프라인', '온라인'];
         />
         </div>
         <hr />
-        <div className='field-text'>분야</div>
+        <div className='field-text'><img src={vectorimg} />          분야</div>
         <Select
       mode="tags"
       className="field-select"
@@ -234,22 +239,28 @@ const plainOptions = ['오프라인', '온라인'];
           }}
         /> */}
         <hr />
-        <div className='description-text'>상세 설명</div>
+        <div className='description-text'><img src={vectorimg} />          상세 설명</div>
         <div>
         <Input
-          className="desciprtion-bar"
+          className="description-bar"
           type="text"
-          placeholder="상세 설명"
           value={value.description}
           onChange={(e) => {
             setvalue({ ...value, description: e.target.value });
           }}
         /></div>
         <hr />
-        <div className="level-text">난이도 : &nbsp;</div>
+        <div className="level-text"><img src={vectorimg} />          난이도</div>
+        {/* <button className={level=="입문"? "femaleSelectedButton" : "femaleButton"} value={value.level} onClick={(e)=>{setLevel("입문");
+        console.log(value); setvalue({ ...value, level: e.target.innerText })}} >입문</button>
+                    <button className={level=="기본"? "maleSelectedButton" : "maleButton"} value={value.level} onChange={(e) => {
+            setvalue({ ...value, level: e.target.innerText });
+          }} onClick={()=>(setLevel("기본"))}>기본</button>
+                    <button className={level=="심화"? "maleSelectedButton" : "maleButton"} value={value.level} onChange={(e) => {
+            setvalue({ ...value, level: e.target.innerText });
+          }}onClick={()=>(setLevel("심화"))}>심화</button> */}
         <Input
           className="level-bar"
-          style={{width:'80%'}}
           type="text"
           placeholder="level"
           value={value.level}
@@ -257,11 +268,32 @@ const plainOptions = ['오프라인', '온라인'];
             setvalue({ ...value, level: e.target.value });
           }}
         />
+        <hr/>
       <Form
       name="validate_other"
-    > <div className="onoff-text">진행 방식 : &nbsp;</div> 
-      <Checkbox.Group className="onoff-bar" options={plainOptions} value = {value.onoff} onChange={(e) => {
-        setvalue({ ...value, onoff: e })}}/>
+    > <div className="onoff-text">진행 방식</div> 
+      <Radio.Group
+      className="onoff-bar"
+      size='large'
+          options={plainOptions}
+          onChange={(e) => {
+            setvalue({ ...value, onoff: e.target.value })}}
+          value={value.onoff}
+          optionType="button"
+        />
+      {/* <Checkbox.Group className="onoff-bar" options={plainOptions} value = {value.onoff} onChange={(e) => {
+        setvalue({ ...value, onoff: e })}}/> */}
+        <hr/>
+        <div className='period-text'>진행 기간</div>
+            
+        <Form.Item className='period-bar'
+         value={value.period}
+         onChange={(e) => {
+           setvalue({ ...value, period: parseInt(e.target.value) });}}>
+          <InputNumber min={1} max={14} />개월
+        </Form.Item>        
+        
+      
           {/* <Form.Item
         name="radio-button"
         label="진행 방식"
@@ -274,7 +306,7 @@ const plainOptions = ['오프라인', '온라인'];
         </Radio.Group>
       </Form.Item> */}
       <hr />
-      <div style={{float:'left'}}>희망 시간대 : &nbsp;</div> <Select mode="tags" style={{ width: '80%' }} placeholder="원하는 시간대를 입력한 다음 엔터를 눌러주세요!" onChange={(e) => {
+      <div className='time-text'><img src={vectorimg} />          희망 시간대</div> <Select mode="tags" className='time-bar' placeholder="원하는 시간대를 입력한 다음 엔터를 눌러주세요! (ex. 월 12-15)" onChange={(e) => {
           setvalue({ ...value, studyTime: e });}}>
   </Select>
 {/* 
@@ -290,14 +322,14 @@ const plainOptions = ['오프라인', '온라인'];
         </Radio.Group>
       </Form.Item> */}
       <hr />
-      <div style={{float:'left'}}>신청서 필수 기재 사항 : &nbsp;</div>
+      <div className='required-text'><img src={vectorimg} />          신청서 필수 기재 사항</div>
       {/* <Checkbox.Group options={plainOptions} value = {value.requiredInfo} onChange={(e) => {
         setvalue({ ...value, requiredInfo: e })}}/> */}
       <Select
       mode="multiple"
       allowClear
-      style={{ width: '80%' }}
-      placeholder="Please select"      
+      className='required-bar'
+      placeholder="기재 사항"      
       value = {value.requiredInfo}
       onChange={(e) => {
         setvalue({ ...value, requiredInfo: e })}}
@@ -318,8 +350,9 @@ const plainOptions = ['오프라인', '온라인'];
         </Radio.Group>
       </Form.Item> */}
       <hr />
-      <Form.Item label="모집 인원">
-        <Form.Item name="모집 인원"
+      <div className='peoplenum-text'>모집 인원</div>
+      
+        <Form.Item className='peoplenum-bar'
          value={value.peopleNum}
          onChange={(e) => {
            setvalue({ ...value, peopleNum: parseInt(e.target.value) });}}>
@@ -327,33 +360,21 @@ const plainOptions = ['오프라인', '온라인'];
         </Form.Item>        
         
       
-            </Form.Item>
-            <Form.Item label="기간">
-        <Form.Item name="기간"
-         value={value.period}
-         onChange={(e) => {
-           setvalue({ ...value, period: parseInt(e.target.value) });}}>
-          <InputNumber min={1} max={14} />
-        </Form.Item>        
-        
-      
-            </Form.Item>
+            <hr/>
+            
             <div>
-            <div style={{float:'left'}} bordered={false}>모집 마감 기한 : &nbsp;</div>
-      <DatePicker format={dateFormat} onChange={ (date,dateString) => {setvalue({ ...value, deadline: dateString })}}/>
+            <div className='deadline-text' bordered={false}><img src={vectorimg} />          모집 마감일</div>
+      <DatePicker className='deadline-bar' format={dateFormat} onChange={ (date,dateString) => {setvalue({ ...value, deadline: dateString })}}/>
       </div>
           
         </Form>
         
         
        
-        <div id="button-bar">
+        <div >
           <Button
-            type="primary"
+            className="regist-button"
             onClick={onSubmit}
-            style={{
-              marginLeft: '10px',
-            }}
           >
             등록
           </Button>
@@ -365,11 +386,8 @@ const plainOptions = ['오프라인', '온라인'];
                 스터디를 개설하였습니다.
               </Modal>
           <Button
-            type="primary"
+            className="dele-button"
             onClick={onExit}
-            style={{
-              marginLeft: '10px',
-            }}
           >
             취소
           </Button>

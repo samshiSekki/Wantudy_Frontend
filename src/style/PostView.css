@@ -16,7 +16,7 @@ background: #FFFFFF;
     margin-left:10px;
 }
 .study-name-detail{
-    margin-left:10px;
+    margin-left:60px;
     font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 500;
@@ -74,7 +74,6 @@ color: #88898E;
 
     padding-top:43px;
     margin-left:30px;
-    margin-top:40px;
     font-family: Noto Sans;
 font-style: normal;
 font-weight: 500;
@@ -85,7 +84,6 @@ color: #22272E;
 }
 .study-view-description{
     margin-left:360px;
-    margin-top:13px;
     width: 1200px;
 height: 113px;
 left: 360px;
@@ -117,7 +115,7 @@ color: #88898E;
 
     padding-top:40px;
     margin-left:30px;
-    margin-top:40px;
+    margin-top:13px;
     font-family: Noto Sans;
 font-style: normal;
 font-weight: 500;
@@ -163,7 +161,6 @@ color: #88898E;
 
     padding-top:40px;
     margin-left:30px;
-    margin-top:40px;
     font-family: Noto Sans;
 font-style: normal;
 font-weight: 500;
@@ -206,7 +203,6 @@ color: #88898E;
 
     padding-top:40px;
     margin-left:30px;
-    margin-top:40px;
     font-family: Noto Sans;
 font-style: normal;
 font-weight: 500;
@@ -250,7 +246,6 @@ color: #88898E;
 
     padding-top:40px;
     margin-left:30px;
-    margin-top:40px;
     font-family: Noto Sans;
 font-style: normal;
 font-weight: 500;
@@ -293,7 +288,6 @@ color: #88898E;
 
     padding-top:40px;
     margin-left:30px;
-    margin-top:40px;
     font-family: Noto Sans;
 font-style: normal;
 font-weight: 500;
@@ -338,7 +332,6 @@ color: #88898E;
 
     padding-top:40px;
     margin-left:30px;
-    margin-top:40px;
     font-family: Noto Sans;
 font-style: normal;
 font-weight: 500;
@@ -381,7 +374,6 @@ color: #88898E;
 
     padding-top:40px;
     margin-left:30px;
-    margin-top:40px;
     font-family: Noto Sans;
 font-style: normal;
 font-weight: 500;
@@ -417,7 +409,6 @@ color: #88898E;
 
     padding-top:40px;
     margin-left:30px;
-    margin-top:40px;
     font-family: Noto Sans;
 font-style: normal;
 font-weight: 500;
@@ -425,4 +416,37 @@ font-size: 18px;
 line-height: 25px;
 
 color: #22272E;
+}
+
+.button-register{
+    margin-bottom:30px;
+    color:white;
+    width: 190px;
+height: 57px;
+margin-left: 750px;
+background: #497EF1;
+border-radius: 40.5px;
+border:none;
+}
+.button-delete{
+    color: #88898E;
+    margin-left:360px;
+    width: 119px;
+height: 57px;
+margin-right:30px;
+
+background: #EEEFF2;
+border-radius: 40.5px;
+border:none;
+
+
+}
+.button-fix{
+    color: #88898E;
+    width: 119px;
+height: 57px;
+
+background: #EEEFF2;
+border-radius: 40.5px;
+border:none;
 }
