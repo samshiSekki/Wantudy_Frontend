@@ -135,6 +135,7 @@ function AppList(props){
       let body = {
         "userId": props.userInfo.userId,
   "applicationId": props.apps.applicationId,
+  "message":value.message
       }
         registerPost(props.studyId, body)
         .then(() => {
@@ -181,17 +182,17 @@ function AppList(props){
                     : `신청서 ${props.i} : ${props.apps.applicationId}`
                 }]를 [{props.posts.userId}]님이 개설한<br/>
         [{props.posts.studyName}] 스터디에<br/>
-        신청하시겠습니까?</div><button className="malBtn" style={{marginLeft:'10pt'}}onClick={onRegister}>신청</button><button className="malBtn" stonClick={handleCancel}>취소</button></>):
+        신청하시겠습니까?</div><button className="malBtn" style={{marginRight:'130pt',marginTop:'-20pt',border:'none'}}onClick={onRegister}>신청</button><button className="malBtn" style={{marginTop:'-20pt',border:'none'}}stonClick={handleCancel}>취소</button></>):
         <div>{isListVisible ? (<><div style={{marginLeft:'80pt',marginTop:'50pt', marginBottom:'30pt'}}>스터디에 임할 포부 등 스터디장에게<br/>
-            전달할 메시지를 작성해보세요.</div> <Input style={{marginBottom:'30pt'}}type="text"
+            전달할 메시지를 작성해보세요.</div> <Input style={{marginBottom:'30pt',borderRadius:'30pt',height:'80pt'}}type="text"
           placeholder="ex. 성실한 태도로 스터디에 임하겠습니다." value={value.message}
           onChange={(e) => {console.log(value)
             setValue({ ...value, message: e.target.value });
-          }}></Input><button className="malBtn" style={{marginRight:'160pt'}} onClick={handleRegister}>신청</button></>):
+          }}></Input><button className="malBtn" style={{marginRight:'160pt',marginTop:'-15pt',border:'none',backgroundColor:'#497EF1',color:'white'}} onClick={handleRegister}>신청</button></>):
           <div>
-          {isListVisible2 ? (<><div style={{marginLeft:'80pt',marginTop:'50pt', marginBottom:'30pt'}}>신청했습니다!<br/>
-           수락 여부는 마이페이지를 통해 확인해주시길 바랍니다.</div><button  className="malBtn" onClick={handleCancel}>확인</button></>):<>
-           이미 신청한 스터디입니다.<button className="malBtn" stonClick={handleCancel}>확인</button></>}
+          {isListVisible2 ? (<><div style={{marginLeft:'50pt',marginTop:'50pt', marginBottom:'30pt'}}>신청했습니다!<br/>
+           수락 여부는 마이페이지를 통해 확인해주시길 바랍니다.</div><button  className="malBtn" style={{marginRight:'160pt',marginTop:'-15pt',border:'none',backgroundColor:'#497EF1',color:'white'}} onClick={handleCancel}>확인</button></>):<>
+           이미 신청한 스터디입니다.<button className="malBtn" style={{marginRight:'160pt',marginTop:'-15pt',border:'none',backgroundColor:'#497EF1',color:'white'}} stonClick={handleCancel}>확인</button></>}
         </div>}</div>}
       </Modal>
                 

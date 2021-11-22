@@ -24,20 +24,24 @@ box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
   .search-box {
     float:left;
     margin-left:35px;
-    margin-top:30.46px;
+    margin-top:40.46px;
 width: 702px;
 height: 67px;
   }
   .post-classification {
-    
-    margin-left:1500px;
-    margin-top:30.46px;
+    text-align: center;
+    width: 200px;
+    padding-top:16px;
+    margin-left:1360px;
+    margin-top:38.46px;
     background: #FFFFFF;
 border-radius: 18px;
-height: 67px;
+height: 47px;
   }
   .makepost {
     float:left;
+    color: #88898E;
+
     margin-left:360px;
     margin-top:30.22px;
 width: 218px;

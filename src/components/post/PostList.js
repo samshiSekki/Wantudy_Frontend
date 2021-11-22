@@ -27,6 +27,7 @@ function PostList({ match, history,location }) {
   const [selectColor, setSelectColor] = useState(false);
   const [textColor, setTextColor] = useState('black');
   const [imageset, setImageSet] = useState(bookmark1);
+  const [check, setCheck] = useState(true);
 
   var arr = new Array();
   var imageCheck = new Array();
@@ -105,6 +106,8 @@ for (var t = 0; t < posts.length; t++) {
 
     }
     else if (key == 2) {
+      const orderBy = _.orderBy(mdata, ['likeNum'], ['desc']);
+      setPosts(orderBy);
 
     }
     else if (key == 3) {
@@ -213,7 +216,7 @@ for (var t = 0; t < posts.length; t++) {
             ><img src = {bi_plus}></img>
               스터디 개설하기
             </Button>
-      <div className='search-box'><Search placeholder="제목이나 분야를 입력해주세요.(영어는 대문자로 입력해주세요)" onSearch={onSearch} enterButton /></div>
+      <div className='search-box'><Search size='large' placeholder="찾으시는 스터디가 있으신가요?" onSearch={onSearch} /></div>
       <div className='post-classification'>
       <Dropdown overlay={postClassification} trigger={['click']}>
     <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
@@ -221,7 +224,9 @@ for (var t = 0; t < posts.length; t++) {
     </a>
   </Dropdown>
       </div>
-  
+      <div>
+      <input type="checkbox" onClick={()=>{filterStudy()}}></input><label>모집 중인 스터디만 보기</label>
+      </div>
             <div className='study-list-box'>
             <List
         className="demo-loadmore-list"
@@ -378,6 +383,28 @@ console.log(arr, imageCheck)
 
 
 
+  }
+
+  function filterStudy() {
+    
+    setCheck(!check);
+    const orderBy = mdata.filter((data)=>{
+      let day = data.deadline.slice(8,10);
+    var now = new Date();	// 현재 날짜 및 시간
+    var newDay = day - now.getDate()
+    if (check) {
+      if(newDay >0){
+        return data
+    }
+    else{
+        return null
+    }}
+    else { return data
+
+    }
+
+    })
+    setPosts(orderBy);
   }
   
 }
