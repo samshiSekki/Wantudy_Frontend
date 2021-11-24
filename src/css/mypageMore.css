@@ -10,6 +10,18 @@
     color: #22272E;
 }
 
+.schedulePageContainer{
+    width: 100%;
+    height: auto;
+    background-color: #F8F9FC;
+    padding-left: 360px;
+    padding-right: 360px;
+    padding-top: 100px;
+    padding-bottom: 235px;
+    font-family: "Noto Sans KR";
+    color: #22272E;
+}
+
 .myMorePageBanner{
     width: 1200px;
     height: 201px;
@@ -511,6 +523,13 @@
     border: 1px solid #CACACA;
 }
 
+.commonTimeTableColored{
+    width: 143px;
+    height: 61px;
+    background: rgba(73, 126, 241, 0.3);
+    border: 1px solid #CACACA;
+}
+
 .scheduleBtns{
     width: 106.43px;
     height: 57px;
@@ -524,4 +543,18 @@
     font-weight: 500;
     font-size: 20px;
     margin-right: 25px;
+}
+
+.viewCommonScheduleBtn{
+    width: 210.43px;
+    height: 57px;
+    line-height: 57px;
+    background: #497EF1;
+    border-radius: 40.5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+    float: right;
+    margin-top: 41px;
 }

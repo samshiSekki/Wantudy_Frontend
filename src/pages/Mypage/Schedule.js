@@ -9,9 +9,13 @@ function Schedule() {
     const location = useLocation();
     const history = useHistory();
     const userInfo = location.state.userInfo;
-    const studyInfo = location.state.studyInfo;
+    const ongoingStudy = location.state.ongoingStudy;
     const isManager = location.state.isManager;
-    const participants = location.state.participants;
+
+    const studyInfo = ongoingStudy.studyInfo;
+    const participants = ongoingStudy.participants;
+
+    console.log(studyInfo.StudyId);
 
     const [schedule, setSchedule] = useState(
         [
@@ -25,18 +29,90 @@ function Schedule() {
         ]
     )
 
+    useEffect(async()=>{
+        const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist/${studyInfo.StudyId}/schedule`);
+        console.log(response);
+
+        if(response.data[0] != null){
+            for(let i=0; i<7; i++){
+                if(response.data[0].time[i][0] != null){
+                    for(let j=1; j<response.data[0].time[i].length; j++){
+                        let newArr = [...schedule];
+                        newArr[i][parseInt(response.data[0].time[i][j])-4] = true;
+                        setSchedule(newArr);
+                    }
+                }
+            }
+        }
+    },[]);
+
+    console.log(schedule);
+
+    //console.log(userInfo);
+    //console.log(studyInfo);
+
     function changeColor(n, i){
         let newArr = [...schedule];
         newArr[n][i] = !newArr[n][i];
         setSchedule(newArr);
     }
 
-    console.log(participants);
+    let time = [["월"],["화"],["수"],["목"],["금"],["토"],["일"]]
+        
+
+    const saveScheduleClickListner = async()=>{
+        for(let i=0; i<7; i++){
+            let flag = 0;
+            for(let j=0; j<20; j++){
+                if(schedule[i][j] == false){
+                    flag++
+                }
+                if(j==19 && flag==20)
+                    time[i][0] = null;
+            }
+        }
+
+        for(let i=0; i<7; i++){
+            for(let j=0; j<20; j++){
+                if(schedule[i][j] == true){
+                    time[i].push(`${j+4}`)
+                }
+            }
+        }
+
+        console.log(time);
+
+        let response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist/${studyInfo.StudyId}/schedule`);
+        console.log(response);
+
+        if(response.data[0] == null){
+            let response = await axios.post(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist/${studyInfo.StudyId}/schedule`,{
+                time: time
+            });
+        }
+        else{
+            let response = await axios.put(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist/${studyInfo.StudyId}/schedule`,{
+                time: time
+            });
+        }
+
+        console.log(response);
+        alert("시간표가 저장되었습니다");
+    }
+
+    function viewCommonSchedule(){
+        history.push({ 
+            pathname: "/common_schedule",
+            state: {userInfo: userInfo, isManager: isManager, ongoingStudy: ongoingStudy}
+        });
+    }
+
+    //console.log(participants);
 
     return (
         <div>
             <NavbarWhite userInfo={userInfo}/>
-            <div className="myMorePageContainer">
+            <div className="schedulePageContainer">
                 <div className="ongoingStudyDetailTitle">
                     {studyInfo.studyName}
                 </div>
@@ -60,7 +136,6 @@ function Schedule() {
                     }
                     </div>
                 </div>
-
                 <div className="scheduleContainer">
                     <div className="dayOfWeekContainer">
                         <div className="dayOfWeek">월</div>
@@ -131,8 +206,12 @@ function Schedule() {
                     </div>
                 </div>
 
+                {/*
                 <div className="scheduleBtns">수정</div>
-                <div className="scheduleBtns">저장</div>
+                */}
+                <div className="scheduleBtns" onClick={saveScheduleClickListner}>저장</div>
+
+                <div className="viewCommonScheduleBtn" onClick={viewCommonSchedule}>공통 시간대 보기</div>
 
             </div>
 

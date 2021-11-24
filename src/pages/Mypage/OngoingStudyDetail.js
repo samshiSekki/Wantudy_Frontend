@@ -12,14 +12,36 @@ function OngoingStudyDetail() {
     const isManager = location.state.isManager;
     const history = useHistory();
 
+    const [common, setCommon] = useState([]);
+
     console.log(ongoingStudy);
     console.log(isManager);
+
+    useEffect(async()=>{
+        let response = await axios.get(`http://13.209.66.117:8080/studyList/${ongoingStudy.studyInfo.StudyId}`);
+        console.log(response);
+        setCommon(response.data.data.commonSchedule);
+        console.log(common);
+    },[]);
 
     function scheduleBtnClickHandler(){
         history.push({ 
             pathname: "/schedule",
-            state: {userInfo: userInfo, studyInfo: ongoingStudy.studyInfo, isManager: isManager, participants: ongoingStudy.participants}
+            state: {userInfo: userInfo, isManager: isManager, ongoingStudy: ongoingStudy}
           });
+    }
+
+    function showSchedule(){
+        let commonText = ''
+        if(common[0] == null){
+            return `스터디 일정이 아직 확정되지 않았습니다`
+        }
+        else{
+            for(let i=0; i<common.length; i++){
+                commonText = commonText + `매주 ${common[i][0]} ${common[i][1]} - ${parseInt(common[i][common[i].length-1])+1}\n`
+            }
+            return commonText
+        }
     }
 
     return (
@@ -52,7 +74,7 @@ function OngoingStudyDetail() {
                     <div className="ongoingSubTitle">📆 스터디 일정</div>
 
                     <div className="scheduleBox">
-                    스터디 일정이 아직 확정되지 않았습니다.<br/> 아래 버튼을 통해 스터디원과 일정을 조율하여 확정해주세요.<br/>
+                    {showSchedule()}<br/>
                     <div className="scheduleAdjustBtn" onClick={scheduleBtnClickHandler}>일정 조율하기</div>
                     </div>
                 </div>
