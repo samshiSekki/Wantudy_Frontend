@@ -104,10 +104,9 @@
     position: absolute;
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 27px;
     width: 512px;
-    height: 52px;
-    line-height: 52px;
-    border-radius: 18px;
+    height: 120px;
     background: #F8F9FC;
     margin-top: 45px;
     text-align: left;
@@ -122,10 +121,9 @@
     margin-left: 542px;
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 27px;
     width: 512px;
-    height: 52px;
-    line-height: 52px;
-    border-radius: 18px;
+    height: 120px;
     background: #F8F9FC;
     margin-top: 45px;
     text-align: left;
@@ -137,12 +135,29 @@
 
 .likedPreviewContainer{
     width: 1054px;
-    height: 141px;
+    height: 179px;
 }
 
 .mypageBookmarkimg{
-    margin-top: 10px;
+    width: 13px;
+    height: 19px;
     float:right
+}
+
+.mypagePreviewDeadline{
+    float: left;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.mypagelikedStudyName{
+    margin-top: 3px;
+    float:left;
+}
+
+.likedStudyIndividualContainer{
+    width: 452px;
+    height: 88px;
 }
 
 .applyBlockStatus{
@@ -200,7 +215,7 @@
     padding-top: 45px;
     padding-left: 73px;
     width: 592px;
-    height: 200px;
+    height: 238px;
     background: #FFFFFF;
     float: left;
 }
@@ -209,7 +224,7 @@
     padding-top: 45px;
     padding-left: 73px;
     width: 592px;
-    height: 200px;
+    height: 238px;
     background: #FFFFFF;
     float: left;
     margin-left: 16px;
@@ -232,8 +247,8 @@
     line-height: 16px;
     margin-top: 27px;
     color: #88898E;
-    float: left;
-    margin-left: 110px;
+    float: right;
+    margin-right: 79px;
 }
 
 .mypageBtnContainer{
@@ -254,4 +269,13 @@
     font-weight: 500;
     font-size: 20px;
     margin-right: 25px;
+}
+
+.previewReceivedUserProfileImg{
+    width: 25px;
+    height: 25px;
+    margin-top: 22px;
+    margin-right: 10px;
+    border-radius: 70%;
+    float: left;
 }

@@ -16,7 +16,7 @@ function Mypage(props) {
 
     useEffect(async()=>{
         let response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/like-studylist`);
-        //console.log(response);
+        console.log(response);
         //setLiked(response.data.msg);
         response.data.msg == "찜한 스터디가 없습니다"
         ? function(){
@@ -53,7 +53,7 @@ function Mypage(props) {
         : setOpened(response.data)
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
-        console.log(response);
+        //console.log(response);
         /*
         response.data.msg == "참여하는 스터디가 없습니다"
         ? function(){
@@ -112,6 +112,15 @@ function Mypage(props) {
             state: {userInfo: userInfo}
         })
     }
+
+    function checkDeadline(deadline) {
+        if (deadline.valueOf() > new Date().toISOString().valueOf()){
+          return <div><img src="img/Ellipse999.png"/>모집중</div>
+        }
+        else{
+          return <div><img src="img/Ellipse998.png"/>모집 완료</div>
+        }
+      }
     
     return (
         <>
@@ -175,7 +184,11 @@ function Mypage(props) {
                         <div className="mypagePreview2">
                             {applied[0].studyName}
                         </div>
-                        {/*
+                        {
+                        applied[0].studyName == null || applied[0].studyName == '신청한 스터디가 없습니다'
+                        ?
+                        null
+                        :
                         <div className="applyBlockStatus">
                             {
                                 applied[0].state == 0
@@ -187,7 +200,7 @@ function Mypage(props) {
                                         : ""
                             }
                         </div>
-                        */}
+                        }
                     </div>
 
                     <div className="openedBlock">
@@ -196,16 +209,20 @@ function Mypage(props) {
                         <div className="mypagePreview2">
                             {opened[0].study.studyName}
                         </div>
-                        {/*
+                        {
+                        opened[0].study.studyName == null || opened[0].study.studyName == '개설한 스터디가 없습니다'
+                        ? null
+                        :
                         <div>
+                            <img src={opened[0].applications[0].profileImage} className="previewReceivedUserProfileImg"/>
                             <div className="appliedUserName">
-                                {opened[0].applications[0].application.name + " "}
+                                {opened[0].applications[0].nickname + " "}
                             </div>
                             <div className="appliedUserDate">
                                 {opened[0].applications[0].registered} 신청
                             </div>
                         </div>
-                        */}
+                        }
                         
                     </div>
                 
@@ -216,12 +233,40 @@ function Mypage(props) {
                     <div className="mypageMoreBtn" onClick={moreLiked}>+더보기</div>
                     <div className="likedPreviewContainer">
                         <div className="mypagePreview3">
-                            {liked[0].studyName}
-                            <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                            {
+                                liked[0].studyName == null || liked[0].studyName == '찜한 스터디가 없습니다'
+                                ?   '찜한 스터디가 없습니다'
+                                :
+                                    <div className="likedStudyIndividualContainer">
+                                        <div className="mypagePreviewDeadline">
+                                        {checkDeadline(liked[0].deadline)}
+                                        </div>
+                                        <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                                        <br/>
+                                        <div className="mypagelikedStudyName">
+                                            {liked[0].studyName}
+                                        </div>
+
+                                    </div>
+                            }
                         </div>
                         <div className="mypagePreview4">
-                            {liked[1].studyName}
-                            <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                            {
+                                liked[1].studyName == null || liked[1].studyName == '찜한 스터디가 없습니다'
+                                ?   '찜한 스터디가 없습니다'
+                                :
+                                    <div className="likedStudyIndividualContainer">
+                                        <div className="mypagePreviewDeadline">
+                                        {checkDeadline(liked[1].deadline)}
+                                        </div>
+                                        <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                                        <br/>
+                                        <div className="mypagelikedStudyName">
+                                            {liked[1].studyName}
+                                        </div>
+
+                                    </div>
+                            }
                     </div>
                     </div>
                 </div>
