@@ -48,7 +48,7 @@ function ReceivedAppViewDetail(props) {
             <NavbarWhite userInfo={userInfo}/>
                 <div className="myMorePageContainer">
                     <div className="receivedAppViewTitle">
-                        {applications.application.name}님의 신청서입니다!
+                        {applications.nickname}님의 신청서입니다!
                         <div className="recivedAppRegisteredDate">{applications.registered.substr(0,10)} 등록</div>
                     </div>
 

@@ -11,7 +11,7 @@
     height: 290px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 128px;
+    padding-top: 192px;
 }
 
 .footerLogo{
@@ -38,8 +38,15 @@
     line-height: 30px;
 }
 
+.footerLogoIcon{
+    position: absolute;
+    margin-left: 328px;
+    margin-top: 117px;
+
+}
+
 .footerBtns{
-    margin-top: 128px;
+    margin-top: 86px;
     width: 793px;
     height: 25px;
     font-style: normal;
@@ -61,6 +68,12 @@
 
     text-align: right;
     float:left;
-    margin-top: 131px;
-    margin-left: 400px;
+    margin-top: 86px;
+    margin-left: 420px;
+}
+
+.socialIcons{
+    position: absolute;
+    margin-left: 1355px;
+    margin-top: 150.27px;
 }

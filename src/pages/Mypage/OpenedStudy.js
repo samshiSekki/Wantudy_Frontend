@@ -94,11 +94,13 @@ function ReceivedAppList(props){
           })
     }
 
+    //console.log(props.applications);
+
     return(
         <>
-
             <div className = "receivedAppContainer">
-                <div className="receivedAppUserName">{props.applications.application.name}</div>
+                <img src={props.applications.profileImage} className="receivedUserProfileImg"/>
+                <div className="receivedAppUserName">{props.applications.nickname}</div>
             
                 <div className="fireEmoji">
                     🔥
@@ -126,89 +128,9 @@ function ReceivedAppList(props){
             </div>
 
             
-            {/*
-            <div>
-                {props.applications.application.name}
-            </div>
-            <div>
-                {props.applications.temperature}
-            </div>
-            <div>
-                {
-                    (props.applications.state == 0)
-                    ? "대기중"
-                    : (props.applications.state == 1
-                        ? "수락됨"
-                        : "거절됨")
-                }
-            </div>
-            <button onClick={()=>{setModal(!modal)}}>상세보기</button>
-            {
-                modal === true
-                ?<Modal apps = {props.applications} studyId={props.studyId}/>
-                :null
-            }
-            */}
+
         </>
     )
 }
-/*
-function Modal(props){
-    const [declineModal, setDeclineModal] = useState(false);
-
-    const acceptBtnClickHandler = async() => {
-        const response = await axios.put(`http://13.209.66.117:8080/users/${props.apps.application.userId}/opened-studylist/manageMember/${props.apps.application.applicationId}`,{
-            choice: "수락",
-            studyId: props.studyId
-        });
-        
-        window.location.reload();
-    }
-
-    const declineBtnClickHandler = async() => {
-        const response = await axios.put(`http://13.209.66.117:8080/users/${props.apps.application.userId}/opened-studylist/manageMember/${props.apps.application.applicationId}`,{
-            choice: "거절",
-            studyId: props.studyId
-        });
-        
-        window.location.reload();
-    }
-
-    return(
-        <div>
-            <div className="modalContainer">
-                {`이름 : ${props.apps.application.name}`} <br/>
-                {`나이 : ${props.apps.application.age}`} <br/>
-                {`학교 : ${props.apps.application.school}`} <br/>
-
-                <button onClick={acceptBtnClickHandler}>수락하기</button>
-                <button onClick={()=>{setDeclineModal(!declineModal)}}>거절하기</button>
-                <button>채팅</button>
-                <br/>
-                {
-                    declineModal === true
-                    ?<DeclineModal/>
-                    :null
-                }
-                <br/>
-                <button onClick={declineBtnClickHandler}>거절 확인</button>
-                <button>거절 취소</button>
-            </div>
-        </div>
-    )
-}
-
-function DeclineModal(props){
-
-    return(
-        <>
-            <button>시간대가 맞지 않음</button>
-            <button>추구하는 스터디 목적이 다름</button>
-            <button>거주 지역이 너무 멂</button>
-            <button>선착순 인원 초과</button>
-            <button>기타</button>
-        </>
-    )
-}*/
 
 export default withRouter(OpenedStudy)

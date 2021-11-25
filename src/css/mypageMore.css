@@ -10,6 +10,18 @@
     color: #22272E;
 }
 
+.schedulePageContainer{
+    width: 100%;
+    height: auto;
+    background-color: #F8F9FC;
+    padding-left: 360px;
+    padding-right: 360px;
+    padding-top: 100px;
+    padding-bottom: 235px;
+    font-family: "Noto Sans KR";
+    color: #22272E;
+}
+
 .myMorePageBanner{
     width: 1200px;
     height: 201px;
@@ -117,7 +129,11 @@
     line-height: 25px;
     float: left;
     margin-top: 34px;
-    margin-left: 94px;
+    margin-left: 16px;
+}
+
+.participantBox{
+    float: left;
 }
 
 .fireEmoji{
@@ -318,7 +334,7 @@
     padding-top: 26.23px;
     margin-top: 13px;
     width: 1200px;
-    height: 98px;
+    height: 120px;
     background: #FFFFFF;
     text-align: center;
 }
@@ -330,6 +346,15 @@
     height: 50.77px;
     border-radius: 70%;
     float: left;
+}
+
+.receivedUserProfileImg{
+    width: 36px;
+    height: 36px;
+    border-radius: 70%;
+    float: left;
+    margin-left: 42px;
+    margin-top: 28px;
 }
 
 .participantsPicsContainer{
@@ -358,10 +383,24 @@
     line-height: 25px;
     text-align: center;
     color: #88898E;
-    text-align: center;
     display: inline-block;
     width: 1055px;
     height: 235px;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+}
+
+.scheduleBox2{
+    text-align: left;
+    padding-left: 42px;
+    padding-right: 41px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 97px;
+    display: inline-block;
+    width: 1055px;
+    height: 97px;
     background: #F8F9FC;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
 }
@@ -390,6 +429,18 @@
 
     color: #497EF1;
     margin-top: 25px;
+}
+
+.checkScheduleBtn{
+    margin-top: 29px;
+    font-size: 15px;
+    text-align: center;
+    float: right;
+    width: 105px;
+    height: 40.27px;
+    line-height: 40.27px;
+    background: #EEEFF2;
+    border-radius: 40.5px;
 }
 
 .subjectTodoBox{
@@ -450,4 +501,99 @@
 .raAcceptBtn{
     margin-top: 32px;
     float:right;
+}
+
+.scheduleContainer{
+    width: 1200px;
+    height: 1388px;
+    background: #FFFFFF;
+    margin-top: 13px;
+    padding-top: 60px;
+}
+
+.dayOfWeek{
+    width: 143px;
+    text-align: center;
+    float:left;
+    font-weight: 600;
+    font-size: 18px;
+    color: #88898E;
+}
+
+.dayOfWeekContainer{
+    margin-left: 125px;
+}
+
+.timeContainer{
+    margin-top: 15px;
+    float: left;
+    margin-left: 72px;
+    width: 53px;
+    height: 1268px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 10px;
+    color: #88898E;
+}
+
+.timeNumber{
+    height: 61px;
+    padding-bottom: 46px;
+}
+
+.tablesOfDayOfWeek{
+    margin-top: 22.49px;
+    float: left;
+    width: 143px;
+    height: 1226px;
+}
+
+.timeTable{
+    width: 143px;
+    height: 61px;
+    background: #F8F9FC;
+    border: 1px solid #CACACA;
+}
+
+.timeTableColored{
+    width: 143px;
+    height: 61px;
+    background: rgba(53, 174, 174, 0.3);
+    border: 1px solid #CACACA;
+}
+
+.commonTimeTableColored{
+    width: 143px;
+    height: 61px;
+    background: rgba(73, 126, 241, 0.3);
+    border: 1px solid #CACACA;
+}
+
+.scheduleBtns{
+    width: 106.43px;
+    height: 57px;
+    line-height: 57px;
+    background: #EEEFF2;
+    border-radius: 40.5px;
+    float: left;
+    margin-top: 41px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 25px;
+}
+
+.viewCommonScheduleBtn{
+    width: 210.43px;
+    height: 57px;
+    line-height: 57px;
+    background: #497EF1;
+    border-radius: 40.5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+    float: right;
+    margin-top: 41px;
 }
