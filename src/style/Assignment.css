@@ -1,0 +1,51 @@
+.study-assignment-list{
+    margin-left: 73px;
+    margin-right:73px;
+    padding-top:33px;
+    padding-left:42px;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+    width: 1055px;
+    
+    height: 92px;
+    /*
+    display: inline-block;
+    margin-bottom:21px; */
+}
+.study-assignmentName-bar{
+    margin-top:31px;
+    margin-left:42px;
+    float:left;
+    width: 570px;
+    height: 49px;
+background: #FFFFFF;
+border-radius: 19px;
+border:none;
+}
+.study-assignment-bar{
+    margin-top:31px;
+    width: 366px;
+    height: 49px;
+background: #FFFFFF;
+border-radius: 19px;
+border:none;
+}
+.study-deadline-bar{
+    float: left;
+    margin-left:42px;
+    margin-top:22px;
+    width: 862px;
+    height: 49px;
+background: #FFFFFF;
+border-radius: 19px;
+border:none;
+}
+.assignment-regist-button{
+    width: 74.73px;
+height: 40px;
+
+background: #EEEFF2;
+border-radius: 40.5px;
+border:none;
+margin-top:50px;
+}

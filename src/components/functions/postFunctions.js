@@ -24,3 +24,9 @@ export const postScrapDelete = async (studyId,body) => {
     params:{studyId:studyId},
   });
 };
+
+export const assignmentSave = async (userId,studyId,body) => {
+  await axios.post(`http://13.209.66.117:8080/users/${userId}/ongoing-studylist/${studyId}/giveAssignment`, body,{
+    params:{studyId:studyId, userId:userId},
+  });
+};

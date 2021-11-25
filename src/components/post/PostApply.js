@@ -137,6 +137,7 @@ function AppList(props){
   "applicationId": props.apps.applicationId,
   "message":value.message
       }
+      console.log(body)
         registerPost(props.studyId, body)
         .then(() => {
             setIsListVisible(false);
@@ -186,7 +187,7 @@ function AppList(props){
         <div>{isListVisible ? (<><div style={{marginLeft:'80pt',marginTop:'50pt', marginBottom:'30pt'}}>스터디에 임할 포부 등 스터디장에게<br/>
             전달할 메시지를 작성해보세요.</div> <Input style={{marginBottom:'30pt',borderRadius:'30pt',height:'80pt'}}type="text"
           placeholder="ex. 성실한 태도로 스터디에 임하겠습니다." value={value.message}
-          onChange={(e) => {console.log(value)
+          onChange={(e) => {console.log(value.message)
             setValue({ ...value, message: e.target.value });
           }}></Input><button className="malBtn" style={{marginRight:'160pt',marginTop:'-15pt',border:'none',backgroundColor:'#497EF1',color:'white'}} onClick={handleRegister}>신청</button></>):
           <div>
