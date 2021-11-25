@@ -16,6 +16,8 @@ import PostPage from './pages/PostPage/PostPage'
 import './style/PostList.css'
 import './style/PostWrite.css'
 import './style/PostView.css'
+import './style/Modal.scss'
+import './style/Assignment.css';
 import RegDefaultApp2 from './pages/ApplicationManage/RegDefaultApp2';
 import ModDefaultApp2 from './pages/ApplicationManage/ModDefaultApp2';
 import AppliedStudy from './pages/Mypage/AppliedStudy';

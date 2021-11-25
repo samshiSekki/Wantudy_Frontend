@@ -406,10 +406,11 @@
 }
 
 .ongoingSubTitle{
+    padding-right:950px;
+    padding-top:40px;
     margin-top: 43px;
     margin-left: 73px;
     margin-bottom: 21px;
-    float: left;
     font-style: normal;
     font-weight: bold;
     font-size: 22px;
@@ -443,9 +444,18 @@
     border-radius: 40.5px;
 }
 
-.subjectTodoBox{
+.subjectTodoBox1{
+
     width: 1055px;
     height: 92px;
+    background: #F8F9FC;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
+    display: inline-block;
+}
+
+.inputBox{
+    width: 1055px;
+    height: 182px;
     background: #F8F9FC;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.03);
     display: inline-block;
