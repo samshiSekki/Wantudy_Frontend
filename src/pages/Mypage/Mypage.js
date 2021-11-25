@@ -227,7 +227,7 @@ function Mypage(props) {
                 </div>
                 <br/>
                 <div className="mypageBtnContainer">
-                    <div className="mypageFooterBtn" onClick={appModifyClickHandler}>지원서 수정</div>
+                    <div className="mypageFooterBtn" onClick={appModifyClickHandler}>신청서 수정</div>
                     <div className="mypageFooterBtn" onClick={nickModifyClickHandler}>닉네임 수정</div>
                 </div>
             </div>

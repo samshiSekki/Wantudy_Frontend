@@ -5,8 +5,8 @@ function Footer() {
     return (
         <div>
             <div className="footerContainer">
-            <img src="img/LOGO 1.png" className="footerLogoIcon"/>
-            <img src="img/social icon.png" className="socialIcons"/>
+            <img src="https://i.imgur.com/Fa68WOg.png" className="footerLogoIcon"/>
+            <img src="https://i.imgur.com/fNqZsOX.png" className="socialIcons"/>
                 <div className="footerContents">
                     
                     <div className="footerLogo">wantudy</div>

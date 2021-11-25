@@ -31,18 +31,6 @@ function OngoingStudyDetail() {
           });
     }
 
-    function showSchedule(){
-        let commonText = ''
-        if(common[0] == null){
-            return `스터디 일정이 아직 확정되지 않았습니다`
-        }
-        else{
-            for(let i=0; i<common.length; i++){
-                commonText = commonText + `매주 ${common[i][0]} ${common[i][1]} - ${parseInt(common[i][common[i].length-1])+1}\n`
-            }
-            return commonText
-        }
-    }
 
     return (
         <div>
@@ -76,14 +64,30 @@ function OngoingStudyDetail() {
                     }
                     </div>
                 </div>
-                <div className="ongoingDetailContainers">
-                    <div className="ongoingSubTitle">📆 스터디 일정</div>
+                    {
+                        common[0] == null
+                        ? 
+                        <div className="ongoingDetailContainers">
+                        <div className="ongoingSubTitle">📆 스터디 일정</div>
 
-                    <div className="scheduleBox">
-                    {showSchedule()}<br/>
-                    <div className="scheduleAdjustBtn" onClick={scheduleBtnClickHandler}>일정 조율하기</div>
-                    </div>
-                </div>
+                        <div className="scheduleBox">
+                        스터디 일정이 아직 확정되지 않았습니다.<br/>아래 버튼을 통해 스터디원과 일정을 조율하여 확정해주세요.<br/>
+                        <div className="scheduleAdjustBtn" onClick={scheduleBtnClickHandler}>일정 조율하기</div>
+                        </div>
+
+                        </div>
+                        
+                        : 
+                        <div className="ongoingDetailContainers">
+                        <div className="ongoingSubTitle">📆 스터디 일정</div>
+
+                        <div className="scheduleBox2">
+                        {`매주 ${common[0][0]}요일 ${common[0][1]}시 - ${parseInt(common[0][common[0].length-1])+1}시`}
+                        <div className="checkScheduleBtn" onClick={scheduleBtnClickHandler}>일정 확인</div>
+                        </div>
+
+                        </div>
+                    }
 
                 <div className="ongoingDetailContainers">
                     <div className="ongoingSubTitle">✍ 해야할 과제</div>
@@ -117,6 +121,31 @@ function OngoingStudyDetail() {
             </div>
             <Footer/>
         </div>
+    )
+}
+
+function showStudySchedule(props){
+
+    let commonText ='';
+
+    function showSchedule(){
+        for(let i=0; i<props.common.length; i++){
+            commonText = commonText + `매주 ${props.common[i][0]} ${props.common[i][1]} - ${parseInt(props.common[i][props.common[i].length-1])+1}\n`
+        }
+        return commonText
+    }
+    
+    return(
+        <>
+            <div className="ongoingDetailContainers">
+                <div className="ongoingSubTitle">📆 스터디 일정</div>
+
+                    <div className="scheduleBox2">
+                        {showSchedule}
+                    </div>
+
+            </div>
+        </>
     )
 }
 
