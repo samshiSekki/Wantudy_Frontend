@@ -26,6 +26,7 @@ import OngoingStudy from './pages/Mypage/OngoingStudy';
 import OngoingStudyDetail from './pages/Mypage/OngoingStudyDetail';
 import ReceivedAppViewDetail from './pages/Mypage/ReceivedAppViewDetail';
 import Schedule from './pages/Mypage/Schedule';
+import CommonSchedule from './pages/Mypage/CommonSchedule';
 
 
 function App() {
@@ -116,6 +117,10 @@ function App() {
 
       <Route path='/schedule'>
         <Schedule/>
+      </Route>
+
+      <Route path='/common_schedule'>
+        <CommonSchedule/>
       </Route>
 
       <Route path="/post" component={PostPage} />

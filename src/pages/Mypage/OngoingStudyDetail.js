@@ -23,14 +23,22 @@ function OngoingStudyDetail() {
     const [userId, setUserId] = useState(userInfo.userId);
     const [memberId, setMemberId] = useState(ongoingStudy.participants[0].userId);
     const [value, setvalue] = useState({ assignmentName:'',assignment:'',deadline:''});
-    
+
+    const [common, setCommon] = useState([]);
     console.log(ongoingStudy);
     console.log(isManager);
+
+    useEffect(async()=>{
+        let response = await axios.get(`http://13.209.66.117:8080/studyList/${ongoingStudy.studyInfo.StudyId}`);
+        console.log(response);
+        setCommon(response.data.data.commonSchedule);
+        //console.log(common);
+    },[]);
 
     function scheduleBtnClickHandler(){
         history.push({ 
             pathname: "/schedule",
-            state: {userInfo: userInfo, studyInfo: ongoingStudy.studyInfo, isManager: isManager, participants: ongoingStudy.participants}
+            state: {userInfo: userInfo, isManager: isManager, ongoingStudy: ongoingStudy}
           });
     }
 /*     const getUserId = () =>{
@@ -66,6 +74,7 @@ function OngoingStudyDetail() {
     }
 
 
+
     return (
         <div>
             <NavbarWhite userInfo={userInfo}/>
@@ -79,27 +88,49 @@ function OngoingStudyDetail() {
                         ongoingStudy.participants.map((a,i)=>{
                             if(ongoingStudy.participants[i].userId == ongoingStudy.studyInfo.userId){
                                 return (
-                                    <>
+                                    <div className="participantBox">
                                     <img src="img/Group 420.png" className="managerLabelImg"/>
                                     <img src={ongoingStudy.participants[i].profileImage} className="participantsProfileImg"/>
-                                    </>
+                                    <div className="">{ongoingStudy.participants[i].nickname}</div>
+                                    </div>
                                 )
                             }
                             else{
-                                return <img src={ongoingStudy.participants[i].profileImage} className="participantsProfileImg"/>
+                                return (
+                                    <div className="participantBox">
+                                    <img src={ongoingStudy.participants[i].profileImage} className="participantsProfileImg"/>
+                                    <div className="">{ongoingStudy.participants[i].nickname}</div>
+                                    </div>
+                                )
                             }
                         })
                     }
                     </div>
                 </div>
-                <div className="ongoingDetailContainers">
-                    <div className="ongoingSubTitle">📆 스터디 일정</div>
+                    {
+                        common[0] == null
+                        ? 
+                        <div className="ongoingDetailContainers">
+                        <div className="ongoingSubTitle">📆 스터디 일정</div>
 
-                    <div className="scheduleBox">
-                    스터디 일정이 아직 확정되지 않았습니다.<br/> 아래 버튼을 통해 스터디원과 일정을 조율하여 확정해주세요.<br/>
-                    <div className="scheduleAdjustBtn" onClick={scheduleBtnClickHandler}>일정 조율하기</div>
-                    </div>
-                </div>
+                        <div className="scheduleBox">
+                        스터디 일정이 아직 확정되지 않았습니다.<br/>아래 버튼을 통해 스터디원과 일정을 조율하여 확정해주세요.<br/>
+                        <div className="scheduleAdjustBtn" onClick={scheduleBtnClickHandler}>일정 조율하기</div>
+                        </div>
+
+                        </div>
+                        
+                        : 
+                        <div className="ongoingDetailContainers">
+                        <div className="ongoingSubTitle">📆 스터디 일정</div>
+
+                        <div className="scheduleBox2">
+                        {`매주 ${common[0][0]}요일 ${common[0][1]}시 - ${parseInt(common[0][common[0].length-1])+1}시`}
+                        <div className="checkScheduleBtn" onClick={scheduleBtnClickHandler}>일정 확인</div>
+                        </div>
+
+                        </div>
+                    }
 
                 <div className="ongoingDetailContainers">
                     <div className="ongoingSubTitle">✍ 해야할 과제</div>
@@ -215,6 +246,31 @@ function OngoingStudyDetail() {
             </div>
             <Footer/>
         </div>
+    )
+}
+
+function showStudySchedule(props){
+
+    let commonText ='';
+
+    function showSchedule(){
+        for(let i=0; i<props.common.length; i++){
+            commonText = commonText + `매주 ${props.common[i][0]} ${props.common[i][1]} - ${parseInt(props.common[i][props.common[i].length-1])+1}\n`
+        }
+        return commonText
+    }
+    
+    return(
+        <>
+            <div className="ongoingDetailContainers">
+                <div className="ongoingSubTitle">📆 스터디 일정</div>
+
+                    <div className="scheduleBox2">
+                        {showSchedule}
+                    </div>
+
+            </div>
+        </>
     )
 }
 

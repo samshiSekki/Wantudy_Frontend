@@ -119,7 +119,7 @@ function Login(props) {
             <input type="text" placeholder="비밀번호" className="inputIDPW"/><br/>
             <div className="loginTextContainer">
                 <div className="loginText1">
-                    원티드 계정이 없으신가요?
+                    원터디 계정이 없으신가요?
                 </div>
                 <div className="loginText2">
                     회원가입

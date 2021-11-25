@@ -26,7 +26,7 @@ function LoggedOut(props){
     return(
     <div>
         <div className="navbar_white">
-        <img src="img/LOGO 1.png" className="navbarLogoImg"/>
+        <img src="https://i.imgur.com/Fa68WOg.png" className="navbarLogoImg"/>
         <div className="logoWhite" onClick={logoClickHandler}>wantudy</div>
         <div className="join" onClick={()=>{history.push("/login")}}>스터디 참여</div>
         <div className="make" onClick={()=>{history.push("/login")}}>스터디 개설</div>
@@ -103,14 +103,14 @@ function LoggedIn(props){
 
     return(
         <div className="navbar_white">
-        <img src="img/LOGO 1.png" className="navbarLogoImg"/>
+        <img src="https://i.imgur.com/Fa68WOg.png" className="navbarLogoImg"/>
         <div className="logoWhite" onClick={logoClickHandler}>wantudy</div>
         <div className="join" onClick={goToStudy}>스터디 참여</div>
         <div className="make" onClick={makeStudyPost}>스터디 개설</div>
         <div className="apply" onClick={appModifyClickHandler}>스터디 신청서 등록</div>
         <div className="logout" onClick={LogoutClickHandler}>로그아웃</div>
         <div className="chatIcon">
-            <img src="img/bi_send-fill_black.png"/>
+            <img src="https://i.imgur.com/F5mstcW.png"/>
         </div>
         <div className="userIcon" onClick={nickNameClickHandler}>
             <img src={props.userInfo.profileImage} className="userProfileImageBlack"/>

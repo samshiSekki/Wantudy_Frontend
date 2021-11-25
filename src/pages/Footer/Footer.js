@@ -5,7 +5,10 @@ function Footer() {
     return (
         <div>
             <div className="footerContainer">
+            <img src="https://i.imgur.com/Fa68WOg.png" className="footerLogoIcon"/>
+            <img src="https://i.imgur.com/fNqZsOX.png" className="socialIcons"/>
                 <div className="footerContents">
+                    
                     <div className="footerLogo">wantudy</div>
                     <div className="footerSlogan">
                         <p>한 페이지로 완성되는 스터디 매칭, 원터디.</p>
@@ -22,8 +25,9 @@ function Footer() {
                         ⓒ2021.삼시세끼.All rights reserved.
                     </div>
                 </div>
-                
+
             </div>
+            
         </div>
     )
 }
