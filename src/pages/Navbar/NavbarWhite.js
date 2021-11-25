@@ -26,7 +26,7 @@ function LoggedOut(props){
     return(
     <div>
         <div className="navbar_white">
-        <img src="img/LOGO 1.png" className="navbarLogoImg"/>
+        <img src="https://postfiles.pstatic.net/MjAyMTExMjVfODEg/MDAxNjM3ODQxMjM5Nzc3.JpeLelJI_ldWzSB_5QlVFJ3ZGYaUwUmWrDnW1VyOm74g.VJZbgHHKrRAiPiLnYTBqY-Dpj-VrhBR8I6qPWA1HTlEg.PNG.woalsgodqhr/LOGO_1.png?type=w580" className="navbarLogoImg"/>
         <div className="logoWhite" onClick={logoClickHandler}>wantudy</div>
         <div className="join" onClick={()=>{history.push("/login")}}>스터디 참여</div>
         <div className="make" onClick={()=>{history.push("/login")}}>스터디 개설</div>

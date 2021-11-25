@@ -20,16 +20,16 @@ function MainPageLogged(props) {
             <Navbar userInfo={userInfo}/>
             <div className="mainPageContainer">
                 <div className="container1">
-                <div className="catch">
-                        <p>👋<br/>
-                        한페이지로 완성되는<br/>
-                        스터디 매칭, 원터디.<br/>
-                        개설하고, 신청하고, 관리하자!</p>
-                        <div className="catchSub">
-                            <p>원터디가 궁금하신가요? 지금 바로 시작해보세요!</p>
-                        </div>
+                    <div className="catch">
+                            <p>👋<br/>
+                            한페이지로 완성되는<br/>
+                            스터디 매칭, 원터디.<br/>
+                            개설하고, 신청하고, 관리하자!</p>
+                            <div className="catchSub">
+                                <p>원터디가 궁금하신가요? 지금 바로 시작해보세요!</p>
+                            </div>
 
-                        <div className="startBtn" onClick={btnClickHandler}>지금 바로 시작하기</div>
+                            <div className="startBtn" onClick={btnClickHandler}>지금 바로 시작하기</div>
                     </div>
 
                     <div className="illust">

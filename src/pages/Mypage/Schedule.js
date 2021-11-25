@@ -123,14 +123,20 @@ function Schedule() {
                         participants.map((a,i)=>{
                             if(participants[i].userId == studyInfo.userId){
                                 return (
-                                    <>
+                                    <div className="participantBox">
                                     <img src="img/Group 420.png" className="managerLabelImg"/>
-                                    <img src={participants[i].profileImage} className="participantsProfileImg"/>
-                                    </>
+                                    <img src={ongoingStudy.participants[i].profileImage} className="participantsProfileImg"/>
+                                    <div className="">{ongoingStudy.participants[i].nickname}</div>
+                                    </div>
                                 )
                             }
                             else{
-                                return <img src={participants[i].profileImage} className="participantsProfileImg"/>
+                                return (
+                                    <div className="participantBox">
+                                    <img src={ongoingStudy.participants[i].profileImage} className="participantsProfileImg"/>
+                                    <div className="">{ongoingStudy.participants[i].nickname}</div>
+                                    </div>
+                                )
                             }
                         })
                     }

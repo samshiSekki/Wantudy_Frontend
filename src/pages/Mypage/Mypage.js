@@ -138,16 +138,19 @@ function Mypage(props) {
                 <div className="participatedStudyContainer">
                     <div className="participatedBlock">
                         <div className="myTempTitle">📋 참여 스터디</div>
+                        
                             <div className="mypagePreview">
                                 {ongoing}
                             </div>
                     </div>
+                    <div className="mypageMoreBtn" onClick={moreOngoing}>+더보기</div>
                         <div className="subjectBlock">
                             <div className="mypagePreview">
                                 {ongoing}
                             </div>
                         </div>
-                    <div className="mypageMoreBtn" onClick={moreOngoing}>+더보기</div>
+                        
+                    
                     <div className="participatedBlock">
                         <div className="myTempTitle">✍ 과제 관리</div>
                             <div className="mypagePreview">

@@ -31,6 +31,7 @@
     position: absolute;
     margin-left: 1200px;
     margin-top: 90px;
+    clip: rect(10px, 296px, 291px, 0px);
 }
 
 .temperatureContainer{
@@ -166,14 +167,13 @@
 }
 
 .mypageMoreBtn{
-    font-family: Noto Sans;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
     color: #497EF1;
     float: right;
-    margin-right: 25px;
+    margin-right: 73px;
 }
 
 .likedStudyContainer{

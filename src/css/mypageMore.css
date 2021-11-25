@@ -129,7 +129,11 @@
     line-height: 25px;
     float: left;
     margin-top: 34px;
-    margin-left: 94px;
+    margin-left: 16px;
+}
+
+.participantBox{
+    float: left;
 }
 
 .fireEmoji{
@@ -330,7 +334,7 @@
     padding-top: 26.23px;
     margin-top: 13px;
     width: 1200px;
-    height: 98px;
+    height: 120px;
     background: #FFFFFF;
     text-align: center;
 }
@@ -342,6 +346,15 @@
     height: 50.77px;
     border-radius: 70%;
     float: left;
+}
+
+.receivedUserProfileImg{
+    width: 36px;
+    height: 36px;
+    border-radius: 70%;
+    float: left;
+    margin-left: 42px;
+    margin-top: 28px;
 }
 
 .participantsPicsContainer{

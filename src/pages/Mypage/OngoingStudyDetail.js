@@ -21,7 +21,7 @@ function OngoingStudyDetail() {
         let response = await axios.get(`http://13.209.66.117:8080/studyList/${ongoingStudy.studyInfo.StudyId}`);
         console.log(response);
         setCommon(response.data.data.commonSchedule);
-        console.log(common);
+        //console.log(common);
     },[]);
 
     function scheduleBtnClickHandler(){
@@ -57,14 +57,20 @@ function OngoingStudyDetail() {
                         ongoingStudy.participants.map((a,i)=>{
                             if(ongoingStudy.participants[i].userId == ongoingStudy.studyInfo.userId){
                                 return (
-                                    <>
+                                    <div className="participantBox">
                                     <img src="img/Group 420.png" className="managerLabelImg"/>
                                     <img src={ongoingStudy.participants[i].profileImage} className="participantsProfileImg"/>
-                                    </>
+                                    <div className="">{ongoingStudy.participants[i].nickname}</div>
+                                    </div>
                                 )
                             }
                             else{
-                                return <img src={ongoingStudy.participants[i].profileImage} className="participantsProfileImg"/>
+                                return (
+                                    <div className="participantBox">
+                                    <img src={ongoingStudy.participants[i].profileImage} className="participantsProfileImg"/>
+                                    <div className="">{ongoingStudy.participants[i].nickname}</div>
+                                    </div>
+                                )
                             }
                         })
                     }

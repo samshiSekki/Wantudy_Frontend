@@ -24,7 +24,7 @@ function LoggedOut(props){
     }
 
     return(
-    <div className="navbarContainer">
+    <div>
         <div className="navbar">
         <img src="img/LOGO 1.png" className="navbarLogoImg"/>
         <div className="logo" onClick={logoClickHandler}>wantudy</div>
@@ -100,6 +100,7 @@ function LoggedIn(props){
     }
 
     return(
+        <div>
         <div className="navbar">
         <img src="img/LOGO 1.png" className="navbarLogoImg"/>
         <div className="logo" onClick={logoClickHandler}>wantudy</div>
@@ -114,6 +115,7 @@ function LoggedIn(props){
             <img src={props.userInfo.profileImage} className="userProfileImage"/>
         </div>
         
+        </div>
         </div>
     )
 }
