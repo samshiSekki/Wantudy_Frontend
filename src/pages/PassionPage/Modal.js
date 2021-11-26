@@ -2,11 +2,16 @@ import React,{useState} from 'react';
 import vector from './Vector.png'
 import axios from 'axios';
 import {message} from 'antd';
-const Modal = ({modalClose, userId, memberId,history,ongoingStudy}) => {
+const Modal = ({modalClose, userId, memberId,ongoingStudy,history}) => {
+    console.log(history)
 
     const [next, setNext] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [checkedInputs, setCheckedInputs] = useState([]);
+    const [positive, setPositsive] = useState(0);
+    const [negative,setNegative] = useState(0);
+
+    
     
 
     const changeHandler = (checked, id) => {
@@ -17,30 +22,35 @@ const Modal = ({modalClose, userId, memberId,history,ongoingStudy}) => {
         setCheckedInputs(checkedInputs.filter((el) => el !== id));
       }
     };
-    var positive = 0;
-    var negative = 0;
-
     const onNextModal = () => {
+        
+        setIsVisible(false);
         const checkboxes = document.getElementsByName('text');
   
   checkboxes.forEach((checkbox) => {
     checkbox.checked = false;
   })
-        setIsVisible(false);
+  console.log(positive,negative)
+        
         
 
     }
     const onCountPositive = () =>{
-        positive+=1;
+       setPositsive(positive+1);
 
     }
     const onCountNegative = () =>{
-        negative+=1;
+        setNegative(negative+1);
 
     }
     const onFinishModal = () => {
+        //history.goBack();
+       // history.push(`/`);
 
-axios.put(`http://13.209.66.117:8080/users/${userId}/ongoing-studylist/passion-test/${memberId}`, {
+        
+
+
+axios.put(`http://13.209.66.117:8080/users/${userId}/ongoing-studylist/${ongoingStudy.studyInfo.StudyId}/passion-test/${memberId}`, {
     positive: positive,
     negative: negative
   })
@@ -48,15 +58,14 @@ axios.put(`http://13.209.66.117:8080/users/${userId}/ongoing-studylist/passion-t
     modalClose();
     message.success('평가 완료');
       history.goBack();
-      ongoingStudy.studyState = 1
 
 
   })
   .catch(function (error) {
-    
+     
   });
     }
-
+ 
 
     const onCloseModal = (e) => {
         if(e.target === e.currentTarget){
