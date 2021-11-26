@@ -13,7 +13,7 @@ function OpenedStudy() {
 
     useEffect(async()=>{
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/opened-studylist`);
-        console.log(response);
+      
         setOpenedList(response.data);
     },[]);
 
@@ -48,13 +48,12 @@ function OpenedList(props){
     let history = useHistory();
 
     const startStudyBtnClickHandler = async() => {
-        console.log(props.userInfo.userId);
-        console.log(props.openedList.study.StudyId);
+     
         const response = await axios.put(`http://13.209.66.117:8080/users/${props.userInfo.userId}/opened-studylist/${props.openedList.study.StudyId}`);
         window.location.reload();
     }
 
-    console.log(props.openedList.applications);
+
 
     return(
         <>
@@ -85,7 +84,7 @@ function OpenedList(props){
 function ReceivedAppList(props){
     const [modal, setModal] = useState(false);
     let history = useHistory();
-    //console.log(props.applications.state);
+   
 
     function receivedAppViewDetailClickListner(){
         history.push({
@@ -93,8 +92,6 @@ function ReceivedAppList(props){
             state: {userInfo: props.userInfo, applications: props.applications, studyId:props.studyId}
           })
     }
-
-    //console.log(props.applications);
 
     return(
         <>

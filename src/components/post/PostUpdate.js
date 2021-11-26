@@ -41,7 +41,7 @@ function PostUpdate(props) {
     })
     .then(res =>setPostDetail(res.data.data))
     .catch(err => console.log(err));
-    console.log(postDetail)
+   
           setUpdated({
         studyName:postDetail.studyName, 
         category:postDetail.category, 
@@ -97,10 +97,7 @@ function PostUpdate(props) {
     setIsModalVisible(false);
   };
 
- /*  function onChange(date, dateString) {
-    setvalue({ ...value, deadline: dateString });
-    console.log(dateString);
-  } */
+
   const children = [];
 for (let i = 0; i < 9; i++) {
   if (i == 0) {

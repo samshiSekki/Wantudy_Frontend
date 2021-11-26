@@ -13,7 +13,7 @@ function LikedStudy() {
 
     useEffect(async()=>{
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/like-studylist`);
-        console.log(response);
+     
         setLikedList(response.data);
     },[]);
 

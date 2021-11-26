@@ -7,7 +7,7 @@ const Modal = ({modalClose, userId, memberId,history,ongoingStudy}) => {
     const [next, setNext] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [checkedInputs, setCheckedInputs] = useState([]);
-    console.log(ongoingStudy.studyState)
+    
 
     const changeHandler = (checked, id) => {
       if (checked) {
@@ -27,7 +27,7 @@ const Modal = ({modalClose, userId, memberId,history,ongoingStudy}) => {
     checkbox.checked = false;
   })
         setIsVisible(false);
-        console.log(userId, memberId)
+        
 
     }
     const onCountPositive = () =>{
@@ -53,14 +53,12 @@ axios.put(`http://13.209.66.117:8080/users/${userId}/ongoing-studylist/passion-t
 
   })
   .catch(function (error) {
-    console.log(error);
+    
   });
     }
 
 
     const onCloseModal = (e) => {
-        console.log('e.target: ', e.target)
-        console.log('e.tarcurrentTargetget: ', e.currentTarget)
         if(e.target === e.currentTarget){
             modalClose()
         }

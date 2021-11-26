@@ -19,7 +19,7 @@ import redlight from "./Ellipse998.png";
 function PostView({ match, history, location }) {
   
   const userId = location.state.userInfo.userId;
-  console.log(userId)
+ 
   const studyId = match.params.id;
   const [postDetail,setPostDetail] = useState([]);
   const errorHandling = useErrorHandling();
@@ -50,34 +50,9 @@ function PostView({ match, history, location }) {
     setIsModalVisible(false);
   };
 
-/*   async function fetchData(){
-    postDetaill = await axios.get(`http://13.209.66.117:8080/studylist/${studyId}`
-    ,{
-      params: {
-        StudyId: studyId
-      }});
-      setPostDetail(postDetaill.data.data)
-      
-    }
-    
-    
-  
-  useEffect(() => {
-    
-    fetchData();
-      console.log(postDetail)
 
-  }, [])   */
-  /*  axios.get(`http://13.209.66.117:8080/studylist/${studyId}`, {
-      params: {
-        studyId : studyId
-      }
-    })
-    .then(res =>setPostDetail(res.data))
-    .catch(err => console.log(err));  */
 
   useEffect(() => {
-    console.log(studyId);
     axios.get(`http://13.209.66.117:8080/studylist/${studyId}`, {
       params: {
         studyId : studyId
@@ -85,7 +60,6 @@ function PostView({ match, history, location }) {
     })
     .then(res =>setPostDetail(res.data.data))
     .catch(err => console.log(err));
-    console.log(postDetail)
 
   }, []);
 
@@ -123,7 +97,6 @@ function PostView({ match, history, location }) {
     const onRegister=()=>{
       setIstButtonVisible(false);
       setIsListVisible(!isListVisible);
-      console.log(userId)
       axios.get(`http://13.209.66.117:8080/users/${userId}/application`, {
         params: {
           userId : userId,
@@ -131,7 +104,6 @@ function PostView({ match, history, location }) {
       })
       .then(res =>setRegisterList(res.data))
       .catch(err => console.log(err));
-      console.log(registerList)
 
     }
     
@@ -143,7 +115,6 @@ function PostView({ match, history, location }) {
     }
     
     const handleRegister=()=>{
-      console.log(selectList)
       let body = {
         "userId": userId,
   "applicationId": selectList,
@@ -213,7 +184,6 @@ function PostView({ match, history, location }) {
   }
   function showRegisterList(li){
     let arr = []
-    console.log(li)
    if (registerList[0].applicationId == li.applicationId) {
 
 
@@ -296,8 +266,6 @@ function PostView({ match, history, location }) {
   }
 
   function checkDeadline (deadline) {
-    console.log(deadline)
-    console.log(new Date().toISOString())
     if (deadline.valueOf() > new Date().toISOString().valueOf()){
       return <div><img src = {greenlight}></img>    모집 중</div>
     }

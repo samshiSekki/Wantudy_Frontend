@@ -22,7 +22,6 @@ function ModNick(props) {
             nickName: newNickName
         });
 
-        console.log(response);
         userInfo.nickname = newNickName; 
 
 

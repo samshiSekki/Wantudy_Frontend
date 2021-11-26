@@ -1,4 +1,5 @@
 .all-box{
+    font-family: 'Noto Sans KR', sans-serif;
    background-color:#F8F9FC;
    padding-top:100px;
 }
@@ -17,7 +18,7 @@ background: #FFFFFF;
 }
 .study-name-detail{
     margin-left:60px;
-    font-family: 'Noto Sans';
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -70,6 +71,7 @@ color: #88898E;
 
 }
 .study-view-field{
+    font-family: 'Noto Sans KR', sans-serif;
     padding-left:150px;
 
     padding-top:43px;
@@ -419,6 +421,7 @@ color: #22272E;
 }
 
 .button-register{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-bottom:30px;
     color:white;
     width: 190px;
@@ -429,6 +432,7 @@ border-radius: 40.5px;
 border:none;
 }
 .button-delete{
+    font-family: 'Noto Sans KR', sans-serif;
     color: #88898E;
     margin-left:360px;
     width: 119px;
@@ -442,6 +446,7 @@ border:none;
 
 }
 .button-fix{
+    font-family: 'Noto Sans KR', sans-serif;
     color: #88898E;
     width: 119px;
 height: 57px;

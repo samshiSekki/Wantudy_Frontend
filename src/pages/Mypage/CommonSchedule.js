@@ -28,7 +28,7 @@ function CommonSchedule() {
 
     useEffect(async()=>{
         let response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist/${studyInfo.StudyId}/schedule-common`);
-        console.log(response);
+    
 
         if(response.data[0] != null){
             for(let i=0; i<response.data.length; i++){
@@ -93,12 +93,10 @@ function CommonSchedule() {
 
     const selectSchedule = async(day) => {
         let response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist/${studyInfo.StudyId}/schedule-common`);
-        console.log(response);
-        console.log(day);
+
         if(isManager == 1){
             for(let i=0; i<response.data.length; i++){
                 if(day == response.data[i][0]){
-                    console.log(response.data[i]);
                     let result = window.confirm(`스터디 진행시간을\n[매주 ${day}요일 ${response.data[i][1]} - ${parseInt(response.data[i][response.data[i].length-1])+1}]로 확정하시겠습니까?`);
                     if(result == true){
                         alert("확정했습니다!\n해당 스터디 페이지에서 확인하세요.");

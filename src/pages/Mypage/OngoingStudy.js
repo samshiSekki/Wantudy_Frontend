@@ -14,11 +14,8 @@ function OngoingStudy() {
     const [memberList, setMemberList] = useState(["",]);
 
     useEffect(async()=>{
-        //console.log(userInfo);
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
-        console.log(response);
-        //console.log(response.data.studyManager);
-        //console.log(response.data.studyMember);
+      
 
         if(response.data.msg == '참여하는 스터디가 없습니다'){
 
@@ -31,8 +28,6 @@ function OngoingStudy() {
     },[]);
 
 
-    //console.log(managerList);
-    //console.log(memberList);
 
     /*
     function showOngoingList(list,length){
@@ -93,8 +88,6 @@ function OngoingStudyList(props){
             state: {userInfo: props.userInfo, ongoingStudy: props.ongoingStudy, isManager: props.isManager}
         });
     }
-
-    //console.log(props.isManager);
 
     return(
         <div className="ongoingStudyListContainer">

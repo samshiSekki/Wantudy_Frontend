@@ -32,7 +32,7 @@ function Mypage(props) {
 
     useEffect(async()=>{
         let response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/like-studylist`);
-        //console.log(response);
+ 
         //setLiked(response.data.msg);
         response.data.msg == "찜한 스터디가 없습니다"
         ? function(){
@@ -50,7 +50,7 @@ function Mypage(props) {
         }()
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/apply-studylist`);
-        //console.log(response.data);
+      
         response.data.msg == "신청한 스터디가 없습니다"
         ? function(){
             applied[0].studyName = "신청한 스터디가 없습니다";
@@ -59,7 +59,7 @@ function Mypage(props) {
         : setApplied(response.data)
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/opened-studylist`);
-        //console.log(response);
+       
         if(response.data.msg != "개설한 스터디가 없습니다"){
             setOpenedStudy(response.data[0].study.studyName);
 
@@ -71,9 +71,7 @@ function Mypage(props) {
         }
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
-        //console.log(response);
-
-        //console.log(response.data.studyManager.length);
+    
         
         if(response.data.msg != '참여하는 스터디가 없습니다'){
 
@@ -83,15 +81,12 @@ function Mypage(props) {
                     newArr.push(response.data.studyManager[i]);
                 }
             }
-            //console.log(newArr);
 
             if(response.data.studyMember[0] != null){
                 for(let i=0; i<response.data.studyMember.length; i++){
                     newArr.push(response.data.studyMember[i]);
                 }
             }
-            //console.log(newArr);
-            //console.log(newArr[0].studyInfo.studyName);
             
             setOngoing(newArr[0].studyInfo.studyName);
             setOngoingSchedule(newArr[0].studyInfo.commonSchedule);

@@ -43,12 +43,9 @@ function LoggedIn(props){
 
     function LogoutClickHandler(){
         if (Kakao.Auth.getAccessToken()) {
-            console.log(
-              '카카오 인증 액세스 토큰이 존재합니다.',
-              Kakao.Auth.getAccessToken(),
-            );
+           
             Kakao.Auth.logout(() => {
-              console.log('로그아웃 되었습니다.', Kakao.Auth.getAccessToken());
+             
               alert('로그아웃 되었습니다.');
               localStorage.clear();
               history.push("/main");

@@ -11,11 +11,7 @@ function ReceivedAppViewDetail(props) {
     const applications = location.state.applications;
     const studyId = location.state.studyId;
     let history = useHistory();
-    console.log(applications);
 
-    //console.log(applications.application.userId);
-    //console.log(applications.application.applicationId);
-    //console.log(studyId);
 
     const acceptBtnClickHandler = async() => {
         const response = await axios.put(`http://13.209.66.117:8080/users/${applications.application.userId}/opened-studylist/manageMember/${applications.application.applicationId}`,{

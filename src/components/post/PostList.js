@@ -17,8 +17,7 @@ import redlight from "./Ellipse998.png";
 
 const { Column } = Table;
 const { Search } = Input;
-function PostList({ match, history,location }) {   
-  console.log(location.state.userInfo.userId)
+function PostList({ match, history,location }) { 
   const _ = require('lodash');
   const [posts, setPosts] = useState([]);
   const [pages, setPages] = useState(1);
@@ -35,13 +34,7 @@ function PostList({ match, history,location }) {
   var color_onoff = '#D0FFBA'
   var color_category = '#BAFFFF'
   var color_level = '#EFD5FF'
-  /* axios.get(`http://13.209.66.117:8080/studylist/`, {
-    params: {
-      page: 1
-    }
-  })
-  .then(res =>setPosts(res.data))
-  .catch(err => console.log(err)); */
+
   useEffect(() => {
     axios.get(`http://13.209.66.117:8080/studylist/`, /* {
       params: {
@@ -62,12 +55,11 @@ function PostList({ match, history,location }) {
 
       posts[f].img = bookmark1;
     }
-   /*  console.log(posts[f]) */
+  
 } 
 for (var f = 0; f < posts.length; f++) {
   posts[f].newId = f;
-  
- /*  console.log(posts[f]) */
+
 } 
 
   for (var i = 0; i < posts.length; i++) {
@@ -138,7 +130,7 @@ for (var t = 0; t < posts.length; t++) {
   }
   
   const categoryChange= (value) => {
-    console.log(value)
+    
     const orderBy = mdata.filter((data)=>{
       if(value == null){
           return data
@@ -150,37 +142,6 @@ for (var t = 0; t < posts.length; t++) {
 
 
   }
-
-/*   const onScrap = () => {
-    if (imageCheck) {
-      setImageCheck(false)
-      setImageSet(bookmark1)
-      postScarpDelete(item.StudyId)
-      .then(() => {
-        message.success(
-          '스크랩을 취소하셨습니다.',
-        );
-      })
-      .catch((error) => {
-        console.log(error.response.data.message);
-      });
-    }
-    else {
-      setImageCheck(true)
-      setImageSet(bookmark2)
-      postScrap(item.StudyId)
-        .then(() => {
-          message.success(
-            '스크랩에 성공했습니다. 마이페이지에서 확인할 수 있습니다.',
-          );
-        })
-        .catch((error) => {
-          console.log(error.response.data.message);
-        });
-    }
-  }
-  }
- */
 
 
 
@@ -239,7 +200,7 @@ for (var t = 0; t < posts.length; t++) {
               return data
           }})}
         renderItem={item =>
-          console.log(item) || (
+          (
             <List.Item
             >
              
@@ -253,8 +214,7 @@ for (var t = 0; t < posts.length; t++) {
                       imageCheck[index] = true;
                       item.img = bookmark2;
                       document.getElementById(item.newId).src= bookmark2;
-                      
-                      console.log(imageCheck[index], arr[index])
+                    
                       let body = {
                         "userId": location.state.userInfo.userId,
                       }
@@ -265,11 +225,9 @@ for (var t = 0; t < posts.length; t++) {
                         );
                       })
                       .catch((error) => {
-                        console.log(error.response.data.message);
+                       
                       });
                       
-console.log(arr, imageCheck)
-                    
                     }
                     else if (imageCheck[index] == true) {
                       const index = posts.indexOf(item);
@@ -343,8 +301,7 @@ console.log(arr, imageCheck)
   );
 
   function checkDeadline(deadline) {
-    console.log(deadline)
-    console.log(new Date().toISOString())
+   
     if (deadline.valueOf() > new Date().toISOString().valueOf()){
       return <div><img src = {greenlight}></img>    모집 중</div>
     }

@@ -12,11 +12,9 @@ function AppliedStudy() {
 
     useEffect(async()=>{
       const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/apply-studylist`);
-      console.log(response.data);
       setAppliedList(response.data);
       
   },[]);
-  console.log(appliedList);
 
     return (
         <div className>
