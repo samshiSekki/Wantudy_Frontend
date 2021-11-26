@@ -20,8 +20,13 @@ function OngoingStudy() {
         //console.log(response.data.studyManager);
         //console.log(response.data.studyMember);
 
-        setManagerList(response.data.studyManager);
-        setMemberList(response.data.studyMember);
+        if(response.data.msg == '참여하는 스터디가 없습니다'){
+
+        }
+        else{
+            setManagerList(response.data.studyManager);
+            setMemberList(response.data.studyMember);
+        }
 
     },[]);
 

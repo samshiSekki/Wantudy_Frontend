@@ -11,8 +11,24 @@ function Mypage(props) {
     const userInfo = location.state.userInfo;
     const [liked, setLiked] = useState([{studyName: null}, {studyName: null}]);
     const [applied, setApplied] = useState([{studyName: null, state: null},]);
-    const [opened, setOpened] = useState([{study:{studyName: null}, applications:[{application: {name: null}, registered: null},]},]);
-    const [ongoing, setOngoing] = useState(["",]);
+    
+    const [openedStudy, setOpenedStudy] = useState('');
+    const [openedAppDate, setOpenedAppDate] = useState('');
+    const [openedProfileImage, setOpenedProfileImage] = useState('');
+    const [openedUserName, setOpenedUserName] = useState('');
+
+    
+    const [ongoing, setOngoing] = useState('');
+    const [ongoingSchedule, setOngoingSchedule] = useState(['',]);
+    const [ongoing2, setOngoing2] = useState('');
+    const [ongoing2Schedule, setOngoing2Schedule] = useState(['',]);
+
+    const [assignment, setAssignment] = useState('');
+    const [assignmentStudy, setAssignmentStudy] = useState('');
+    const [assignmentDeadline, setAssignmentDeadline] = useState('');
+    const [assignment2, setAssignment2] = useState('');
+    const [assignment2Study, setAssignment2Study] = useState('');
+    const [assignment2Deadline, setAssignment2Deadline] = useState('');
 
     useEffect(async()=>{
         let response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/like-studylist`);
@@ -44,24 +60,77 @@ function Mypage(props) {
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/opened-studylist`);
         //console.log(response);
-        response.data.msg == "개설한 스터디가 없습니다"
-        ? function(){
-            opened[0].study.studyName = "개설한 스터디가 없습니다";
-            opened[0].applications[0].application.name = "";
-            opened[0].applications[0].registered = "";
-        }()
-        : setOpened(response.data)
+        if(response.data.msg != "개설한 스터디가 없습니다"){
+            setOpenedStudy(response.data[0].study.studyName);
+
+            if(response.data[0].applications[0] != null){
+                setOpenedUserName(response.data[0].applications[0].nickname);
+                setOpenedAppDate(response.data[0].applications[0].registered);
+                setOpenedProfileImage(response.data[0].applications[0].profileImage);
+            }
+        }
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
-        console.log(response);
-        /*
-        response.data.msg == "참여하는 스터디가 없습니다"
-        ? function(){
-            
-        }()*/
-        //setOngoing(response.data.msg);
-    },[]);
+        //console.log(response);
 
+        //console.log(response.data.studyManager.length);
+        
+        if(response.data.msg != '참여하는 스터디가 없습니다'){
+
+            let newArr = [];
+            if(response.data.studyManager[0] != null){
+                for(let i=0; i<response.data.studyManager.length; i++){
+                    newArr.push(response.data.studyManager[i]);
+                }
+            }
+            //console.log(newArr);
+
+            if(response.data.studyMember[0] != null){
+                for(let i=0; i<response.data.studyMember.length; i++){
+                    newArr.push(response.data.studyMember[i]);
+                }
+            }
+            //console.log(newArr);
+            //console.log(newArr[0].studyInfo.studyName);
+            
+            setOngoing(newArr[0].studyInfo.studyName);
+            setOngoingSchedule(newArr[0].studyInfo.commonSchedule);
+            
+            if(newArr.length >= 2){
+                setOngoing2(newArr[1].studyInfo.studyName);
+                setOngoing2Schedule(newArr[1].studyInfo.commonSchedule);
+            }
+
+            let i=0;
+
+            for(i=0; i<newArr.length; i++){
+                if(newArr[i].todoAssignment.length == 1){
+                    setAssignment(newArr[i].todoAssignment[0].assignment.assignmentName);
+                    setAssignmentStudy(newArr[i].studyInfo.studyName);
+                    setAssignmentDeadline(newArr[i].todoAssignment[0].assignment.deadline);
+
+                    for(let j=i; j<newArr.length; j++){
+                        if(newArr[j].todoAssignment.length >= 1){
+                            setAssignment2(newArr[j].todoAssignment[0].assignment.assignmentName);
+                            setAssignment2Study(newArr[j].studyInfo.studyName);
+                            setAssignment2Deadline(newArr[j].todoAssignment[0].assignment.deadline);
+                        }
+                    }
+                    break;
+                }
+                else if(newArr[i].todoAssignment.length >= 2){
+                    setAssignment(newArr[i].todoAssignment[0].assignment.assignmentName);
+                    setAssignmentStudy(newArr[i].studyInfo.studyName);
+                    setAssignmentDeadline(newArr[i].todoAssignment[0].assignment.deadline);
+                    setAssignment2(newArr[i].todoAssignment[1].assignment.assignmentName);
+                    setAssignment2Study(newArr[i].studyInfo.studyName);
+                    setAssignment2Deadline(newArr[i].todoAssignment[1].assignment.deadline);
+                }
+                
+            }
+        }
+        
+    },[]);
 
     function nickModifyClickHandler(){
         props.history.push({ 
@@ -112,6 +181,15 @@ function Mypage(props) {
             state: {userInfo: userInfo}
         })
     }
+
+    function checkDeadline(deadline) {
+        if (deadline.valueOf() > new Date().toISOString().valueOf()){
+          return <div><img src="img/Ellipse999.png"/>모집중</div>
+        }
+        else{
+          return <div><img src="img/Ellipse998.png"/>모집 완료</div>
+        }
+      }
     
     return (
         <>
@@ -140,13 +218,27 @@ function Mypage(props) {
                         <div className="myTempTitle">📋 참여 스터디</div>
                         
                             <div className="mypagePreview">
-                                {ongoing}
+                                
+                                {
+                                    ongoingSchedule[0] == '' || ongoingSchedule[0] == null
+                                    ? <div className="mypagePreviewDeadline">일정미확정</div>
+                                    : <div className="mypagePreviewDeadline">매주 {ongoingSchedule[0][0]}요일 {ongoingSchedule[0][1]} - {parseInt(ongoingSchedule[0][ongoingSchedule[0].length - 1])+1}시</div>
+                                }
+                                
+                                    <div className="previewOngoingStudyName">{ongoing}</div>
                             </div>
                     </div>
-                    <div className="mypageMoreBtn" onClick={moreOngoing}>+더보기</div>
+                    <div className="mypageMoreBtn2" onClick={moreOngoing}>+더보기</div>
                         <div className="subjectBlock">
-                            <div className="mypagePreview">
-                                {ongoing}
+                            <div className="mypagePreview5">
+                                
+                                {
+                                    ongoing2Schedule[0] == '' || ongoing2Schedule[0] == null
+                                    ? <div className="mypagePreviewDeadline">일정미확정</div>
+                                    : <div className="mypagePreviewDeadline">매주 {ongoing2Schedule[0][0]}요일 {ongoing2Schedule[0][1]} - {parseInt(ongoing2Schedule[0][ongoing2Schedule[0].length - 1])+1}시</div>
+                                }
+                                
+                                 <div className="previewOngoingStudyName">{ongoing2}</div>
                             </div>
                         </div>
                         
@@ -154,12 +246,36 @@ function Mypage(props) {
                     <div className="participatedBlock">
                         <div className="myTempTitle">✍ 과제 관리</div>
                             <div className="mypagePreview">
-                                {ongoing}
+                                {
+                                    assignment == ''
+                                    ? `과제가 없습니다`
+                                    : <>
+                                        
+                                        <div className="mypagePreviewDeadline">{assignmentStudy}</div>
+                                        
+                                        <div className="previewAssignmentName">
+                                            {assignment}
+                                        </div>
+                                        <div className="previewAssignmentDeadline">{assignmentDeadline.substr(0,10)} 마감</div>
+                                    </>
+                                }
                             </div>
                     </div>
                         <div className="subjectBlock">
-                            <div className="mypagePreview">
-                                {ongoing}
+                            <div className="mypagePreview5">
+                                {
+                                    assignment == ''
+                                    ? `과제가 없습니다`
+                                    : <>
+                                        
+                                        <div className="mypagePreviewDeadline">{assignment2Study}</div>
+                                        
+                                        <div className="previewAssignmentName">
+                                            {assignment2}
+                                        </div>
+                                        <div className="previewAssignmentDeadline">{assignment2Deadline.substr(0,10)} 마감</div>
+                                    </>
+                                }
                             </div>
                         </div>
 
@@ -175,7 +291,11 @@ function Mypage(props) {
                         <div className="mypagePreview2">
                             {applied[0].studyName}
                         </div>
-                        {/*
+                        {
+                        applied[0].studyName == null || applied[0].studyName == '신청한 스터디가 없습니다'
+                        ?
+                        null
+                        :
                         <div className="applyBlockStatus">
                             {
                                 applied[0].state == 0
@@ -187,25 +307,32 @@ function Mypage(props) {
                                         : ""
                             }
                         </div>
-                        */}
+                        }
                     </div>
 
                     <div className="openedBlock">
                         <div className="myTempTitle">🔎 개설한 스터디</div>
                         <div className="mypageMoreBtn" onClick={moreOpened}>+더보기</div>
                         <div className="mypagePreview2">
-                            {opened[0].study.studyName}
+                            {openedStudy}
                         </div>
-                        {/*
-                        <div>
+                        {
+                        openedStudy == ''
+                        ? `개설한 스터디가 없습니다`
+                        :
+                        openedUserName == ''
+                        ? null
+                        :<div>
+                            <img src={openedProfileImage} className="previewReceivedUserProfileImg"/>
+                            
                             <div className="appliedUserName">
-                                {opened[0].applications[0].application.name + " "}
+                                {openedUserName + " "}
                             </div>
                             <div className="appliedUserDate">
-                                {opened[0].applications[0].registered} 신청
+                                {openedAppDate} 신청
                             </div>
                         </div>
-                        */}
+                        }
                         
                     </div>
                 
@@ -216,12 +343,40 @@ function Mypage(props) {
                     <div className="mypageMoreBtn" onClick={moreLiked}>+더보기</div>
                     <div className="likedPreviewContainer">
                         <div className="mypagePreview3">
-                            {liked[0].studyName}
-                            <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                            {
+                                liked[0].studyName == null || liked[0].studyName == '찜한 스터디가 없습니다'
+                                ?   '찜한 스터디가 없습니다'
+                                :
+                                    <div className="likedStudyIndividualContainer">
+                                        <div className="mypagePreviewDeadline">
+                                        {checkDeadline(liked[0].deadline)}
+                                        </div>
+                                        <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                                        <br/>
+                                        <div className="mypagelikedStudyName">
+                                            {liked[0].studyName}
+                                        </div>
+
+                                    </div>
+                            }
                         </div>
                         <div className="mypagePreview4">
-                            {liked[1].studyName}
-                            <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                            {
+                                liked[1].studyName == null || liked[1].studyName == '찜한 스터디가 없습니다'
+                                ?   '찜한 스터디가 없습니다'
+                                :
+                                    <div className="likedStudyIndividualContainer">
+                                        <div className="mypagePreviewDeadline">
+                                        {checkDeadline(liked[1].deadline)}
+                                        </div>
+                                        <img src="img/Vector.png" className="mypageBookmarkimg"/>
+                                        <br/>
+                                        <div className="mypagelikedStudyName">
+                                            {liked[1].studyName}
+                                        </div>
+
+                                    </div>
+                            }
                     </div>
                     </div>
                 </div>
