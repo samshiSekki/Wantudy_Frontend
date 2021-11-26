@@ -112,6 +112,7 @@
 }
 
 .previewAssignmentName{
+    font-size: 20px;
     text-align: left;
     margin-top: 10px;
 }
@@ -136,7 +137,7 @@
     line-height: 52px;
     font-style: normal;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 20px;
     color: #22272E;
 }
 
@@ -187,11 +188,11 @@
 .mypagePreviewDeadline{
     text-align: left;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .mypagelikedStudyName{
-    margin-top: 3px;
+    font-size: 20px;
     float:left;
 }
 
