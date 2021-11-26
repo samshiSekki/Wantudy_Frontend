@@ -30,3 +30,9 @@ export const assignmentSave = async (userId,studyId,body) => {
     params:{studyId:studyId, userId:userId},
   });
 };
+
+export const assignmentCheckSave = async (userId,studyId,assignmentId) => {
+  await axios.post(`http://13.209.66.117:8080/users/${userId}/ongoing-studylist/${studyId}/checkAssignment/${assignmentId}`, {
+    params:{userId:userId,studyId:studyId,assignmentId:assignmentId},
+  });
+};

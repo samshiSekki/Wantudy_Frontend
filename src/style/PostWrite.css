@@ -78,6 +78,7 @@ color: #181824;
     margin-left:400px;
     width: 40%;
     height: 81px;
+    font-size:25px;
     
     background: #FFFFFF;
     border-radius: 25px;
@@ -109,6 +110,7 @@ color: #181824;
     margin-left:1050px;
     width: 8%;
     height: 81px;
+    font-size: 25px;
     
     background: #FFFFFF;
     border-radius: 25px;
@@ -139,6 +141,7 @@ color: #181824;
     height: 81px;
 background: #FFFFFF;
 border-radius: 25px;
+font-size: 25px;
   }
   .level-text{
     float:left;
@@ -158,13 +161,13 @@ border-radius: 25px;
 
   }
   .level-bar{
-    margin-left:800px;
+    margin-left:1050px;
     margin-top:60px;
     margin-bottom:60px;
     width: 20%;
     height: 81px;
-background: #FFFFFF;
 border-radius: 25px;
+font-size: 25px;
 
   }
   .onoff-text{
@@ -189,7 +192,7 @@ border-radius: 25px;
     margin-bottom:60px;
     height: 81px;
 border-radius: 25px;
-
+font-size: 25px;
 
   }
 
@@ -218,6 +221,7 @@ border-radius: 25px;
     width: 40%;
     height: 81px;
 border-radius: 25px;
+font-size: 25px;
 
 
   }
@@ -244,6 +248,7 @@ border-radius: 25px;
     width: 40%;
     height: 81px;
 border-radius: 25px;
+font-size: 25px;
 
   }
 
@@ -271,6 +276,7 @@ border-radius: 25px;
     width: 40%;
     height: 81px;
 border-radius: 25px;
+font-size: 25px;
 
   }
   .period-text{
@@ -298,6 +304,7 @@ border-radius: 25px;
     width: 40%;
     height: 81px;
 border-radius: 25px;
+font-size: 25px;
   }
   .deadline-text{
     float:left;
@@ -337,6 +344,7 @@ border-radius: 25px;
     line-height: 81px;
     background-color: #497EF1;
     color:white;
+    font-size: 25px;
   }
   .dele-button{
     width: 166px;
@@ -348,6 +356,7 @@ border-radius: 25px;
     line-height: 81px;
     color: #497EF1;
     margin-left:30px;
+    font-size: 25px;
   }
 
   #foot {

@@ -183,7 +183,13 @@ for (let i = 0; i < 10; i++) {
 }
 const plainOptions = [
   {label:'오프라인', value:'오프라인'},
-  {label: '온라인', value:'온라인'}
+  {label: '온라인', value:'온라인'},
+  {label:'혼합',value:['오프라인','온라인']}
+];
+const plainOptions2 = [
+  {label:'입문', value:'입문'},
+  {label: '기본', value:'기본'},
+  {label:'심화',value:'심화'},
 ];
 
 
@@ -259,7 +265,17 @@ const plainOptions = [
                     <button className={level=="심화"? "maleSelectedButton" : "maleButton"} value={value.level} onChange={(e) => {
             setvalue({ ...value, level: e.target.innerText });
           }}onClick={()=>(setLevel("심화"))}>심화</button> */}
-        <Input
+
+<Radio.Group
+      className="level-bar"
+      size='large'
+          options={plainOptions2}
+          onChange={(e) => {
+            setvalue({ ...value, level: e.target.value })}}
+          value={value.level}
+          optionType="button"
+        />
+        {/* <Input
           className="level-bar"
           type="text"
           placeholder="level"
@@ -267,7 +283,7 @@ const plainOptions = [
           onChange={(e) => {
             setvalue({ ...value, level: e.target.value });
           }}
-        />
+        /> */}
         <hr/>
       <Form
       name="validate_other"

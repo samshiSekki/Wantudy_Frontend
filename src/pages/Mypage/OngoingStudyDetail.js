@@ -5,17 +5,22 @@ import NavbarWhite from '../Navbar/NavbarWhite';
 import Footer from '../Footer/Footer';
 import '../../css/mypageMore.css';
 import Modal from '../PassionPage/Modal.js';
+import Modal2 from './Modal2';
 import {Input,List,message} from 'antd';
-import {assignmentSave} from '../../components/functions/postFunctions'
+import {assignmentSave,assignmentCheckSave} from '../../components/functions/postFunctions'
+import { mixedTypeAnnotation } from '@babel/types';
 
 function OngoingStudyDetail() {
     const location = useLocation();
     const userInfo = location.state.userInfo;
     const ongoingStudy = location.state.ongoingStudy;
+    console.log(ongoingStudy)
     const isManager = location.state.isManager;
     const history = useHistory();
     const [assign, setAssign] = useState(ongoingStudy.todoAssignment);
     const [modalOpen, setModalOpen] = useState(false)
+    const [modalOpen2, setModalOpen2] = useState(false)
+    const [checkBox, setCheckBox] = useState(false);
     const modalClose = () => {
         setModalOpen(!modalOpen)
 
@@ -25,15 +30,30 @@ function OngoingStudyDetail() {
     const [value, setvalue] = useState({ assignmentName:'',assignment:'',deadline:''});
 
     const [common, setCommon] = useState([]);
-    console.log(ongoingStudy);
-    console.log(isManager);
+    const [numberr,setNumberr]= useState(0);
+    for (var f = 0; f < assign.length; f++) {
+        assign[f].assignment.newId = f;
+        
+       /*  console.log(posts[f]) */
+      } 
+     
+      console.log(assign)
+    useEffect(() => {
+        setCheckBox(JSON.parse(window.localStorage.getItem('checkBox')));
+      }, []);
+    
+      useEffect(() => {
+        window.localStorage.setItem('checkBox', checkBox);
+      }, [checkBox]);
 
     useEffect(async()=>{
         let response = await axios.get(`http://13.209.66.117:8080/studyList/${ongoingStudy.studyInfo.StudyId}`);
         console.log(response);
         setCommon(response.data.data.commonSchedule);
         //console.log(common);
+
     },[]);
+
 
     function scheduleBtnClickHandler(){
         history.push({ 
@@ -58,7 +78,6 @@ function OngoingStudyDetail() {
             assignmentName:value.assignmentName,
             assignment:value.assignment,
             deadline:value.deadline
-          
         };
         assignmentSave(userId,ongoingStudy.studyInfo.StudyId,body)
           .then(() => {
@@ -69,10 +88,38 @@ function OngoingStudyDetail() {
           .catch((error) => {
               console.log(error)
           });
-          window.location.reload();
+          history.goBack();
 
     }
 
+    function onAssignmentCheck (assignmentId){
+        assignmentCheckSave(userId,ongoingStudy.studyInfo.StudyId,assignmentId)
+        .then(() => {
+            setCheckBox(true);
+          message.success('과제 완료!');
+          
+          
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+        console.log(checkBox)
+        setNumberr(numberr+1);
+
+
+
+    }
+
+    const modalClose2 = () => {
+        setModalOpen2(!modalOpen2);
+
+    }
+
+    const checkCheck = (item) =>{
+        console.log(item)
+       
+
+    }
 
 
     return (
@@ -140,15 +187,24 @@ function OngoingStudyDetail() {
         itemLayout="horizontal"
         dataSource={assign}
         renderItem={item =>
-          console.log(item) || (
+           (
             <List.Item
             >
              
                 <List.Item.Meta
                   // eslint-disable-next-line jsx-a11y/alt-text
                   className="study-assignment-list"
-                  title={ <div><input style={{float:'left',marginRight:'10px',marginTop:'5px'}} type="checkbox"></input><label><div style={{float:'left'}}>{item.assignment.assignmentName}</div></label></div>}
-                  description={<><div style={{float:'left',marginLeft:'500px'}}>{item.assignment.currentNum}/{ongoingStudy.participants.length}명 완료</div><div>{item.assignment.deadline}</div>
+                  title={ <div><input style={{float:'left',marginRight:'10px',marginTop:'5px'}} type="checkbox" id = {item.assignment.newId} onClick={()=>
+                    {onAssignmentCheck(item.assignment.assignmentId)
+                        /* const index=assign.indexof(item); */
+                        /* if (document.getElementById(item.assignment.newId).checked === true) {
+                            number[item.assignment.newId] = 1;
+                        }
+                        else{
+                            number[item.assignment.newId] = 0;
+                        } */
+                    }}></input><label><div style={{float:'left'}}>{item.assignment.assignmentName}</div></label></div>}
+                  description={<><div style={{float:'left',marginLeft:'500px'}}>{/* {item.assignment.currentNum} */}{numberr}/{ongoingStudy.participants.length}명 완료</div><div>{item.assignment.deadline.substring(0,4)}년 {item.assignment.deadline.substring(5,7)}월 {item.assignment.deadline.substring(8,10)}일 오후 11시 59분 마감</div>
                   
               </>}
               
@@ -177,7 +233,7 @@ function OngoingStudyDetail() {
         itemLayout="horizontal"
         dataSource={assign}
         renderItem={item =>
-          console.log(item) || (
+         (
             <List.Item
             >
              
@@ -185,8 +241,9 @@ function OngoingStudyDetail() {
                   // eslint-disable-next-line jsx-a11y/alt-text
                   className="study-assignment-list"
                   title={ <div style={{float:'left'}}>{item.assignment.assignmentName}</div>}
-                  description={<><div style={{float:'left',marginLeft:'500px'}}>{item.assignment.currentNum}/{ongoingStudy.participants.length}명 완료</div><div>{item.assignment.deadline}</div>
-                  
+                  description={<><div style={{float:'left',marginLeft:'400px'}}>{/* {item.assignment.currentNum} */}{numberr}/{ongoingStudy.participants.length}명 완료</div><div style={{float:'left',marginLeft:'40px'}}>{item.assignment.deadline.substring(0,4)}년 {item.assignment.deadline.substring(5,7)}월 {item.assignment.deadline.substring(8,10)}일 오후 11시 59분 마감</div>
+                  <button onClick={modalClose2} style={{borderRadius:'40.5px',backgroundColor:'#497EF1',border:'none',color:'white',width:'74.73px',height:'40px',marginTop:'-13px'}}>조회</button>
+                  {modalOpen2 && <Modal2 modalClose={modalClose2} userId={userId} studyId={ongoingStudy.studyInfo.StudyId} assignmentId={item.assignment.assignmentId}></Modal2>}
                   </>}
               
               />
@@ -240,7 +297,7 @@ function OngoingStudyDetail() {
                     <div className="scheduleBox">
                     스터디가 종료되어 하단의 스터디 종료 버튼을 누르면<br/> 상단의 스터디원 프로필을 통해 열정 평가가 진행됩니다.<br/>
                     <div className="scheduleAdjustBtn" onClick={modalClose}>스터디 종료하기</div>
-                    {modalOpen && <Modal modalClose={modalClose} userId={userId} memberId={memberId}></Modal>}
+                    {modalOpen && <Modal modalClose={modalClose} userId={userId} memberId={memberId} ongoingStudy={ongoingStudy}></Modal>}
                     </div>
                 </div>
             </div>
