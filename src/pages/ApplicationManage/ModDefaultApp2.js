@@ -20,8 +20,6 @@ function ModDefaultApp2() {
     let resultInterests = [];
     let reslutKeywords = [];
 
-    console.log(appContents);
-
     function interestClickListener(i){
         let newArray = [...selected];
         newArray[i] = !newArray[i];

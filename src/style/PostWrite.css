@@ -1,4 +1,5 @@
 .post-write-box {
+  font-family: 'Noto Sans KR', sans-serif;
   width: 100%;
   height:100%;
     left: 0px;
@@ -31,7 +32,7 @@
     padding-top:212px;
   padding-left:360px;
 
-font-family: Noto Sans;
+  font-family: 'Noto Sans KR', sans-serif;
 font-style: normal;
 font-weight: 500;
 font-size: 30px;
@@ -45,7 +46,7 @@ color: #181824;
   padding-left:360px;
   margin-bottom:60px;
 
-font-family: Noto Sans;
+  font-family: 'Noto Sans KR', sans-serif;
 font-style: normal;
 font-weight: 500;
 font-size: 25px;
@@ -60,7 +61,7 @@ color: #88898E;
     padding-top:80px;
     margin-bottom:60px;
 
-font-family: Noto Sans;
+    font-family: 'Noto Sans KR', sans-serif;
 font-style: normal;
 font-weight: 500;
 font-size: 25px;
@@ -79,6 +80,7 @@ color: #181824;
     width: 40%;
     height: 81px;
     font-size:25px;
+    font-family: 'Noto Sans KR', sans-serif;
     
     background: #FFFFFF;
     border-radius: 25px;
@@ -94,7 +96,7 @@ color: #181824;
     left: 397px;
     top: 1237px;
     
-    font-family: Noto Sans;
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -111,6 +113,7 @@ color: #181824;
     width: 8%;
     height: 81px;
     font-size: 25px;
+    font-family: 'Noto Sans KR', sans-serif;
     
     background: #FFFFFF;
     border-radius: 25px;
@@ -140,6 +143,7 @@ color: #181824;
     width: 50%;
     height: 81px;
 background: #FFFFFF;
+font-family: 'Noto Sans KR', sans-serif;
 border-radius: 25px;
 font-size: 25px;
   }
@@ -149,7 +153,7 @@ font-size: 25px;
     margin-bottom:60px;
     padding-left:360px;
     
-    font-family: Noto Sans;
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -161,13 +165,14 @@ font-size: 25px;
 
   }
   .level-bar{
-    margin-left:1050px;
+    margin-left:1000px;
     margin-top:60px;
     margin-bottom:60px;
     width: 20%;
     height: 81px;
 border-radius: 25px;
 font-size: 25px;
+font-family: 'Noto Sans KR', sans-serif;
 
   }
   .onoff-text{
@@ -176,7 +181,7 @@ font-size: 25px;
     margin-bottom:60px;
     padding-left:360px;
     
-    font-family: Noto Sans;
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -187,7 +192,8 @@ font-size: 25px;
     color: #181824;
   }
   .onoff-bar{
-    margin-left:1000px;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-left:940px;
     margin-top:60px;
     margin-bottom:60px;
     height: 81px;
@@ -202,7 +208,7 @@ font-size: 25px;
     margin-bottom:60px;
     padding-left:360px;
     
-    font-family: Noto Sans;
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -222,6 +228,7 @@ font-size: 25px;
     height: 81px;
 border-radius: 25px;
 font-size: 25px;
+font-family: 'Noto Sans KR', sans-serif;
 
 
   }
@@ -231,7 +238,7 @@ font-size: 25px;
     margin-bottom:60px;
     padding-left:360px;
     
-    font-family: Noto Sans;
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -249,6 +256,7 @@ font-size: 25px;
     height: 81px;
 border-radius: 25px;
 font-size: 25px;
+font-family: 'Noto Sans KR', sans-serif;
 
   }
 
@@ -258,7 +266,7 @@ font-size: 25px;
     margin-bottom:60px;
     padding-left:360px;
     
-    font-family: Noto Sans;
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -270,13 +278,14 @@ font-size: 25px;
 
   }
   .peoplenum-bar{
-    margin-left:1070px;
+    margin-left:1500px;
     margin-top:60px;
     margin-bottom:60px;
     width: 40%;
     height: 81px;
 border-radius: 25px;
 font-size: 25px;
+font-family: 'Noto Sans KR', sans-serif;
 
   }
   .period-text{
@@ -286,7 +295,7 @@ font-size: 25px;
     margin-bottom:60px;
     padding-left:360px;
     
-    font-family: Noto Sans;
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -298,13 +307,14 @@ font-size: 25px;
   }
   .period-bar{
     margin-right:-600px;
-    margin-left:1000px;
+    margin-left:1470px;
     margin-top:60px;
     margin-bottom:60px;
     width: 40%;
     height: 81px;
 border-radius: 25px;
 font-size: 25px;
+font-family: 'Noto Sans KR', sans-serif;
   }
   .deadline-text{
     float:left;
@@ -312,7 +322,7 @@ font-size: 25px;
     margin-bottom:60px;
     padding-left:360px;
     
-    font-family: Noto Sans;
+    font-family: 'Noto Sans KR', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
@@ -331,6 +341,7 @@ font-size: 25px;
     height: 81px;
 background: #FFFFFF;
 border-radius: 25px;
+font-family: 'Noto Sans KR', sans-serif;
   }
   .regist-button{
     width: 166px;
@@ -344,6 +355,7 @@ border-radius: 25px;
     line-height: 81px;
     background-color: #497EF1;
     color:white;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 25px;
   }
   .dele-button{
@@ -356,6 +368,7 @@ border-radius: 25px;
     line-height: 81px;
     color: #497EF1;
     margin-left:30px;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 25px;
   }
 

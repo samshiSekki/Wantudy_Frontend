@@ -15,7 +15,7 @@ function Schedule() {
     const studyInfo = ongoingStudy.studyInfo;
     const participants = ongoingStudy.participants;
 
-    console.log(studyInfo.StudyId);
+ 
 
     const [schedule, setSchedule] = useState(
         [
@@ -31,7 +31,7 @@ function Schedule() {
 
     useEffect(async()=>{
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist/${studyInfo.StudyId}/schedule`);
-        console.log(response);
+       
 
         if(response.data[0] != null){
             for(let i=0; i<7; i++){
@@ -46,10 +46,8 @@ function Schedule() {
         }
     },[]);
 
-    console.log(schedule);
+  
 
-    //console.log(userInfo);
-    //console.log(studyInfo);
 
     function changeColor(n, i){
         let newArr = [...schedule];
@@ -80,10 +78,10 @@ function Schedule() {
             }
         }
 
-        console.log(time);
+        
 
         let response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist/${studyInfo.StudyId}/schedule`);
-        console.log(response);
+        
 
         if(response.data[0] == null){
             let response = await axios.post(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist/${studyInfo.StudyId}/schedule`,{
@@ -96,7 +94,6 @@ function Schedule() {
             });
         }
 
-        console.log(response);
         alert("시간표가 저장되었습니다");
     }
 
@@ -107,7 +104,7 @@ function Schedule() {
         });
     }
 
-    //console.log(participants);
+ 
 
     return (
         <div>

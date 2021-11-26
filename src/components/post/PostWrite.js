@@ -19,7 +19,6 @@ const {RangePicker} = DatePicker;
 
 
 function PostWrite(props) {
-  console.log(props.location)
   const { Option } = Select;
   const dateFormat = "YYYY-MM-DD";
   const today = moment();
@@ -89,10 +88,6 @@ function PostWrite(props) {
     setIsModalVisible(false);
   };
 
- /*  function onChange(date, dateString) {
-    setvalue({ ...value, deadline: dateString });
-    console.log(dateString);
-  } */
   const children = [];
 for (let i = 0; i < 10; i++) {
   if (i == 0) {
@@ -215,7 +210,7 @@ const plainOptions2 = [
           className="title-bar"
           type="text"
           value={value.studyName}
-          onChange={(e) => {console.log(value)
+          onChange={(e) => {
             setvalue({ ...value, studyName: e.target.value });
           }}
         />
@@ -257,14 +252,7 @@ const plainOptions2 = [
         /></div>
         <hr />
         <div className="level-text"><img src={vectorimg} />          난이도</div>
-        {/* <button className={level=="입문"? "femaleSelectedButton" : "femaleButton"} value={value.level} onClick={(e)=>{setLevel("입문");
-        console.log(value); setvalue({ ...value, level: e.target.innerText })}} >입문</button>
-                    <button className={level=="기본"? "maleSelectedButton" : "maleButton"} value={value.level} onChange={(e) => {
-            setvalue({ ...value, level: e.target.innerText });
-          }} onClick={()=>(setLevel("기본"))}>기본</button>
-                    <button className={level=="심화"? "maleSelectedButton" : "maleButton"} value={value.level} onChange={(e) => {
-            setvalue({ ...value, level: e.target.innerText });
-          }}onClick={()=>(setLevel("심화"))}>심화</button> */}
+
 
 <Radio.Group
       className="level-bar"
@@ -325,18 +313,7 @@ const plainOptions2 = [
       <div className='time-text'><img src={vectorimg} />          희망 시간대</div> <Select mode="tags" className='time-bar' placeholder="원하는 시간대를 입력한 다음 엔터를 눌러주세요! (ex. 월 12-15)" onChange={(e) => {
           setvalue({ ...value, studyTime: e });}}>
   </Select>
-{/* 
-      <Form.Item
-        name="radio-button"
-        label="희망 시간대"
-        value={value.studyTime}
-        onChange={(e) => {
-          setvalue({ ...value, studyTime: e.target.value });}}
-      >        <Radio.Group>
-          <Radio.Button value="화 13-15">화 13-15</Radio.Button>
-          <Radio.Button value="금 15-17">금 15-17</Radio.Button>
-        </Radio.Group>
-      </Form.Item> */}
+
       <hr />
       <div className='required-text'><img src={vectorimg} />          신청서 필수 기재 사항</div>
       {/* <Checkbox.Group options={plainOptions} value = {value.requiredInfo} onChange={(e) => {
@@ -353,18 +330,7 @@ const plainOptions2 = [
       {children2}
     </Select>
 
-      {/* <Form.Item
-        name="radio-button"
-        label="신청서 필수 기재 사항"
-        value={value.requiredInfo}
-        onChange={(e) => {
-          setvalue({ ...value, requiredInfo: e.target.value });}}
-      >        <Radio.Group>
-          <Radio.Button value="성명">성명</Radio.Button>
-          <Radio.Button value="성별">성별</Radio.Button>
-          <Radio.Button value="나이">나이</Radio.Button>
-        </Radio.Group>
-      </Form.Item> */}
+
       <hr />
       <div className='peoplenum-text'>모집 인원</div>
       
@@ -372,7 +338,7 @@ const plainOptions2 = [
          value={value.peopleNum}
          onChange={(e) => {
            setvalue({ ...value, peopleNum: parseInt(e.target.value) });}}>
-          <InputNumber min={1} max={14} />
+          <InputNumber min={1} max={14} />명
         </Form.Item>        
         
       

@@ -9,7 +9,6 @@ function LandingPage() {
         const response = await axios.get(`http://13.209.66.117:8080/study/application`,{
             userId: userInfo.userId
         });
-        console.log(response);
     }
     
     

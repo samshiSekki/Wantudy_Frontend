@@ -12,8 +12,6 @@ function ModDefaultApp(props) {
     const userInfo = location.state.userInfo;
     const apps = location.state.apps;
 
-    console.log(userInfo);
-    console.log(apps.applicationId);
 
     const [appName, setAppName] = useState(apps.applicationName); //신청서명
     const [name, setName] = useState(apps.name); //성명

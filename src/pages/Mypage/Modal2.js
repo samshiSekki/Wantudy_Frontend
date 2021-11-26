@@ -19,7 +19,6 @@ const Modal2 = ({modalClose,history,userId,studyId,assignmentId}) => {
       .then(res =>{setWhoDidAs(res.data.assignedMember)})
       .catch(err => console.log(err));
     },[])
-    console.log(whoDidAs)
 
     const changeHandler = (checked, id) => {
       if (checked) {
@@ -53,8 +52,6 @@ const Modal2 = ({modalClose,history,userId,studyId,assignmentId}) => {
 
 
     const onCloseModal = (e) => {
-        console.log('e.target: ', e.target)
-        console.log('e.tarcurrentTargetget: ', e.currentTarget)
         if(e.target === e.currentTarget){
             modalClose()
         }

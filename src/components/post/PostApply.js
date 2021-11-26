@@ -22,12 +22,10 @@ function ModAppLists(props) {
 
     useEffect(async()=>{
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/application`);
-        console.log(response);
         setApps(response.data);
     },[]);
     
     if(apps[0] != 0){
-    console.log(apps);
     }
 
     function writeNewAppBtnClick(){
@@ -45,7 +43,7 @@ function ModAppLists(props) {
                     <div className="rdbContent1">
 
                     <div className="rdbDisc">
-                        <span stlyle={{color:'#497EF1'}}>[{props.location.state.posts.userId}]</span>님이 개설한 스터디에<br/>
+                        <span stlyle={{color:'#497EF1'}}>[{props.location.state.posts.nickname}]</span>님이 개설한 스터디에<br/>
                         신청할 신청서를 선택해 신청하세요.
                     </div>
 
@@ -129,15 +127,12 @@ function AppList(props){
         window.location.reload();
     }
     const handleRegister=()=>{
-        console.log(props.userInfo.userId,
-            props.apps.applicationId)
         
       let body = {
         "userId": props.userInfo.userId,
   "applicationId": props.apps.applicationId,
   "message":value.message
       }
-      console.log(body)
         registerPost(props.studyId, body)
         .then(() => {
             setIsListVisible(false);
@@ -181,13 +176,13 @@ function AppList(props){
         {isButtonVisible?( <><div style={{marginLeft:'80pt',marginTop:'30pt', marginBottom:'30pt'}}> [{props.i==0
                     ? `대표 신청서 : ${props.apps.applicationId}` 
                     : `신청서 ${props.i} : ${props.apps.applicationId}`
-                }]를 [{props.posts.userId}]님이 개설한<br/>
+                }]를 [{props.posts.nickname}]님이 개설한<br/>
         [{props.posts.studyName}] 스터디에<br/>
         신청하시겠습니까?</div><button className="malBtn" style={{marginRight:'130pt',marginTop:'-20pt',border:'none'}}onClick={onRegister}>신청</button><button className="malBtn" style={{marginTop:'-20pt',border:'none'}}stonClick={handleCancel}>취소</button></>):
         <div>{isListVisible ? (<><div style={{marginLeft:'80pt',marginTop:'50pt', marginBottom:'30pt'}}>스터디에 임할 포부 등 스터디장에게<br/>
             전달할 메시지를 작성해보세요.</div> <Input style={{marginBottom:'30pt',borderRadius:'30pt',height:'80pt'}}type="text"
           placeholder="ex. 성실한 태도로 스터디에 임하겠습니다." value={value.message}
-          onChange={(e) => {console.log(value.message)
+          onChange={(e) => {
             setValue({ ...value, message: e.target.value });
           }}></Input><button className="malBtn" style={{marginRight:'160pt',marginTop:'-15pt',border:'none',backgroundColor:'#497EF1',color:'white'}} onClick={handleRegister}>신청</button></>):
           <div>

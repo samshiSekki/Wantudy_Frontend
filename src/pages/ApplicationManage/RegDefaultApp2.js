@@ -19,7 +19,6 @@ function RegDefaultApp2(props) {
     let resultInterests = [];
     let reslutKeywords = [];
 
-    console.log(appContents);
 
     function interestClickListener(i){
         let newArray = [...selected];

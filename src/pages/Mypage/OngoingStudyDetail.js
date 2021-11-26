@@ -14,7 +14,7 @@ function OngoingStudyDetail() {
     const location = useLocation();
     const userInfo = location.state.userInfo;
     const ongoingStudy = location.state.ongoingStudy;
-    console.log(ongoingStudy)
+
     const isManager = location.state.isManager;
     const history = useHistory();
     const [assign, setAssign] = useState(ongoingStudy.todoAssignment);
@@ -34,10 +34,8 @@ function OngoingStudyDetail() {
     for (var f = 0; f < assign.length; f++) {
         assign[f].assignment.newId = f;
         
-       /*  console.log(posts[f]) */
+
       } 
-     
-      console.log(assign)
     useEffect(() => {
         setCheckBox(JSON.parse(window.localStorage.getItem('checkBox')));
       }, []);
@@ -48,9 +46,9 @@ function OngoingStudyDetail() {
 
     useEffect(async()=>{
         let response = await axios.get(`http://13.209.66.117:8080/studyList/${ongoingStudy.studyInfo.StudyId}`);
-        console.log(response);
+     
         setCommon(response.data.data.commonSchedule);
-        //console.log(common);
+      
 
     },[]);
 
@@ -86,7 +84,7 @@ function OngoingStudyDetail() {
             
           })
           .catch((error) => {
-              console.log(error)
+              
           });
           history.goBack();
 
@@ -101,9 +99,9 @@ function OngoingStudyDetail() {
           
         })
         .catch((error) => {
-            console.log(error)
+           
         });
-        console.log(checkBox)
+       
         setNumberr(numberr+1);
 
 
@@ -116,7 +114,7 @@ function OngoingStudyDetail() {
     }
 
     const checkCheck = (item) =>{
-        console.log(item)
+       
        
 
     }
@@ -260,7 +258,7 @@ function OngoingStudyDetail() {
           placeholder="과제 명을 입력하세요"
           type="text"
           value={value.assignmentName}
-          onChange={(e) => {console.log(value)
+          onChange={(e) => {
             setvalue({ ...value, assignmentName: e.target.value });
           }}
         />
@@ -269,7 +267,7 @@ function OngoingStudyDetail() {
           placeholder="마감 일자를 입력하세요"
           type="text"
           value={value.deadline}
-          onChange={(e) => {console.log(value)
+          onChange={(e) => {
             setvalue({ ...value, deadline: e.target.value });
           }}
         />
@@ -278,7 +276,7 @@ function OngoingStudyDetail() {
           placeholder="과제 관련 상세 설명을 입력하세요 (선택)"
           type="text"
           value={value.assignment}
-          onChange={(e) => {console.log(value)
+          onChange={(e) => {
             setvalue({ ...value, assignment: e.target.value });
           }}
         />

@@ -14,12 +14,11 @@ function ModAppLists(props) {
 
     useEffect(async()=>{
         const response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/application`);
-        console.log(response);
+        
         setApps(response.data);
     },[]);
     
     if(apps[0] != 0){
-    console.log(apps);
     }
 
     function writeNewAppBtnClick(){

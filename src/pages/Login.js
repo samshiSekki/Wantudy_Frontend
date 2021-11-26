@@ -83,9 +83,6 @@ function Login(props) {
         userInfo.state = response.data.state;
         userInfo.temperature = response.data.temperature;
 
-        console.log("login console");
-        console.log(response);
-        console.log(userInfo);
 
         if(response.data.nickname===''){ // 닉네임이 없는 경우
             props.history.push({ // 닉네임 등록 화면으로
