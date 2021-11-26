@@ -74,16 +74,56 @@
 }
 
 .mypagePreview{
-    width: 446px;
+    padding-top: 24px;
+    text-align: left;
+    padding-left: 26px;
+    width: 512px;
     height: 135px;
     background: #F8F9FC;
     margin-top: 45px;
     text-align: center;
-    line-height: 135px;
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
     color: #22272E;
+    margin-right: 30px;
+}
+
+.mypagePreview5{
+    padding-top: 24px;
+    text-align: left;
+    padding-left: 26px;
+    width: 512px;
+    height: 135px;
+    background: #F8F9FC;
+    margin-top: 45px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #22272E;
+}
+
+.previewOngoingStudyName{
+    text-align: left;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.previewAssignmentName{
+    text-align: left;
+    margin-top: 10px;
+}
+
+.previewAssignmentDeadline{
+    text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 14px;
+    color: #88898E;
 }
 
 .mypagePreview2{
@@ -145,7 +185,7 @@
 }
 
 .mypagePreviewDeadline{
-    float: left;
+    text-align: left;
     font-weight: 500;
     font-size: 12px;
 }
@@ -177,7 +217,6 @@
 
 .subjectBlock{
     float: left;
-    margin-left: 150px;
     margin-bottom: 45px;
 }
 
@@ -190,6 +229,17 @@
     float: right;
     margin-right: 73px;
 }
+
+.mypageMoreBtn2{
+    position: absolute;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #497EF1;
+    margin-left: 996px;
+}
+
 
 .likedStudyContainer{
     text-align: left;
