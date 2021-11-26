@@ -11,7 +11,11 @@ function Mypage(props) {
     const userInfo = location.state.userInfo;
     const [liked, setLiked] = useState([{studyName: null}, {studyName: null}]);
     const [applied, setApplied] = useState([{studyName: null, state: null},]);
-    const [opened, setOpened] = useState([{study:{studyName: null}, applications:[{application: {name: null}, registered: null},]},]);
+    
+    const [openedStudy, setOpenedStudy] = useState('');
+    const [openedAppDate, setOpenedAppDate] = useState('');
+    const [openedProfileImage, setOpenedProfileImage] = useState('');
+    const [openedUserName, setOpenedUserName] = useState('');
 
     
     const [ongoing, setOngoing] = useState('');
@@ -56,16 +60,18 @@ function Mypage(props) {
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/opened-studylist`);
         //console.log(response);
-        response.data.msg == "개설한 스터디가 없습니다"
-        ? function(){
-            opened[0].study.studyName = "개설한 스터디가 없습니다";
-            opened[0].applications[0].application.name = "";
-            opened[0].applications[0].registered = "";
-        }()
-        : setOpened(response.data)
+        if(response.data.msg != "개설한 스터디가 없습니다"){
+            setOpenedStudy(response.data[0].study.studyName);
+
+            if(response.data[0].applications[0] != null){
+                setOpenedUserName(response.data[0].applications[0].nickname);
+                setOpenedAppDate(response.data[0].applications[0].registered);
+                setOpenedProfileImage(response.data[0].applications[0].profileImage);
+            }
+        }
 
         response = await axios.get(`http://13.209.66.117:8080/users/${userInfo.userId}/ongoing-studylist`);
-        console.log(response);
+        //console.log(response);
 
         //console.log(response.data.studyManager.length);
         
@@ -77,15 +83,15 @@ function Mypage(props) {
                     newArr.push(response.data.studyManager[i]);
                 }
             }
-            console.log(newArr);
+            //console.log(newArr);
 
             if(response.data.studyMember[0] != null){
                 for(let i=0; i<response.data.studyMember.length; i++){
                     newArr.push(response.data.studyMember[i]);
                 }
             }
-            console.log(newArr);
-            console.log(newArr[0].studyInfo.studyName);
+            //console.log(newArr);
+            //console.log(newArr[0].studyInfo.studyName);
             
             setOngoing(newArr[0].studyInfo.studyName);
             setOngoingSchedule(newArr[0].studyInfo.commonSchedule);
@@ -96,8 +102,6 @@ function Mypage(props) {
             }
 
             let i=0;
-
-            console.log(newArr[2].todoAssignment.length);
 
             for(i=0; i<newArr.length; i++){
                 if(newArr[i].todoAssignment.length == 1){
@@ -310,19 +314,22 @@ function Mypage(props) {
                         <div className="myTempTitle">🔎 개설한 스터디</div>
                         <div className="mypageMoreBtn" onClick={moreOpened}>+더보기</div>
                         <div className="mypagePreview2">
-                            {opened[0].study.studyName}
+                            {openedStudy}
                         </div>
                         {
-                        opened[0].study.studyName == null || opened[0].study.studyName == '개설한 스터디가 없습니다'
-                        ? null
+                        openedStudy == ''
+                        ? `개설한 스터디가 없습니다`
                         :
-                        <div>
-                            <img src={opened[0].applications[0].profileImage} className="previewReceivedUserProfileImg"/>
+                        openedUserName == ''
+                        ? null
+                        :<div>
+                            <img src={openedProfileImage} className="previewReceivedUserProfileImg"/>
+                            
                             <div className="appliedUserName">
-                                {opened[0].applications[0].nickname + " "}
+                                {openedUserName + " "}
                             </div>
                             <div className="appliedUserDate">
-                                {opened[0].applications[0].registered} 신청
+                                {openedAppDate} 신청
                             </div>
                         </div>
                         }
