@@ -269,12 +269,11 @@ for (var t = 0; t < posts.length; t++) {
                     }
                   }
                   }/>}
-                  title={ <Link to={{pathname:`post/${item.StudyId}`,state:{userInfo:location.state.userInfo}}}> {item.studyName.length > 25
-                    ? item.studyName.slice(0, 25)
-                    : item.studyName}</Link>
+                  title={ <Link to={{pathname:`post/${item.StudyId}`,state:{userInfo:location.state.userInfo}}}> {item.studyName}</Link>
                     /* <Button onClick={()=>{history.push({pathname: `post/view/${item.StudyId}`,state: {StudyId:item.StudyId}})}}>{item.studyName}</Button> */}
                   description={<><div>{tagBox1(item.onoff)}</div>
                   <div style={{float:'left'}}>{tagBox2(item.category)}</div>
+                  <div style={{float:'left'}}>{tagBox3(item.level)}</div>
                   
               </>}
               
@@ -319,6 +318,7 @@ for (var t = 0; t < posts.length; t++) {
     return arr;
   }
     function tagBox2(tag) {
+  
       let arr = []
       for (let i = 0; i < tag.length; i++) {
         arr.push(<Tag color = {color_category} style={{color:'black'}}>{tag[i]}</Tag>)
@@ -327,6 +327,16 @@ for (var t = 0; t < posts.length; t++) {
       return arr;
 
   }
+  function tagBox3(tag) {
+    console.log(tag)
+    let arr = []
+    for (let i = 0; i < 1; i++) {
+      arr.push(<Tag color = {color_level} style={{color:'black'}}>{tag}</Tag>)
+
+    }
+    return arr;
+
+}
   function calculateDate(date){
     let year = date.slice(0, 4);
     let month = date.slice(5,7);
