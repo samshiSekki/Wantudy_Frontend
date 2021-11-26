@@ -45,6 +45,7 @@ border-radius: 18px;
 height: 47px;
   }
   .makepost {
+    font-family: 'Noto Sans KR', sans-serif;
     float:left;
     color: #88898E;
 
@@ -56,6 +57,7 @@ background: #EEEFF2;
 border-radius: 33.5px;
   }
   .button-all{ 
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left:360px; 
     margin-top:177px;
 width: 93.14px;
@@ -69,6 +71,7 @@ border:none;
 
   }
   .button-1{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left:26.7px; 
     margin-top:177px;
 width: 170px;
@@ -83,6 +86,7 @@ border:none;
     
   }
   .button-2{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left:25.84px; 
     margin-top:177px;
 width: 101.28px;
@@ -98,6 +102,7 @@ border:none;
   }
  
   .button-3{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left:26.36px; 
     margin-top:177px;
 width: 93.14px;
@@ -110,6 +115,7 @@ border:none;
     
   }
   .button-4{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left:26.7px; 
     margin-top:177px;
 width: 130.62px;
@@ -122,6 +128,7 @@ border:none;
     
   }
   .button-5{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left:26.25px; 
     margin-top:177px;
 width: 101.28px;
@@ -134,6 +141,7 @@ border:none;
     
   }
   .button-6{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left:26.36px; 
     margin-top:177px;
     width:113.03px;
@@ -147,6 +155,7 @@ border:none;
     
   }
   .button-7{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left:26.7px; 
     margin-top:177px;
     width: 113.03px;
@@ -159,6 +168,7 @@ border:none;
     
   }
   .button-8{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left:26.3px; 
     margin-top:177px;
     width: 93.14px;
@@ -171,6 +181,7 @@ border:none;
     
   }
   .post-title{
+    font-family: 'Noto Sans KR', sans-serif;
     float: left;
     margin-left:360px;
     padding-bottom:80px;

@@ -47,6 +47,7 @@ function PostWrite(props) {
   };
 
   const onSubmit = (e) => {
+    
     e.preventDefault();
 
     let body = {
@@ -62,6 +63,7 @@ function PostWrite(props) {
         period:value.period,
         level:value.level,
     };
+    console.log(body)
     postSave(body)
       .then(() => {
         props.history.goBack();

@@ -1,4 +1,5 @@
 .study-assignment-list{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-left: 73px;
     margin-right:73px;
     padding-top:33px;
@@ -13,6 +14,7 @@
     margin-bottom:21px; */
 }
 .study-assignmentName-bar{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-top:31px;
     margin-left:42px;
     float:left;
@@ -23,6 +25,7 @@ border-radius: 19px;
 border:none;
 }
 .study-assignment-bar{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-top:31px;
     width: 346px;
     height: 49px;
@@ -31,6 +34,7 @@ border-radius: 19px;
 border:none;
 }
 .study-deadline-bar{
+    font-family: 'Noto Sans KR', sans-serif;
     margin-right: 15px;
     margin-top:22px;
     width: 862px;
@@ -40,6 +44,7 @@ border-radius: 19px;
 border:none;
 }
 .assignment-regist-button{
+    font-family: 'Noto Sans KR', sans-serif;
     width: 74.73px;
 height: 40px;
 
