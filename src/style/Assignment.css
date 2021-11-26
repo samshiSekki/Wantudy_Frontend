@@ -16,7 +16,7 @@
     margin-top:31px;
     margin-left:42px;
     float:left;
-    width: 570px;
+    width: 530px;
     height: 49px;
 background: #FFFFFF;
 border-radius: 19px;
@@ -24,15 +24,14 @@ border:none;
 }
 .study-assignment-bar{
     margin-top:31px;
-    width: 366px;
+    width: 346px;
     height: 49px;
 background: #FFFFFF;
 border-radius: 19px;
 border:none;
 }
 .study-deadline-bar{
-    float: left;
-    margin-left:42px;
+    margin-right: 15px;
     margin-top:22px;
     width: 862px;
     height: 49px;
@@ -47,5 +46,6 @@ height: 40px;
 background: #EEEFF2;
 border-radius: 40.5px;
 border:none;
-margin-top:50px;
+margin-top:37px;
+margin-left:12px;
 }
