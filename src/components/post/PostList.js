@@ -269,7 +269,7 @@ for (var t = 0; t < posts.length; t++) {
                     }
                   }
                   }/>}
-                  title={ <Link to={{pathname:`post/${item.StudyId}`,state:{userInfo:location.state.userInfo}}}> {item.studyName}</Link>
+                  title={ <p style={{fontSize:'20px'}}><Link to={{pathname:`post/${item.StudyId}`,state:{userInfo:location.state.userInfo}}}> {item.studyName}</Link></p>
                     /* <Button onClick={()=>{history.push({pathname: `post/view/${item.StudyId}`,state: {StudyId:item.StudyId}})}}>{item.studyName}</Button> */}
                   description={<><div>{tagBox1(item.onoff)}</div>
                   <div style={{float:'left'}}>{tagBox2(item.category)}</div>

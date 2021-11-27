@@ -295,7 +295,7 @@ function OngoingStudyDetail() {
                     <div className="scheduleBox">
                     스터디가 종료되어 하단의 스터디 종료 버튼을 누르면<br/> 상단의 스터디원 프로필을 통해 열정 평가가 진행됩니다.<br/>
                     <div className="scheduleAdjustBtn" onClick={modalClose}>스터디 종료하기</div>
-                    {modalOpen && <Modal modalClose={modalClose} userId={userId} memberId={memberId} ongoingStudy={ongoingStudy}></Modal>}
+                    {modalOpen && <Modal modalClose={modalClose} history={history} userId={userId} memberId={memberId} ongoingStudy={ongoingStudy}></Modal>}
                     </div>
                 </div>
             </div>
